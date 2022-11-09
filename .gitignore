@@ -104,3 +104,6 @@ dist
 
 # package-lock.json
 package-lock.json
+
+# Expo Go Folder
+.expo
