@@ -17,7 +17,7 @@ const image = {
 const logo = {
   uri: "https://cdn.icon-icons.com/icons2/2225/PNG/512/home_icon_134474.png",
 };
- 
+
 const Landing = () => {
   const navigation = useNavigation();
 

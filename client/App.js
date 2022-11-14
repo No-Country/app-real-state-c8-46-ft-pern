@@ -1,20 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { ThemeProvider } from "styled-components";
+import Landing from "./screens/Landing";
+import HomeActionMenu from "./screens/HomeActionMenu";
+import theme from "./theme";
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
 
 export default function App() {
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your apprueba!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider theme={theme}>
+      <NavigationContainer initialRouteName="Landing">
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Landing"
+            component={Landing}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen name="HomeActionMenu" component={HomeActionMenu}  options={{
+              headerShown: false,
+            }}/>
+          {/* <Stack.Screen name="Login" component={Login} options={{headerShown: false}} /> */}
+          {/* <Stack.Screen
+            name="Log out"
+            onPress={() => {
+              navigation.navigate("Login");
+            }}
+          /> */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
