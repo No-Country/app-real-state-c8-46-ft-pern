@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, StyleSheet } from "react-native";
 import PopularCard from "./PopularCard";
 
 const popArr = [
@@ -30,7 +30,7 @@ const popArr = [
 
 const Popular = () => {
   return (
-    <View>
+    <View style={styles.container}>
       <View>
         <Text>Popular</Text>
         <Text>See all</Text>
@@ -53,4 +53,10 @@ const Popular = () => {
   );
 };
 
+const styles = StyleSheet.create({
+  container:{
+    backgroundColor: "white"
+  }
+
+})
 export default Popular;
