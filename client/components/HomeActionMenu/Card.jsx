@@ -27,12 +27,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 15,
     backgroundColor: "white",
-    width: 120,
+    width: 110,
     height: 180,
     borderColor: "#F4F6F9",
     borderWidth: 3,
     marginLeft:4,
-    marginRight:4
+    marginRight:4,
+    marginTop: -20
   },
   image: {
     flex: 1,
