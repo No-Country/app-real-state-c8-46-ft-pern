@@ -1,11 +1,11 @@
 const theme = {
     colors: {
-        activeb: "#2972FE",
-        b: "#E5EDFE",
+        blue: "#2972FE",
+        lightblue: "#E5EDFE",
         textgray: "#C6C8CD",
         black: "#000000",
         white: "#FFFFFF",
-        gray: "#F4F6F9"
+        lightgray: "#F4F6F9"
     },
     fontSizes: {
         large: '32px',
