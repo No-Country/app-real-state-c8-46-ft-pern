@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Text, ScrollView } from "react-native";
+import { Text, View } from "react-native";
 import Card from "./Card";
 import Search from "./Search";
 import axios from "axios";
 import { Picker } from "@react-native-picker/picker";
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { Entypo, Octicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-
+import { StyleSheet } from "react-native-web";
 
 const SearchBar = () => {
   const navigation = useNavigation();
@@ -14,57 +14,83 @@ const SearchBar = () => {
     uri: "https://cdn.icon-icons.com/icons2/2225/PNG/512/home_icon_134474.png",
   };
   const [selectedCity, setSelectedCity] = useState();
-  // const [cities, setCities] = useState([]);
-  //   let apiKey = '4ae2636d8dfbdc3044bede63951a019b'
-  //   useEffect(() => {
-  //     async function success(pos) {
-  //       var crd = pos.coords;
-  //       const data = await axios.get(
-  //         `https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&appid=${apiKey}`
-  //       );
-  //       const res = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${data.data.name}&appid=${apiKey}&units=metric`)
-  //       const recurse = res.data;
-  //       const ciudad = {
-  //         name: recurse.name,
-  //         country: recurse.sys.country,
-  //         id: recurse.id,
-  //       };
-  //       setCities(oldCities => [ciudad]);
-  //     }
-  //     navigator.geolocation.getCurrentPosition(success)
-  //   }, []);
 
-  useEffect(()=> {
+  useEffect(() => {
     navigation.setOptions({
       headerLargeTitle: true,
       headerTitle: "Location",
-      headerSearchBarOptions:{
-        placeholder: "Search"
-      }
-    })
-  })
+      headerSearchBarOptions: {
+        placeholder: "Search",
+      },
+    });
+  });
   return (
-    <ScrollView>
-      <Picker
-        style={{width:'200px'}}
-        selectedValue={selectedCity}
-        onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
-      >
-        <Picker.Item label="Doha" value="Doha, Qatar" />
-        <Picker.Item label="Quito" value="Quito, Ecuador" />
-        <Picker.Item label="Lima" value="Lima, Peru" />
-      </Picker>
-      <Text>{selectedCity}</Text>
-      <Ionicons name="md-checkmark-circle" size={32} color="green" />
+    <View style={{ backgroundColor: "white" }}>
+      <View>
+        <Picker
+          style={styles.picker}
+          selectedValue={selectedCity}
+          onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
+        >
+          <Picker.Item label="Location" value="" />
+          <Picker.Item label="Doha" value="Doha, Qatar" />
+          <Picker.Item label="Quito" value="Quito, Ecuador" />
+          <Picker.Item label="Lima" value="Lima, Peru" />
+        </Picker>
+        <Text>
+          <Entypo
+            name="location-pin"
+            size={30}
+            color="#2972FE"
+            style={{ padding: 1, marginLeft: 8, flex: 0.3 }}
+          />
+
+          {selectedCity ? selectedCity : "Select city"}
+        </Text>
+        <Octicons
+          name="bell-fill"
+          size={30}
+          color="#2972FE"
+          style={styles.icons}
+        />
+      </View>
       <Search />
+      <Octicons name="filter" size={30} color="#2972FE" style={styles.icons} />
 
       <Card imagen={house} link={""} />
       <Card imagen={house} link={""} />
       <Card imagen={house} link={""} />
-
-
-    </ScrollView>
+    </View>
   );
 };
 
 export default SearchBar;
+
+const styles = StyleSheet.create({
+  container: {
+    paddingLeft: 5,
+    paddingRight: 5,
+    flex: 1,
+    justifyContent: "space-between",
+  },
+  picker: {
+    margin: 15,
+    justifyContent: "flex-start",
+    alignItems: "center",
+    flexDirection: "row",
+    width: "50%",
+    borderRadius: 15,
+    backgroundColor: "white",
+  },
+  icons: {
+    width: 40,
+    height: 50,
+    backgroundColor: "#E5EDFE",
+    padding: 3,
+    flex: 1.9,
+    flexDirection: "row",
+    justifyContent: "flex-center",
+    alignItems: "center",
+    borderRadius: 15,
+  },
+});
