@@ -1,8 +1,9 @@
-import { View } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import PopularCard from "./PopularCard";
 
 const popArr = [
   {
+    id: 1,
     img: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
     type: "Apartment",
     price: "$1,800",
@@ -10,6 +11,7 @@ const popArr = [
     location: "Surabaya, Indonesia",
   },
   {
+    id: 2,
     img: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796",
     type: "Apartment",
     price: "$1,400",
@@ -17,6 +19,7 @@ const popArr = [
     location: "Surabaya, Indonesia",
   },
   {
+    id: 3,
     img: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba",
     type: "House",
     price: "$2,200",
@@ -32,17 +35,20 @@ const Popular = () => {
         <Text>Popular</Text>
         <Text>See all</Text>
       </View>
-      <View>
-        {popArr.map((p) => (
+      <FlatList
+        data={popArr}
+        renderItem={({ item }) => (
           <PopularCard
-            img={p.img}
-            type={p.type}
-            price={p.price}
-            name={p.name}
-            location={p.location}
+            name={item.name}
+            img={item.img}
+            type={item.type}
+            price={item.price}
+            location={item.location}
           />
-        ))}
-      </View>
+        )}
+        keyExtractor={(item) => item.id}
+        horizontal={true}
+      />
     </View>
   );
 };

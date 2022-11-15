@@ -19,16 +19,13 @@ export default function App() {
               headerShown: false,
             }}
           />
-          <Stack.Screen name="HomeActionMenu" component={HomeActionMenu}  options={{
+          <Stack.Screen
+            name="HomeActionMenu"
+            component={HomeActionMenu}
+            options={{
               headerShown: false,
-            }}/>
-          {/* <Stack.Screen name="Login" component={Login} options={{headerShown: false}} /> */}
-          {/* <Stack.Screen
-            name="Log out"
-            onPress={() => {
-              navigation.navigate("Login");
             }}
-          /> */}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
