@@ -16,8 +16,10 @@ const SearchBar = () => {
   const [selectedCity, setSelectedCity] = useState();
 
   return (
-    <View style={{ backgroundColor: "white" }}>
+    <View style={{ backgroundColor: "white", marginTop: "30", paddingTop: 20 }}>
+
       <View style={styles.container}>
+
         <View style={{ flexDirection: "column" }}>
           <Picker
             style={styles.picker}
@@ -40,6 +42,7 @@ const SearchBar = () => {
             {selectedCity ? selectedCity : "Select city"}
           </Text>
         </View>
+
         <Octicons
           name="bell-fill"
           size={30}
@@ -47,6 +50,7 @@ const SearchBar = () => {
           style={styles.icons}
         />
       </View>
+
       <View style={styles.container}>
 
       <Search />
@@ -83,10 +87,9 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     backgroundColor: "#E5EDFE",
-    padding: 3,
-    flexDirection: "row",
-    justifyContent: "flex-center",
-    alignItems: "center",
     borderRadius: 15,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
