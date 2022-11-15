@@ -8,6 +8,7 @@ import { Entypo, Octicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet } from "react-native-web";
 
+
 const SearchBar = () => {
   const navigation = useNavigation();
   const house = {
@@ -20,7 +21,7 @@ const SearchBar = () => {
 
       <View style={styles.container}>
 
-        <View style={{ flexDirection: "column" }}>
+        <View style={styles.div1}>
           <Picker
             style={styles.picker}
             selectedValue={selectedCity}
@@ -31,7 +32,7 @@ const SearchBar = () => {
             <Picker.Item label="Quito" value="Quito, Ecuador" />
             <Picker.Item label="Lima" value="Lima, Peru" />
           </Picker>
-          <Text>
+          <Text style={styles.city}>
             <Entypo
               name="location-pin"
               size={30}
@@ -42,23 +43,25 @@ const SearchBar = () => {
             {selectedCity ? selectedCity : "Select city"}
           </Text>
         </View>
+      <View style={styles.div2}>
 
         <Octicons
           name="bell-fill"
           size={30}
           color="#2972FE"
           style={styles.icons}
-        />
+          />
+          </View>
       </View>
 
       <View style={styles.container}>
-
+      <View style={styles.div1}>
       <Search />
-      <Octicons name="filter" size={30} color="#2972FE" style={styles.icons} />
+      </View>
+      <View style={styles.div2}>
 
-      <Card imagen={house} link={""} />
-      <Card imagen={house} link={""} />
-      <Card imagen={house} link={""} />
+      <Octicons name="filter" size={30} color="#2972FE" style={styles.icons} />
+      </View>
       </View>
     </View>
   );
@@ -67,19 +70,24 @@ const SearchBar = () => {
 export default SearchBar;
 
 const styles = StyleSheet.create({
+
   container: {
-    paddingLeft: 5,
-    paddingRight: 5,
-    flex: 1,
-    flexDirection:"row",
-    justifyContent: "space-between",
+    display:"grid",
+    gridTemplateColumns: "repeat(12,1fr)",
+    gridTemplateRows: "repeat(3,1fr)"
+  },
+  div1:{
+    display:"grid", 
+    gridArea:"1/2/3/10"
+  },
+  div2:{
+    display:"grid", 
+    gridArea:"1/11/3/12"
   },
   picker: {
-    margin: 15,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    flexDirection: "row",
-    width: "120",
+    margin: 8,
+
+    width: "40%",
     borderRadius: 15,
     backgroundColor: "white",
   },
@@ -92,4 +100,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  city:{
+    fontSize: 16,
+    fontWeight: 700
+  }
 });

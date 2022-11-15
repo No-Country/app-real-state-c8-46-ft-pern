@@ -50,8 +50,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
-    width: "84%",
-
+    marginBottom: 15
   },
   Search__unclicked: {
     padding: 10,
@@ -72,7 +71,6 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 20,
-    marginLeft: 10,
-    width: "90%",
+    width: "85%",
   },
 });
