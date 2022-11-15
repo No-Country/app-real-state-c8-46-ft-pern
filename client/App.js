@@ -10,7 +10,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <NavigationContainer initialRouteName="Landing">
+      <NavigationContainer initialRouteName="HomeActionMenu">
         <Stack.Navigator>
           <Stack.Screen
             name="Landing"
