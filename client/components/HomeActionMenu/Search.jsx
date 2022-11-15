@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import { Feather, Entypo } from "@expo/vector-icons";
 
 const Search = () => {
@@ -46,12 +46,11 @@ export default Search;
 
 const styles = StyleSheet.create({
   container: {
-    margin: 15,
+    margin: 5,
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
-    width: "90%",
-
+    marginBottom: 15
   },
   Search__unclicked: {
     padding: 10,
@@ -64,7 +63,7 @@ const styles = StyleSheet.create({
   Search__clicked: {
     padding: 10,
     flexDirection: "row",
-    width: "90%",
+    width: "85%",
     backgroundColor: "#d9dbda",
     borderRadius: 15,
     alignItems: "center",
@@ -72,7 +71,6 @@ const styles = StyleSheet.create({
   },
   input: {
     fontSize: 20,
-    marginLeft: 10,
-    width: "90%",
+    width: "85%",
   },
 });

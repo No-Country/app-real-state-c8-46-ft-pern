@@ -8,6 +8,7 @@ import { Entypo, Octicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import { StyleSheet } from "react-native-web";
 
+
 const SearchBar = () => {
   const navigation = useNavigation();
   const house = {
@@ -15,51 +16,53 @@ const SearchBar = () => {
   };
   const [selectedCity, setSelectedCity] = useState();
 
-  useEffect(() => {
-    navigation.setOptions({
-      headerLargeTitle: true,
-      headerTitle: "Location",
-      headerSearchBarOptions: {
-        placeholder: "Search",
-      },
-    });
-  });
   return (
-    <View style={{ backgroundColor: "white" }}>
-      <View>
-        <Picker
-          style={styles.picker}
-          selectedValue={selectedCity}
-          onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
-        >
-          <Picker.Item label="Location" value="" />
-          <Picker.Item label="Doha" value="Doha, Qatar" />
-          <Picker.Item label="Quito" value="Quito, Ecuador" />
-          <Picker.Item label="Lima" value="Lima, Peru" />
-        </Picker>
-        <Text>
-          <Entypo
-            name="location-pin"
-            size={30}
-            color="#2972FE"
-            style={{ padding: 1, marginLeft: 8, flex: 0.3 }}
-          />
+    <View style={{ backgroundColor: "white", marginTop: "30", paddingTop: 20 }}>
 
-          {selectedCity ? selectedCity : "Select city"}
-        </Text>
+      <View style={styles.container}>
+
+        <View style={styles.div1}>
+          <Picker
+            style={styles.picker}
+            selectedValue={selectedCity}
+            onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
+          >
+            <Picker.Item label="Location" value="" />
+            <Picker.Item label="Doha" value="Doha, Qatar" />
+            <Picker.Item label="Quito" value="Quito, Ecuador" />
+            <Picker.Item label="Lima" value="Lima, Peru" />
+          </Picker>
+          <Text style={styles.city}>
+            <Entypo
+              name="location-pin"
+              size={30}
+              color="#2972FE"
+              style={{ padding: 1 }}
+            />
+
+            {selectedCity ? selectedCity : "Select city"}
+          </Text>
+        </View>
+      <View style={styles.div2}>
+
         <Octicons
           name="bell-fill"
           size={30}
           color="#2972FE"
           style={styles.icons}
-        />
+          />
+          </View>
       </View>
-      <Search />
-      <Octicons name="filter" size={30} color="#2972FE" style={styles.icons} />
 
-      <Card imagen={house} link={""} />
-      <Card imagen={house} link={""} />
-      <Card imagen={house} link={""} />
+      <View style={styles.container}>
+      <View style={styles.div1}>
+      <Search />
+      </View>
+      <View style={styles.div2}>
+
+      <Octicons name="filter" size={30} color="#2972FE" style={styles.icons} />
+      </View>
+      </View>
     </View>
   );
 };
@@ -67,30 +70,38 @@ const SearchBar = () => {
 export default SearchBar;
 
 const styles = StyleSheet.create({
+
   container: {
-    paddingLeft: 5,
-    paddingRight: 5,
-    flex: 1,
-    justifyContent: "space-between",
+    display:"grid",
+    gridTemplateColumns: "repeat(12,1fr)",
+    gridTemplateRows: "repeat(3,1fr)"
+  },
+  div1:{
+    display:"grid", 
+    gridArea:"1/2/3/10"
+  },
+  div2:{
+    display:"grid", 
+    gridArea:"1/11/3/12"
   },
   picker: {
-    margin: 15,
-    justifyContent: "flex-start",
-    alignItems: "center",
-    flexDirection: "row",
-    width: "50%",
+    margin: 8,
+
+    width: "40%",
     borderRadius: 15,
     backgroundColor: "white",
   },
   icons: {
-    width: 40,
+    width: 50,
     height: 50,
     backgroundColor: "#E5EDFE",
-    padding: 3,
-    flex: 1.9,
-    flexDirection: "row",
-    justifyContent: "flex-center",
-    alignItems: "center",
     borderRadius: 15,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
+  city:{
+    fontSize: 16,
+    fontWeight: 700
+  }
 });
