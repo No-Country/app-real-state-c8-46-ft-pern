@@ -60,19 +60,19 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 5
+    marginTop: 5,
   },
-  nameLocation:{
-    display:"flex"
+  nameLocation: {
+    display: "flex",
   },
-  type:{
+  type: {
     fontSize: 12,
-    color:"#2972FE",
+    color: "#2972FE",
     // fontWeight: 500,
     borderWidth: 1.5,
     borderColor: "#2972FE",
     borderRadius: 15,
-    paddingHorizontal:8,
-    paddingVertical: 5
-  }
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+  },
 });
