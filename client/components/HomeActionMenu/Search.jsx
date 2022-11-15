@@ -46,11 +46,11 @@ export default Search;
 
 const styles = StyleSheet.create({
   container: {
-    margin: 15,
+    margin: 5,
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
-    width: "90%",
+    width: "85%",
 
   },
   Search__unclicked: {

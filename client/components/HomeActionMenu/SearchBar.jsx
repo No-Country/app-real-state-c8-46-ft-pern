@@ -15,38 +15,31 @@ const SearchBar = () => {
   };
   const [selectedCity, setSelectedCity] = useState();
 
-  useEffect(() => {
-    navigation.setOptions({
-      headerLargeTitle: true,
-      headerTitle: "Location",
-      headerSearchBarOptions: {
-        placeholder: "Search",
-      },
-    });
-  });
   return (
     <View style={{ backgroundColor: "white" }}>
-      <View>
-        <Picker
-          style={styles.picker}
-          selectedValue={selectedCity}
-          onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
-        >
-          <Picker.Item label="Location" value="" />
-          <Picker.Item label="Doha" value="Doha, Qatar" />
-          <Picker.Item label="Quito" value="Quito, Ecuador" />
-          <Picker.Item label="Lima" value="Lima, Peru" />
-        </Picker>
-        <Text>
-          <Entypo
-            name="location-pin"
-            size={30}
-            color="#2972FE"
-            style={{ padding: 1, marginLeft: 8, flex: 0.3 }}
-          />
+      <View style={styles.container}>
+        <View style={{ flexDirection: "column" }}>
+          <Picker
+            style={styles.picker}
+            selectedValue={selectedCity}
+            onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
+          >
+            <Picker.Item label="Location" value="" />
+            <Picker.Item label="Doha" value="Doha, Qatar" />
+            <Picker.Item label="Quito" value="Quito, Ecuador" />
+            <Picker.Item label="Lima" value="Lima, Peru" />
+          </Picker>
+          <Text>
+            <Entypo
+              name="location-pin"
+              size={30}
+              color="#2972FE"
+              style={{ padding: 1 }}
+            />
 
-          {selectedCity ? selectedCity : "Select city"}
-        </Text>
+            {selectedCity ? selectedCity : "Select city"}
+          </Text>
+        </View>
         <Octicons
           name="bell-fill"
           size={30}
@@ -54,12 +47,15 @@ const SearchBar = () => {
           style={styles.icons}
         />
       </View>
+      <View style={styles.container}>
+
       <Search />
       <Octicons name="filter" size={30} color="#2972FE" style={styles.icons} />
 
       <Card imagen={house} link={""} />
       <Card imagen={house} link={""} />
       <Card imagen={house} link={""} />
+      </View>
     </View>
   );
 };
@@ -71,6 +67,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingRight: 5,
     flex: 1,
+    flexDirection:"row",
     justifyContent: "space-between",
   },
   picker: {
@@ -78,16 +75,15 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
-    width: "50%",
+    width: "120",
     borderRadius: 15,
     backgroundColor: "white",
   },
   icons: {
-    width: 40,
+    width: 50,
     height: 50,
     backgroundColor: "#E5EDFE",
     padding: 3,
-    flex: 1.9,
     flexDirection: "row",
     justifyContent: "flex-center",
     alignItems: "center",
