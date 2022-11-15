@@ -27,8 +27,7 @@ const PopularCard = ({ img, type, price, name, location }) => {
 export default PopularCard;
 
 const styles = StyleSheet.create({
-    container:{},
-    image:{},
-    description:{},
-    
-})
+  container: {},
+  image: {},
+  description: {},
+});
