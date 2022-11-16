@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-
+import { FontAwesome5 } from "@expo/vector-icons";
 import {
   ImageBackground,
   StyleSheet,
@@ -42,7 +42,8 @@ const Landing = () => {
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
         <MyButton onPress={()=>{navigation.navigate("HomeActionMenu")}}>
           {/* <Image source={logo} style={styles.logo}></Image> */}
-          <Text>Go Finance</Text>
+          <FontAwesome5 size={50} name="home" color="white" />
+          <Text style={{color:"white"}}>Go Finance</Text>
         </MyButton>
       </ImageBackground>
     </View>
