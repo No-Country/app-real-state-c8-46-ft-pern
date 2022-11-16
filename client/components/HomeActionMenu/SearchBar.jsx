@@ -28,6 +28,7 @@ const SearchBar = () => {
             <Picker.Item label="Doha" value="Doha, Qatar" />
             <Picker.Item label="Quito" value="Quito, Ecuador" />
             <Picker.Item label="Lima" value="Lima, Peru" />
+            <Picker.Item label="Surabaya" value="Surabaya, Indonesia" />
           </Picker>
           <View
             style={{
