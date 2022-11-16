@@ -4,7 +4,8 @@ import HomeActionMenu from "./screens/HomeActionMenu";
 import theme from "./theme";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
-import Details from './screens/Details'
+import Details from "./screens/Details";
+
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -13,6 +14,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <NavigationContainer initialRouteName="HomeActionMenu">
         <Stack.Navigator>
+          
           <Stack.Screen
             name="Landing"
             component={Landing}
@@ -27,13 +29,14 @@ export default function App() {
               headerShown: false,
             }}
           />
-           <Stack.Screen
+          <Stack.Screen
             name="Details"
             component={Details}
             options={{
               headerShown: false,
             }}
           />
+          
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
