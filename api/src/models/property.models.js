@@ -3,7 +3,7 @@ const db = require("../database/database")
 const { DataTypes } = require('sequelize')
 const Users = require("./user.models")
 
-const Properties = db.define('properties', {
+const Property = db.define('Properties', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -22,14 +22,6 @@ const Properties = db.define('properties', {
         allowNull: false,
         defaultValue: 'active'
     },
-    creator: {
-        type: DataTypes.UUID,
-        allowNull: false,
-        references: {
-            key: 'id',
-            model: Users
-        }
-    }
 })
 
-module.exports = Properties
+module.exports = Property
