@@ -12,11 +12,11 @@ const theme = {
         medium: '26px',
         small: '20px'
     },
-    fontWeights: {
-        bold: 700,
-        heavy: 900,
-        light: 300
-    }
+    // fontWeights: {
+    //     bold: 700,
+    //     heavy: 900,
+    //     light: 300
+    // }
 }  
 
 export default theme

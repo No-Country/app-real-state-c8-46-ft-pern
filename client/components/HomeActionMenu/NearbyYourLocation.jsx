@@ -47,15 +47,16 @@ const NearbyYourLocation = () => {
         data={popArr}
         renderItem={({ item }) => (
           <PopularCard
-            name={item.name}
-            img={item.img}
-            type={item.type}
-            price={item.price}
-            location={item.location}
+          name={item.name}
+          img={item.img}
+          type={item.type}
+          price={item.price}
+          location={item.location}
           />
-        )}
-        keyExtractor={(item) => item.id}
-        horizontal={true}
+          )}
+          keyExtractor={(item) => item.id}
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
       />
     </View>
   );
