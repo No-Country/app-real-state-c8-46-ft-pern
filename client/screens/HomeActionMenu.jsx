@@ -15,7 +15,7 @@ import NearbyYourLocation from "../components/HomeActionMenu/NearbyYourLocation"
 
 const Home = () => {
   return (
-    <ScrollView style={{ paddingTop: 10, backgroundColor: "white" }}>
+    <ScrollView style={{ backgroundColor: "white" }}>
       <SearchBar />
       <HVA />
       <Popular />
