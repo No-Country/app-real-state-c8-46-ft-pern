@@ -1,9 +1,10 @@
 import {
+  TouchableOpacity,
   Image,
   ImageBackground,
+  ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from "react-native";
 import {
@@ -24,7 +25,7 @@ import { useNavigation } from "@react-navigation/native";
 const Details = () => {
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <ImageBackground
         style={{ height: 400, width: "100%", position: "relative" }}
         source={
@@ -45,11 +46,13 @@ const Details = () => {
           <Text style={styles.type}>Apartment</Text>
           <View style={{ display: "flex", flexDirection: "row" }}>
             <AntDesign name="star" size={18} color="yellow" />
-            <Text style={{ fontWeight: 600 }}> 4.5 (1.265 reviews) </Text>
+            <Text style={{ fontWeight: "600" }}> 4.5 (1.265 reviews) </Text>
           </View>
         </View>
         <View style={styles.nameLocation}>
-          <Text style={{ fontSize: 20, fontWeight: 600, paddingVertical: 10 }}>
+          <Text
+            style={{ fontSize: 20, fontWeight: "600", paddingVertical: 10 }}
+          >
             Owent Apartment
           </Text>
           <View
@@ -61,7 +64,7 @@ const Details = () => {
             }}
           >
             <Entypo name="location-pin" size={15} color="#2972FE" />
-            <Text style={{ fontWeight: 300 }}>
+            <Text style={{ fontWeight: "300" }}>
               Sudirman St. 169, Surabaya, Indonesia
             </Text>
           </View>
@@ -90,7 +93,7 @@ const Details = () => {
             style={styles.profile}
           />
           <View>
-            <Text style={{ fontWeight: 600 }}>Ramona Flowers</Text>
+            <Text style={{ fontWeight: "600" }}>Ramona Flowers</Text>
             <Text>Partner</Text>
           </View>
           <MaterialIcons name="message" size={20} color="#2972FE" />
@@ -99,22 +102,127 @@ const Details = () => {
         {/* ---------------------OVERVIEW--------------------------------- */}
 
         <View style={styles.overview}>
-          <Text style={{ fontWeight: 600 }}>Overview</Text>
+          <Text style={styles.title}>Overview</Text>
           <Text>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non
             provident temporibus eligendi minus sunt ratione excepturi dolorum
             nulla eos modi explicabo totam aliquid eius obcaecati expedita
-            <Text color="#2972FE" style={{ fontWeight: 600 }}>
+            <Text
+              color="#2972FE"
+              style={{ fontWeight: "700", color: "#2972FE" }}
+            >
+              {" "}
               Read more...
             </Text>
           </Text>
         </View>
-        <View style={styles.gallery}></View>
-        <View style={styles.location}></View>
-        <View style={styles.featuresFac}></View>
-        <View style={styles.price}></View>
+        <View style={styles.gallery}>
+          <Image
+            style={styles.imgGallery}
+            source={
+              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796"
+            }
+          />
+          <Image
+            style={styles.imgGallery}
+            source={
+              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba"
+            }
+          />
+          <Image
+            style={styles.imgGallery}
+            source={
+              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"
+            }
+          />
+        </View>
+        {/* --------------------- LOCATION --------------------------------- */}
+
+        <View style={{ marginTop: 10 }}>
+          <Text style={styles.title}>Location</Text>
+          <Image
+            source={
+              "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg"
+            }
+            style={{ borderRadius: "20", width: 360, height: 200 }}
+          />
+        </View>
+        {/* --------------------- FEATURES --------------------------------- */}
+
+        <View style={{ marginTop: 10 }}>
+          <Text style={styles.title}>Features & Facilities</Text>
+          <View style={styles.features}>
+            <Text style={styles.feature}>Area & Lot</Text>
+            <Text style={styles.feature}>Interior</Text>
+            <Text style={styles.feature}>Exterior</Text>
+          </View>
+          <View style={styles.facilities}>
+            <Text style={styles.fac1}>Status</Text>
+            <Text style={styles.fac2}>For Sale</Text>
+          </View>
+          <View style={styles.facilities}>
+            <Text style={styles.fac1}>Living Area</Text>
+            <Text style={styles.fac2}>1,938 sqft</Text>
+          </View>
+          <View style={styles.facilities}>
+            <Text style={styles.fac1}>Type</Text>
+            <Text style={styles.fac2}>Modern</Text>
+          </View>
+          <View style={styles.facilities}>
+            <Text style={styles.fac1}>Year Built</Text>
+            <Text style={styles.fac2}>2014</Text>
+          </View>
+          <View style={styles.facilities}>
+            <Text style={styles.fac1}>Lifestyles</Text>
+            <Text style={styles.fac2}>Futuristic</Text>
+          </View>
+          <View style={styles.facilities}>
+            <Text style={styles.fac1}>Architecture Styles</Text>
+            <Text style={styles.fac2}>Contemporary</Text>
+          </View>
+          <View style={styles.facilities}>
+            <Text style={styles.fac1}>View Description</Text>
+            <Text style={styles.fac2}>Urban</Text>
+          </View>
+        </View>
+
+        {/* --------------------- PRICE --------------------------------- */}
+        <View style={styles.price}>
+          <View style={styles.priceMenu}>
+            <Text style={{ fontSize: 12, fontWeight:"300" }}>Price</Text>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Text
+                style={{ fontSize: 24, fontWeight: "700", color: "#2972FE" }}
+              >
+                $1,700{" "}
+              </Text>
+              <Text style={{ fontSize: 14 }}>/month</Text>
+            </View>
+          </View>
+          <TouchableOpacity
+            style={{
+              width: "55%",
+              height: 40,
+              borderRadius: 25,
+              backgroundColor: "#2972FE",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Text style={{ fontSize: 16, fontWeight: "600", color: "white" }}>
+              Buy
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -136,7 +244,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     color: "#2972FE",
-    fontWeight: 600,
+    fontWeight: "600",
     backgroundColor: "#E5EDFE",
     width: 40,
     height: 40,
@@ -151,7 +259,7 @@ const styles = StyleSheet.create({
   type: {
     fontSize: 10,
     color: "#2972FE",
-    // fontWeight: 500,
+    // fontWeight: "500",
     borderWidth: 1.5,
     borderColor: "#2972FE",
     borderRadius: 15,
@@ -169,7 +277,75 @@ const styles = StyleSheet.create({
   nameOwner: {
     display: "flex",
     flexDirection: "row",
+    alignItems: "center",
     justifyContent: "space-between",
     marginTop: 30,
+  },
+  overview: {
+    display: "flex",
+    justifyContent: "center",
+    marginTop: 10,
+  },
+  gallery: {
+    marginTop: 15,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
+  imgGallery: {
+    width: 100,
+    height: 90,
+    borderRadius: 15,
+  },
+  features: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    backgroundColor: "#E5EDFE",
+    borderRadius: 15,
+    height: 40,
+    marginVertical: 10,
+  },
+  feature: {
+    display: "flex",
+    alignItems: "center",
+    fontSize: 14,
+    color: "#2972FE",
+    fontWeight: "600",
+    borderWidth: 1.5,
+    borderColor: "#2972FE",
+    borderRadius: 15,
+    paddingHorizontal: 8,
+    paddingVertical: 5,
+    height: 30,
+  },
+  title: {
+    fontWeight: "600",
+    fontSize: 16,
+    margin: 10,
+  },
+  facilities: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginHorizontal: 10,
+    marginTop: 15,
+  },
+  fac1: {
+    // padding:6,
+    fontWeight: "300",
+  },
+  fac2: {
+    fontSize: 15,
+    fontWeight: "700",
+  },
+  price: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginVertical: 20,
   },
 });
