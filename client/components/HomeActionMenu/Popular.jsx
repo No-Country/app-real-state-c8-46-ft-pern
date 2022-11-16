@@ -7,7 +7,7 @@ const popArr = [
     img: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
     type: "Apartment",
     price: "$1,800",
-    name: "Owner Aparment",
+    name: "Owent Apartment",
     location: "Surabaya, Indonesia",
   },
   {
@@ -31,9 +31,17 @@ const popArr = [
 const Popular = () => {
   return (
     <View style={styles.container}>
-      <View>
-        <Text>Popular</Text>
-        <Text>See all</Text>
+      <View
+        style={{
+          paddingHorizontal: 20,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          marginBottom:15
+        }}
+      >
+        <Text style={{ fontWeight: 600, fontSize: 16 }}>Popular</Text>
+        <Text style={{ color: "#2972FE", fontWeight: 600 }}>See all</Text>
       </View>
       <FlatList
         data={popArr}
@@ -54,9 +62,9 @@ const Popular = () => {
 };
 
 const styles = StyleSheet.create({
-  container:{
-    backgroundColor: "white"
-  }
-
-})
+  container: {
+    backgroundColor: "white",
+    marginTop: 20,
+  },
+});
 export default Popular;
