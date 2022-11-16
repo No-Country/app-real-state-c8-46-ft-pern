@@ -36,7 +36,7 @@ const Details = () => {
           </View>
         </View>
         <View style={styles.nameLocation}>
-          <Text style={{ fontSize: 20, fontWeight: 600, paddingVertical:10}}>
+          <Text style={{ fontSize: 20, fontWeight: 600, paddingVertical: 10 }}>
             Owent Apartment
           </Text>
           <View
@@ -44,11 +44,11 @@ const Details = () => {
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              marginBottom: 15 
+              marginBottom: 15,
             }}
           >
             <Entypo name="location-pin" size={15} color="#2972FE" />
-            <Text style={{ fontWeight: 300}}>
+            <Text style={{ fontWeight: 300 }}>
               Sudirman St. 169, Surabaya, Indonesia
             </Text>
           </View>
@@ -70,7 +70,21 @@ const Details = () => {
             <Text style={styles.bedBath}>1,928 sqft</Text>
           </View>
         </View>
-        <View style={styles.nameOwner}></View>
+        {/* ----------------------OWNER INFO-------------------------------- */}
+        <View style={styles.nameOwner}>
+          <Image
+            source="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg"
+            style={styles.profile}
+          />
+          <View>
+            <Text style={{fontWeight:600}}>Ramona Flowers</Text>
+            <Text>Partner</Text>
+          </View>
+          <MaterialIcons name="message" size={20} color="#2972FE" />
+          <FontAwesome name="phone" size={20} color="#2972FE" />
+        </View>
+        {/* ---------------------OVERVIEW--------------------------------- */}
+
         <View style={styles.overview}></View>
         <View style={styles.gallery}></View>
         <View style={styles.location}></View>
@@ -123,5 +137,16 @@ const styles = StyleSheet.create({
   },
   bedBath: {
     marginLeft: -15,
+  },
+  profile: {
+    borderRadius: 50,
+    height: 50,
+    width: 50,
+  },
+  nameOwner: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 30,
   },
 });
