@@ -12,7 +12,7 @@ const Card = ({ font, name, text }) => {
             <MaterialIcons name={name} size={30} style={styles.icon} />
           )}
         </View>
-        <Text style={{fontWeight:600, fontSize:12}}>{text}</Text>
+        <Text style={{fontWeight:'600', fontSize:12}}>{text}</Text>
       </TouchableOpacity>
     </View>
   );

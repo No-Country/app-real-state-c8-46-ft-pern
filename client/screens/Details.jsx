@@ -29,16 +29,20 @@ const Details = () => {
       <ImageBackground
         style={{ height: 400, width: "100%", position: "relative" }}
         source={
-          "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"
+          { uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5" }
         }
       >
         <View style={styles.imgContainer}>
-          <TouchableOpacity
+         <View style={styles.iconUp} >
+         <TouchableOpacity
             onPress={() => navigation.navigate("HomeActionMenu")}
           >
-            <Ionicons name="arrow-back" size={20} style={styles.iconUp} />
+            <Ionicons name="arrow-back" size={20} color={'#2972FE'}  />
           </TouchableOpacity>
-          <AntDesign name="hearto" size={20} style={styles.iconUp} />
+         </View>
+        <View style={styles.iconUp} >
+        <AntDesign name="hearto" size={20} color={'#2972FE'} />
+        </View>
         </View>
       </ImageBackground>
       <View style={styles.info}>
@@ -73,7 +77,7 @@ const Details = () => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              marginTop: "15",
+              marginTop: 15,
             }}
           >
             <FontAwesome name="bed" size={15} color="#2972FE" />
@@ -89,7 +93,7 @@ const Details = () => {
         {/* ----------------------OWNER INFO-------------------------------- */}
         <View style={styles.nameOwner}>
           <Image
-            source="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg"
+            source={{ uri: "https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg" }}
             style={styles.profile}
           />
           <View>
@@ -108,7 +112,7 @@ const Details = () => {
             provident temporibus eligendi minus sunt ratione excepturi dolorum
             nulla eos modi explicabo totam aliquid eius obcaecati expedita
             <Text
-              color="#2972FE"
+
               style={{ fontWeight: "700", color: "#2972FE" }}
             >
               {" "}
@@ -120,19 +124,19 @@ const Details = () => {
           <Image
             style={styles.imgGallery}
             source={
-              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796"
+              { uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796" }
             }
           />
           <Image
             style={styles.imgGallery}
             source={
-              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba"
+              { uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba" }
             }
           />
           <Image
             style={styles.imgGallery}
             source={
-              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"
+             {uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"}
             }
           />
         </View>
@@ -142,9 +146,9 @@ const Details = () => {
           <Text style={styles.title}>Location</Text>
           <Image
             source={
-              "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg"
+             {uri: "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg"}
             }
-            style={{ borderRadius: "20", width: 360, height: 200 }}
+            style={{ borderRadius: 20, width: 360, height: 200 }}
           />
         </View>
         {/* --------------------- FEATURES --------------------------------- */}
@@ -189,7 +193,7 @@ const Details = () => {
         {/* --------------------- PRICE --------------------------------- */}
         <View style={styles.price}>
           <View style={styles.priceMenu}>
-            <Text style={{ fontSize: 12, fontWeight:"300" }}>Price</Text>
+            <Text style={{ fontSize: 12, fontWeight: "300" }}>Price</Text>
             <View
               style={{
                 display: "flex",

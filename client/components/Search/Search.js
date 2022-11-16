@@ -1,11 +1,15 @@
-import { View } from "react-native"
+import { View, Text,TouchableOpacity } from "react-native"
 
 const Search = () => {
 
-    return (
-   <View>
-    search
-   </View>
-    )
-  }
-  export default Search
+  return (
+    <View>
+    <TouchableOpacity>
+      <Text>
+      TouchableOpacity
+      </Text>
+    </TouchableOpacity>
+    </View>
+  )
+}
+export default Search
