@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   Search__unclicked: {
     height: 30,
     width: 250,
-    padding: 10,
+    padding: 8,
     flexDirection: "row",
     backgroundColor: "#F4F6F9",
     borderRadius: 15,

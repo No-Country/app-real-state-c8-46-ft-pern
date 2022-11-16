@@ -45,11 +45,11 @@ const Details = () => {
           <Text style={styles.type}>Apartment</Text>
           <View style={{ display: "flex", flexDirection: "row" }}>
             <AntDesign name="star" size={18} color="yellow" />
-            <Text style={{ fontWeight: 600 }}> 4.5 (1.265 reviews) </Text>
+            <Text style={{ fontWeight: '600' }}> 4.5 (1.265 reviews) </Text>
           </View>
         </View>
         <View style={styles.nameLocation}>
-          <Text style={{ fontSize: 20, fontWeight: 600, paddingVertical: 10 }}>
+          <Text style={{ fontSize: 20, fontWeight: '600', paddingVertical: 10 }}>
             Owent Apartment
           </Text>
           <View
@@ -61,7 +61,7 @@ const Details = () => {
             }}
           >
             <Entypo name="location-pin" size={15} color="#2972FE" />
-            <Text style={{ fontWeight: 300 }}>
+            <Text style={{ fontWeight: '300' }}>
               Sudirman St. 169, Surabaya, Indonesia
             </Text>
           </View>
@@ -70,7 +70,7 @@ const Details = () => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              marginTop: "15",
+              marginTop: 15,
             }}
           >
             <FontAwesome name="bed" size={15} color="#2972FE" />
@@ -90,7 +90,7 @@ const Details = () => {
             style={styles.profile}
           />
           <View>
-            <Text style={{ fontWeight: 600 }}>Ramona Flowers</Text>
+            <Text style={{ fontWeight: '600' }}>Ramona Flowers</Text>
             <Text>Partner</Text>
           </View>
           <MaterialIcons name="message" size={20} color="#2972FE" />
@@ -99,12 +99,12 @@ const Details = () => {
         {/* ---------------------OVERVIEW--------------------------------- */}
 
         <View style={styles.overview}>
-          <Text style={{ fontWeight: 600 }}>Overview</Text>
+          <Text style={{ fontWeight: '600' }}>Overview</Text>
           <Text>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non
             provident temporibus eligendi minus sunt ratione excepturi dolorum
             nulla eos modi explicabo totam aliquid eius obcaecati expedita
-            <Text color="#2972FE" style={{ fontWeight: 600 }}>
+            <Text color="#2972FE" style={{ fontWeight: '600' }}>
               Read more...
             </Text>
           </Text>
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     color: "#2972FE",
-    fontWeight: 600,
+    fontWeight: '600',
     backgroundColor: "#E5EDFE",
     width: 40,
     height: 40,

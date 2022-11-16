@@ -17,8 +17,15 @@ const SearchBar = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.grid}>
-        <View style={styles.div1}>
+
+      <View style={styles.div1}>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "column",
+           
+          }}
+        >
           <Picker
             style={styles.picker}
             selectedValue={selectedCity}
@@ -30,48 +37,60 @@ const SearchBar = () => {
             <Picker.Item label="Lima" value="Lima, Peru" />
             <Picker.Item label="Surabaya" value="Surabaya, Indonesia" />
           </Picker>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <Entypo
+
+          <View style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent:'space-between',
+            marginLeft:15,
+            marginRight:14
+          }} >
+           <View 
+           style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+           >
+           <Entypo
               name="location-pin"
               size={20}
               color="#2972FE"
               style={{ padding: 1 }}
             />
 
-            <Text style={{ fontSize: 14, fontWeight: 610, marginLeft:5 }}>
+            <Text style={{ fontSize: 14, fontWeight: '600', marginLeft: 5 }}>
               {selectedCity ? selectedCity : "Select a location"}
             </Text>
+           </View>
+            <View style={styles.icons}>
+              <Octicons
+                name="bell-fill"
+                size={20}
+                color="#2972FE"
+              />
+            </View>
+
           </View>
-        </View>
-        <View style={styles.div2}>
-          <Octicons
-            name="bell-fill"
-            size={20}
-            color="#2972FE"
-            style={styles.icons}
-          />
         </View>
       </View>
 
-      <View style={styles.grid}>
-        <View style={styles.div1}>
-          <Search />
-        </View>
-        <View style={styles.div2}>
+      <View style={styles.div2}>
+        <Search />
+
+
+        <View style={styles.icons}>
+
           <Octicons
             name="filter"
             size={20}
             color="#2972FE"
-            style={styles.icons}
           />
         </View>
       </View>
+
+
     </View>
   );
 };
@@ -81,34 +100,33 @@ export default SearchBar;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    marginTop: "30",
+    marginTop: 30,
     paddingTop: 20,
-    marginBottom:20
+    marginBottom: 20,
+    display:"flex",
+
   },
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(12,1fr)",
-    gridTemplateRows: "1fr",
-    paddingTop:20
-  },
+
   div1: {
-    display: "grid",
-    gridArea: "1/2/2/10",
+    display: "flex",
+    marginBottom:14
   },
   div2: {
-    display: "grid",
-    gridArea: "1/11/2/12",
+    display: "flex",
+    flexDirection: 'row',
+    justifyContent:'space-around'
+
   },
   picker: {
-    margin: 8,
+    marginLeft: 14,
     width: "40%",
     borderRadius: 15,
     backgroundColor: "white",
-    borderWidth:0
+    borderWidth: 0
   },
   icons: {
-    width: 40,
-    height: 40,
+    width: 48,
+    height: 48,
     backgroundColor: "#E5EDFE",
     borderRadius: 15,
     display: "flex",

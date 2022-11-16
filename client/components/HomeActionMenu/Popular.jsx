@@ -40,8 +40,8 @@ const Popular = () => {
           marginBottom:15
         }}
       >
-        <Text style={{ fontWeight: 600, fontSize: 16 }}>Popular</Text>
-        <Text style={{ color: "#2972FE", fontWeight: 600 }}>See all</Text>
+        <Text style={{ fontWeight: '600', fontSize: 16 }}>Popular</Text>
+        <Text style={{ color: "#2972FE", fontWeight: '600' }}>See all</Text>
       </View>
       <FlatList
       showsHorizontalScrollIndicator={false}

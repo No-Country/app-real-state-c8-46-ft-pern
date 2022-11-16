@@ -40,8 +40,8 @@ const NearbyYourLocation = () => {
           marginBottom:15
         }}
       >
-        <Text style={{ fontWeight: 600, fontSize: 16 }}>Nearby your location</Text>
-        <Text style={{ color: "#2972FE", fontWeight: 600 }}>See all</Text>
+        <Text style={{ fontWeight: '600', fontSize: 16 }}>Nearby your location</Text>
+        <Text style={{ color: "#2972FE", fontWeight: '600' }}>See all</Text>
       </View>
       <FlatList
         data={popArr}
