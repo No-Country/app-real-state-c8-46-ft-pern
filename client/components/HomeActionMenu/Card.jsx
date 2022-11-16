@@ -12,7 +12,7 @@ const Card = ({ font, name, text }) => {
             <MaterialIcons name={name} size={30} style={styles.icon} />
           )}
         </View>
-        <Text style={{fontWeight:'600', fontSize:12}}>{text}</Text>
+        <Text style={{ fontWeight: "600", fontSize: 12 }}>{text}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -27,13 +27,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 15,
     backgroundColor: "white",
-    width: 110,
-    height: 180,
+    width: 100,
+    height: 120,
     borderColor: "#F4F6F9",
     borderWidth: 3,
-    marginLeft:4,
-    marginRight:4,
-   
+    marginLeft: 4,
+    marginRight: 4,
   },
   image: {
     flex: 1,
@@ -42,17 +41,17 @@ const styles = StyleSheet.create({
   circle: {
     backgroundColor: "#E5EDFE",
     borderRadius: 50,
-    width: 70,
-    height: 70,
+    width: 60,
+    height: 60,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-  button:{
-  borderStyle: "solid",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  button: {
+    borderStyle: "solid",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   icon: {
     color: "#2972FE",

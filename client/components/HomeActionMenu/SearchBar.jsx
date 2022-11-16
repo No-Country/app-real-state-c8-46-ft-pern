@@ -17,13 +17,11 @@ const SearchBar = () => {
 
   return (
     <View style={styles.container}>
-
       <View style={styles.div1}>
         <View
           style={{
             display: "flex",
             flexDirection: "column",
-           
           }}
         >
           <Picker
@@ -31,47 +29,60 @@ const SearchBar = () => {
             selectedValue={selectedCity}
             onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
           >
-            <Picker.Item label="Location" value="" />
-            <Picker.Item label="Doha" value="Doha, Qatar" />
-            <Picker.Item label="Quito" value="Quito, Ecuador" />
-            <Picker.Item label="Lima" value="Lima, Peru" />
-            <Picker.Item label="Surabaya" value="Surabaya, Indonesia" />
+            <Picker.Item style={styles.pickerItem} label="Location" value="" />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Doha"
+              value="Doha, Qatar"
+            />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Quito"
+              value="Quito, Ecuador"
+            />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Lima"
+              value="Lima, Peru"
+            />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Surabaya"
+              value="Surabaya, Indonesia"
+            />
           </Picker>
 
-          <View style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent:'space-between',
-            marginLeft:15,
-            marginRight:14
-          }} >
-           <View 
-           style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-           >
-           <Entypo
-              name="location-pin"
-              size={20}
-              color="#2972FE"
-              style={{ padding: 1 }}
-            />
-
-            <Text style={{ fontSize: 14, fontWeight: '600', marginLeft: 5 }}>
-              {selectedCity ? selectedCity : "Select a location"}
-            </Text>
-           </View>
-            <View style={styles.icons}>
-              <Octicons
-                name="bell-fill"
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginLeft: 15,
+              marginRight: 14,
+            }}
+          >
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              <Entypo
+                name="location-pin"
                 size={20}
                 color="#2972FE"
+                style={{ padding: 1 }}
               />
-            </View>
 
+              <Text style={{ fontSize: 14, fontWeight: "600", marginLeft: 5 }}>
+                {selectedCity ? selectedCity : "Select a location"}
+              </Text>
+            </View>
+            <View style={styles.icons}>
+              <Octicons name="bell-fill" size={20} color="#2972FE" />
+            </View>
           </View>
         </View>
       </View>
@@ -79,18 +90,10 @@ const SearchBar = () => {
       <View style={styles.div2}>
         <Search />
 
-
         <View style={styles.icons}>
-
-          <Octicons
-            name="filter"
-            size={20}
-            color="#2972FE"
-          />
+          <Octicons name="filter" size={20} color="#2972FE" />
         </View>
       </View>
-
-
     </View>
   );
 };
@@ -100,29 +103,29 @@ export default SearchBar;
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    marginTop: 30,
-    paddingTop: 20,
-    marginBottom: 20,
-    display:"flex",
-
+    marginTop: 20,
+    display: "flex",
   },
 
   div1: {
     display: "flex",
-    marginBottom:14
+    marginBottom: 5,
   },
   div2: {
     display: "flex",
-    flexDirection: 'row',
-    justifyContent:'space-around'
-
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
   picker: {
     marginLeft: 14,
     width: "40%",
     borderRadius: 15,
     backgroundColor: "white",
-    borderWidth: 0
+    borderWidth: 0,
+  },
+  pickerItem: {
+    fontSize: 12,
+    fontWeight: "400",
   },
   icons: {
     width: 48,
