@@ -1,5 +1,11 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
-import { Ionicons, AntDesign, Entypo } from "@expo/vector-icons";
+import {
+  Ionicons,
+  AntDesign,
+  Entypo,
+  FontAwesome,
+  MaterialIcons,
+} from "@expo/vector-icons";
 // id: 1,
 //     imgContainer: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
 //     type: "Apartment",
@@ -30,17 +36,38 @@ const Details = () => {
           </View>
         </View>
         <View style={styles.nameLocation}>
-          <Text style={{ fontSize: 20, fontWeight: 600, padding: 10 }}>
+          <Text style={{ fontSize: 20, fontWeight: 600, paddingVertical:10}}>
             Owent Apartment
           </Text>
-          <View style={{ display: "flex", flexDirection: "row" }}>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              marginBottom: 15 
+            }}
+          >
             <Entypo name="location-pin" size={15} color="#2972FE" />
-            <Text>Sudirman St. 169, Surabaya, Indonesia</Text>
+            <Text style={{ fontWeight: 300}}>
+              Sudirman St. 169, Surabaya, Indonesia
+            </Text>
           </View>
-          <View>
-            <Text>4 Beds</Text>
-            <Text>2 Bath</Text>
-            <Text>1,928 sqft</Text>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginTop: "15",
+            }}
+          >
+            <FontAwesome name="bed" size={15} color="#2972FE" />
+            <Text style={styles.bedBath}>4 Beds</Text>
+
+            <FontAwesome name="bath" size={15} color="#2972FE" />
+            <Text style={styles.bedBath}>2 Bath</Text>
+
+            <MaterialIcons name="square-foot" size={15} color="#2972FE" />
+            <Text style={styles.bedBath}>1,928 sqft</Text>
           </View>
         </View>
         <View style={styles.nameOwner}></View>
@@ -64,8 +91,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginTop: 20,
   },
-  info:{
-    marginHorizontal:20,
+  info: {
+    marginHorizontal: 20,
   },
   iconUp: {
     display: "flex",
@@ -93,5 +120,8 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: 8,
     paddingVertical: 5,
+  },
+  bedBath: {
+    marginLeft: -15,
   },
 });
