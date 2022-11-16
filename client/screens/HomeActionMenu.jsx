@@ -6,22 +6,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Entypo ,Feather,MaterialIcons,FontAwesome} from '@expo/vector-icons';
 import { Profile, Favorites } from "../components";
 import Search from "../components/Search/Search";
+import NearbyYourLocation from "../components/HomeActionMenu/NearbyYourLocation";
 
 const Home = () => {
-
   return (
-    <SafeAreaView >
+      <View style={{ paddingTop: 10, backgroundColor: "white" }}>
       <SearchBar />
       <HVA />
       <Popular />
-    </SafeAreaView>
-  )
+      <NearbyYourLocation />
+     </View>
+)
 }
-
-
-
-
-
 
 
 const HomeActionMenu = () => {
@@ -62,7 +58,6 @@ const HomeActionMenu = () => {
       }}
       >
       </Tab.Screen>
-        
     </Tab.Navigator>
 
   );

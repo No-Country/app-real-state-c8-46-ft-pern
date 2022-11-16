@@ -12,7 +12,7 @@ const Card = ({ font, name, text }) => {
             <MaterialIcons name={name} size={30} style={styles.icon} />
           )}
         </View>
-        <Text >{text}</Text>
+        <Text style={{fontWeight:600, fontSize:12}}>{text}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     marginLeft:4,
     marginRight:4,
-    marginTop: -20
+   
   },
   image: {
     flex: 1,
