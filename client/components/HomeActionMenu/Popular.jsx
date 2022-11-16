@@ -44,6 +44,7 @@ const Popular = () => {
         <Text style={{ color: "#2972FE", fontWeight: 600 }}>See all</Text>
       </View>
       <FlatList
+      showsHorizontalScrollIndicator={false}
         data={popArr}
         renderItem={({ item }) => (
           <PopularCard

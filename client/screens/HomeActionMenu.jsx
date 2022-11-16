@@ -1,4 +1,4 @@
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView,ScrollView, View } from "react-native";
 import HVA from "../components/HomeActionMenu/HVA";
 import SearchBar from "../components/HomeActionMenu/SearchBar";
 import Popular from "../components/HomeActionMenu/Popular";
@@ -10,12 +10,12 @@ import NearbyYourLocation from "../components/HomeActionMenu/NearbyYourLocation"
 
 const Home = () => {
   return (
-      <View style={{ paddingTop: 10, backgroundColor: "white" }}>
+      <ScrollView style={{ paddingTop: 10, backgroundColor: "white" }}>
       <SearchBar />
       <HVA />
       <Popular />
       <NearbyYourLocation />
-     </View>
+     </ScrollView>
 )
 }
 

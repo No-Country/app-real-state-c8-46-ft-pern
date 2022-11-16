@@ -1,9 +1,11 @@
 import { StyleSheet, TouchableOpacity, View, Text, Image } from "react-native";
 import { Entypo, AntDesign } from "@expo/vector-icons";
+import { useNavigation } from '@react-navigation/native';
 const PopularCard = ({ img, type, price, name, location }) => {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.navigate('Details')}>
         <View>
           <Image source={img} style={styles.top} />
         </View>
