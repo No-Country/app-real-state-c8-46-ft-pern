@@ -1,4 +1,11 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import {
   Ionicons,
   AntDesign,
@@ -6,6 +13,7 @@ import {
   FontAwesome,
   MaterialIcons,
 } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 // id: 1,
 //     imgContainer: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
 //     type: "Apartment",
@@ -14,6 +22,7 @@ import {
 //     location: "Surabaya, Indonesia",
 
 const Details = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -23,7 +32,11 @@ const Details = () => {
         }
       >
         <View style={styles.imgContainer}>
-          <Ionicons name="arrow-back" size={20} style={styles.iconUp} />
+          <TouchableOpacity
+            onPress={() => navigation.navigate("HomeActionMenu")}
+          >
+            <Ionicons name="arrow-back" size={20} style={styles.iconUp} />
+          </TouchableOpacity>
           <AntDesign name="hearto" size={20} style={styles.iconUp} />
         </View>
       </ImageBackground>
@@ -77,7 +90,7 @@ const Details = () => {
             style={styles.profile}
           />
           <View>
-            <Text style={{fontWeight:600}}>Ramona Flowers</Text>
+            <Text style={{ fontWeight: 600 }}>Ramona Flowers</Text>
             <Text>Partner</Text>
           </View>
           <MaterialIcons name="message" size={20} color="#2972FE" />
@@ -85,7 +98,17 @@ const Details = () => {
         </View>
         {/* ---------------------OVERVIEW--------------------------------- */}
 
-        <View style={styles.overview}></View>
+        <View style={styles.overview}>
+          <Text style={{ fontWeight: 600 }}>Overview</Text>
+          <Text>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non
+            provident temporibus eligendi minus sunt ratione excepturi dolorum
+            nulla eos modi explicabo totam aliquid eius obcaecati expedita
+            <Text color="#2972FE" style={{ fontWeight: 600 }}>
+              Read more...
+            </Text>
+          </Text>
+        </View>
         <View style={styles.gallery}></View>
         <View style={styles.location}></View>
         <View style={styles.featuresFac}></View>
