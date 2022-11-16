@@ -7,7 +7,7 @@ const PopularCard = ({ img, type, price, name, location }) => {
     <View style={styles.container}>
       <TouchableOpacity onPress={()=>navigation.navigate('Details')}>
         <View>
-          <Image source={img} style={styles.top} />
+          <Image source={{uri:img}} style={styles.top} />
         </View>
         <View style={styles.bottom}>
           <View style={styles.typePrice}>
