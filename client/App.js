@@ -4,6 +4,7 @@ import HomeActionMenu from "./screens/HomeActionMenu";
 import theme from "./theme";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import Details from './screens/Details'
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -19,16 +20,20 @@ export default function App() {
               headerShown: false,
             }}
           />
-          <Stack.Screen name="HomeActionMenu" component={HomeActionMenu}  options={{
+          <Stack.Screen
+            name="HomeActionMenu"
+            component={HomeActionMenu}
+            options={{
               headerShown: false,
-            }}/>
-          {/* <Stack.Screen name="Login" component={Login} options={{headerShown: false}} /> */}
-          {/* <Stack.Screen
-            name="Log out"
-            onPress={() => {
-              navigation.navigate("Login");
             }}
-          /> */}
+          />
+           <Stack.Screen
+            name="Details"
+            component={Details}
+            options={{
+              headerShown: false,
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
