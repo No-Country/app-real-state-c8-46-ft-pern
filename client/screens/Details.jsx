@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
+  SafeAreaView,
 } from "react-native";
 import {
   Ionicons,
@@ -25,206 +26,212 @@ import { useNavigation } from "@react-navigation/native";
 const Details = () => {
   const navigation = useNavigation();
   return (
-    <ScrollView style={styles.container}>
-      <ImageBackground
-        style={{ height: 400, width: "100%", position: "relative" }}
-        source={{
-          uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
-        }}
-      >
-        <View style={styles.imgContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("HomeActionMenu")}
-          >
-            <Ionicons name="arrow-back" size={20} style={styles.iconUp} />
-          </TouchableOpacity>
-          <AntDesign name="hearto" size={20} style={styles.iconUp} />
-        </View>
-      </ImageBackground>
-      <View style={styles.info}>
-        <View style={styles.typereview}>
-          <Text style={styles.type}>Apartment</Text>
-          <View style={{ display: "flex", flexDirection: "row" }}>
-            <AntDesign name="star" size={18} color="yellow" />
-            <Text style={{ fontWeight: "600" }}> 4.5 (1.265 reviews) </Text>
-          </View>
-        </View>
-        <View style={styles.nameLocation}>
-          <Text
-            style={{ fontSize: 20, fontWeight: "600", paddingVertical: 10 }}
-          >
-            Owent Apartment
-          </Text>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              marginBottom: 15,
-            }}
-          >
-            <Entypo name="location-pin" size={15} color="#2972FE" />
-            <Text style={{ fontWeight: "300" }}>
-              Sudirman St. 169, Surabaya, Indonesia
-            </Text>
-          </View>
-          <View
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginTop: 15,
-            }}
-          >
-            <FontAwesome name="bed" size={15} color="#2972FE" />
-            <Text style={styles.bedBath}>4 Beds</Text>
-
-            <FontAwesome name="bath" size={15} color="#2972FE" />
-            <Text style={styles.bedBath}>2 Bath</Text>
-
-            <MaterialIcons name="square-foot" size={15} color="#2972FE" />
-            <Text style={styles.bedBath}>1,928 sqft</Text>
-          </View>
-        </View>
-        {/* ----------------------OWNER INFO-------------------------------- */}
-        <View style={styles.nameOwner}>
-          <Image
-            source={{
-              uri: "https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg",
-            }}
-            style={styles.profile}
-          />
-          <View>
-            <Text style={{ fontWeight: "600" }}>Ramona Flowers</Text>
-            <Text>Partner</Text>
-          </View>
-          <MaterialIcons name="message" size={20} color="#2972FE" />
-          <FontAwesome name="phone" size={20} color="#2972FE" />
-        </View>
-        {/* ---------------------OVERVIEW--------------------------------- */}
-
-        <View style={styles.overview}>
-          <Text style={styles.title}>Overview</Text>
-          <Text>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non
-            provident temporibus eligendi minus sunt ratione excepturi dolorum
-            nulla eos modi explicabo totam aliquid eius obcaecati expedita
-            <Text
-              color="#2972FE"
-              style={{ fontWeight: "700", color: "#2972FE" }}
+    <SafeAreaView>
+      <ScrollView style={styles.container}>
+        <ImageBackground
+          style={{ height: 400, width: "100%", position: "relative" }}
+          source={{
+            uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
+          }}
+        >
+          <View style={styles.imgContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("HomeActionMenu")}
             >
-              {" "}
-              Read more...
+              <View style={styles.iconUp}>
+                <Ionicons name="arrow-back" size={20} color="#2972FE" />
+              </View>
+            </TouchableOpacity>
+            <View style={styles.iconUp}>
+              <AntDesign name="hearto" size={20} color="#2972FE" />
+            </View>
+          </View>
+        </ImageBackground>
+        <View style={styles.info}>
+          <View style={styles.typereview}>
+            <Text style={styles.type}>Apartment</Text>
+            <View style={{ display: "flex", flexDirection: "row" }}>
+              <AntDesign name="star" size={18} color="yellow" />
+              <Text style={{ fontWeight: "600" }}> 4.5 (1.265 reviews) </Text>
+            </View>
+          </View>
+          <View style={styles.nameLocation}>
+            <Text
+              style={{ fontSize: 20, fontWeight: "600", paddingVertical: 10 }}
+            >
+              Owent Apartment
             </Text>
-          </Text>
-        </View>
-        <View style={styles.gallery}>
-          <Image
-            style={styles.imgGallery}
-            source={
-              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796"
-            }
-          />
-          <Image
-            style={styles.imgGallery}
-            source={
-              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba"
-            }
-          />
-          <Image
-            style={styles.imgGallery}
-            source={
-              "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"
-            }
-          />
-        </View>
-        {/* --------------------- LOCATION --------------------------------- */}
-
-        <View style={{ marginTop: 10 }}>
-          <Text style={styles.title}>Location</Text>
-          <Image
-            source={
-              "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg"
-            }
-            style={{ borderRadius: 20, width: 360, height: 200 }}
-          />
-        </View>
-        {/* --------------------- FEATURES --------------------------------- */}
-
-        <View style={{ marginTop: 10 }}>
-          <Text style={styles.title}>Features & Facilities</Text>
-          <View style={styles.features}>
-            <Text style={styles.feature}>Area & Lot</Text>
-            <Text style={styles.feature}>Interior</Text>
-            <Text style={styles.feature}>Exterior</Text>
-          </View>
-          <View style={styles.facilities}>
-            <Text style={styles.fac1}>Status</Text>
-            <Text style={styles.fac2}>For Sale</Text>
-          </View>
-          <View style={styles.facilities}>
-            <Text style={styles.fac1}>Living Area</Text>
-            <Text style={styles.fac2}>1,938 sqft</Text>
-          </View>
-          <View style={styles.facilities}>
-            <Text style={styles.fac1}>Type</Text>
-            <Text style={styles.fac2}>Modern</Text>
-          </View>
-          <View style={styles.facilities}>
-            <Text style={styles.fac1}>Year Built</Text>
-            <Text style={styles.fac2}>2014</Text>
-          </View>
-          <View style={styles.facilities}>
-            <Text style={styles.fac1}>Lifestyles</Text>
-            <Text style={styles.fac2}>Futuristic</Text>
-          </View>
-          <View style={styles.facilities}>
-            <Text style={styles.fac1}>Architecture Styles</Text>
-            <Text style={styles.fac2}>Contemporary</Text>
-          </View>
-          <View style={styles.facilities}>
-            <Text style={styles.fac1}>View Description</Text>
-            <Text style={styles.fac2}>Urban</Text>
-          </View>
-        </View>
-
-        {/* --------------------- PRICE --------------------------------- */}
-        <View style={styles.price}>
-          <View style={styles.priceMenu}>
-            <Text style={{ fontSize: 12, fontWeight: "300" }}>Price</Text>
             <View
               style={{
                 display: "flex",
                 flexDirection: "row",
                 alignItems: "center",
+                marginBottom: 15,
               }}
             >
-              <Text
-                style={{ fontSize: 24, fontWeight: "700", color: "#2972FE" }}
-              >
-                $1,700{" "}
+              <Entypo name="location-pin" size={15} color="#2972FE" />
+              <Text style={{ fontWeight: "300" }}>
+                Sudirman St. 169, Surabaya, Indonesia
               </Text>
-              <Text style={{ fontSize: 14 }}>/month</Text>
+            </View>
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginTop: 15,
+              }}
+            >
+              <FontAwesome name="bed" size={15} color="#2972FE" />
+              <Text style={styles.bedBath}>4 Beds</Text>
+
+              <FontAwesome name="bath" size={15} color="#2972FE" />
+              <Text style={styles.bedBath}>2 Bath</Text>
+
+              <MaterialIcons name="square-foot" size={15} color="#2972FE" />
+              <Text style={styles.bedBath}>1,928 sqft</Text>
             </View>
           </View>
-          <TouchableOpacity
-            style={{
-              width: "55%",
-              height: 40,
-              borderRadius: 25,
-              backgroundColor: "#2972FE",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Text style={{ fontSize: 16, fontWeight: "600", color: "white" }}>
-              Buy
+          {/* ----------------------OWNER INFO-------------------------------- */}
+          <View style={styles.nameOwner}>
+            <Image
+              source={{
+                uri: "https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg",
+              }}
+              style={styles.profile}
+            />
+            <View>
+              <Text style={{ fontWeight: "600" }}>Ramona Flowers</Text>
+              <Text>Partner</Text>
+            </View>
+            <MaterialIcons name="message" size={20} color="#2972FE" />
+            <FontAwesome name="phone" size={20} color="#2972FE" />
+          </View>
+          {/* ---------------------OVERVIEW--------------------------------- */}
+
+          <View style={styles.overview}>
+            <Text style={styles.title}>Overview</Text>
+            <Text>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non
+              provident temporibus eligendi minus sunt ratione excepturi dolorum
+              nulla eos modi explicabo totam aliquid eius obcaecati expedita
+              <Text
+                color="#2972FE"
+                style={{ fontWeight: "700", color: "#2972FE" }}
+              >
+                {" "}
+                Read more...
+              </Text>
             </Text>
-          </TouchableOpacity>
+          </View>
+          <View style={styles.gallery}>
+            <Image
+              style={styles.imgGallery}
+              source={
+                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796"
+              }
+            />
+            <Image
+              style={styles.imgGallery}
+              source={
+                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba"
+              }
+            />
+            <Image
+              style={styles.imgGallery}
+              source={
+                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"
+              }
+            />
+          </View>
+          {/* --------------------- LOCATION --------------------------------- */}
+
+          <View style={{ marginTop: 10 }}>
+            <Text style={styles.title}>Location</Text>
+            <Image
+              source={
+                "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg"
+              }
+              style={{ borderRadius: 20, width: 360, height: 200 }}
+            />
+          </View>
+          {/* --------------------- FEATURES --------------------------------- */}
+
+          <View style={{ marginTop: 10 }}>
+            <Text style={styles.title}>Features & Facilities</Text>
+            <View style={styles.features}>
+              <Text style={styles.feature}>Area & Lot</Text>
+              <Text style={styles.feature}>Interior</Text>
+              <Text style={styles.feature}>Exterior</Text>
+            </View>
+            <View style={styles.facilities}>
+              <Text style={styles.fac1}>Status</Text>
+              <Text style={styles.fac2}>For Sale</Text>
+            </View>
+            <View style={styles.facilities}>
+              <Text style={styles.fac1}>Living Area</Text>
+              <Text style={styles.fac2}>1,938 sqft</Text>
+            </View>
+            <View style={styles.facilities}>
+              <Text style={styles.fac1}>Type</Text>
+              <Text style={styles.fac2}>Modern</Text>
+            </View>
+            <View style={styles.facilities}>
+              <Text style={styles.fac1}>Year Built</Text>
+              <Text style={styles.fac2}>2014</Text>
+            </View>
+            <View style={styles.facilities}>
+              <Text style={styles.fac1}>Lifestyles</Text>
+              <Text style={styles.fac2}>Futuristic</Text>
+            </View>
+            <View style={styles.facilities}>
+              <Text style={styles.fac1}>Architecture Styles</Text>
+              <Text style={styles.fac2}>Contemporary</Text>
+            </View>
+            <View style={styles.facilities}>
+              <Text style={styles.fac1}>View Description</Text>
+              <Text style={styles.fac2}>Urban</Text>
+            </View>
+          </View>
+
+          {/* --------------------- PRICE --------------------------------- */}
+          <View style={styles.price}>
+            <View style={styles.priceMenu}>
+              <Text style={{ fontSize: 12, fontWeight: "300" }}>Price</Text>
+              <View
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "center",
+                }}
+              >
+                <Text
+                  style={{ fontSize: 24, fontWeight: "700", color: "#2972FE" }}
+                >
+                  $1,700{" "}
+                </Text>
+                <Text style={{ fontSize: 14 }}>/month</Text>
+              </View>
+            </View>
+            <TouchableOpacity
+              style={{
+                width: "55%",
+                height: 40,
+                borderRadius: 25,
+                backgroundColor: "#2972FE",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Text style={{ fontSize: 16, fontWeight: "600", color: "white" }}>
+                Buy
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

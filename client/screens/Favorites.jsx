@@ -45,7 +45,7 @@ const Favorites = () => {
           <Ionicons name="sad-outline" size={50} color="white" />
         </View>
         <Text style={{ fontSize: 20, color: "#2972FE", fontWeight: "650", marginTop:20 }}>
-          You don't have a favorite
+          You don't have a favorite yet
         </Text>
       </View>
     </SafeAreaView>
