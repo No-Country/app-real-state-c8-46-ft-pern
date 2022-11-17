@@ -48,6 +48,9 @@ const Landing = () => {
           <FontAwesome5 size={50} name="home" color="white" />
           {/* <Text style={{ color: "white" }}>Go Finance</Text> */}
         </MyButton>
+        <View style={styles.text}>
+          <Text style={styles.finance}>Go Finance</Text>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -65,6 +68,17 @@ const styles = StyleSheet.create({
   logo: {
     width: 66,
     height: 58,
+  },
+  finance: {
+    color: "#2972FE",
+    fontSize: 25,
+    fontWeight: "600",
+  },
+  text: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    bottom:-10
   },
 });
 
