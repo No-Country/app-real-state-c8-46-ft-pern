@@ -33,14 +33,14 @@ const Landing = () => {
     `;
   const MyText = styled.Text`
     color: ${(props) => props.theme.colors.white};
-    font-weight: ${(props) => props.theme.fontWeights.bold};
+    font-weight: ${(props) => props.theme.fontWeight.bold};
     font-size: ${(props) => props.theme.fontSizes.medium};
   `;
 
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <MyButton onPress={()=>{navigation.navigate("HomeActionMenu")}}>
+        <MyButton onPress={()=>{navigation.navigate("Intro")}}>
           {/* <Image source={logo} style={styles.logo}></Image> */}
           <FontAwesome5 size={50} name="home" color="white" />
           <Text style={{color:"white"}}>Go Finance</Text>
