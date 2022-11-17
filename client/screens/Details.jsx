@@ -28,9 +28,9 @@ const Details = () => {
     <ScrollView style={styles.container}>
       <ImageBackground
         style={{ height: 400, width: "100%", position: "relative" }}
-        source={
-          "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"
-        }
+        source={{
+          uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
+        }}
       >
         <View style={styles.imgContainer}>
           <TouchableOpacity
@@ -73,7 +73,7 @@ const Details = () => {
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              marginTop: "15",
+              marginTop: 15,
             }}
           >
             <FontAwesome name="bed" size={15} color="#2972FE" />
@@ -89,7 +89,9 @@ const Details = () => {
         {/* ----------------------OWNER INFO-------------------------------- */}
         <View style={styles.nameOwner}>
           <Image
-            source="https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg"
+            source={{
+              uri: "https://www.dzoom.org.es/wp-content/uploads/2020/02/portada-foto-perfil-redes-sociales-consejos.jpg",
+            }}
             style={styles.profile}
           />
           <View>
@@ -144,7 +146,7 @@ const Details = () => {
             source={
               "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg"
             }
-            style={{ borderRadius: "20", width: 360, height: 200 }}
+            style={{ borderRadius: 20, width: 360, height: 200 }}
           />
         </View>
         {/* --------------------- FEATURES --------------------------------- */}
@@ -189,7 +191,7 @@ const Details = () => {
         {/* --------------------- PRICE --------------------------------- */}
         <View style={styles.price}>
           <View style={styles.priceMenu}>
-            <Text style={{ fontSize: 12, fontWeight:"300" }}>Price</Text>
+            <Text style={{ fontSize: 12, fontWeight: "300" }}>Price</Text>
             <View
               style={{
                 display: "flex",
