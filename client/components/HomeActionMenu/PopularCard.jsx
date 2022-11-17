@@ -1,26 +1,28 @@
 import { StyleSheet, TouchableOpacity, View, Text, Image } from "react-native";
 import { Entypo, AntDesign } from "@expo/vector-icons";
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from "@react-navigation/native";
 const PopularCard = ({ img, type, price, name, location }) => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={()=>navigation.navigate('Details')}>
+      <TouchableOpacity onPress={() => navigation.navigate("Details")}>
         <View>
-          <Image source={{uri:img}} style={styles.top} />
+          <Image source={{ uri: img }} style={styles.top} />
         </View>
         <View style={styles.bottom}>
           <View style={styles.typePrice}>
             <Text style={styles.type}>{type}</Text>
             <View style={styles.price}>
-              <Text style={{ fontSize: 16, color: "#2972FE", fontWeight: '600' }}>
+              <Text
+                style={{ fontSize: 16, color: "#2972FE", fontWeight: "600" }}
+              >
                 {price}{" "}
               </Text>
               <Text style={{ fontSize: 10, color: "#C6C8CD" }}>/month</Text>
             </View>
           </View>
           <View style={styles.nameLocation}>
-            <Text style={{ fontSize: 18, fontWeight: '600', padding: 10 }}>
+            <Text style={{ fontSize: 18, fontWeight: "600", padding: 10 }}>
               {name}
             </Text>
             <View
@@ -39,7 +41,12 @@ const PopularCard = ({ img, type, price, name, location }) => {
                 />
                 {location}
               </Text>
-              <AntDesign name="hearto" size={16} color="#2972FE" style={{paddingRight:10}} />
+              <AntDesign
+                name="hearto"
+                size={16}
+                color="#2972FE"
+                style={{ paddingRight: 10 }}
+              />
             </View>
           </View>
         </View>

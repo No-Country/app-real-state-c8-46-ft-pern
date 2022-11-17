@@ -40,10 +40,13 @@ const Landing = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <MyButton onPress={()=>{navigation.navigate("HomeActionMenu")}}>
-          {/* <Image source={logo} style={styles.logo}></Image> */}
+        <MyButton
+          onPress={() => {
+            navigation.navigate("HomeActionMenu");
+          }}
+        >
           <FontAwesome5 size={50} name="home" color="white" />
-          <Text style={{color:"white"}}>Go Finance</Text>
+          {/* <Text style={{ color: "white" }}>Go Finance</Text> */}
         </MyButton>
       </ImageBackground>
     </View>

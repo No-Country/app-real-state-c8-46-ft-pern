@@ -37,26 +37,28 @@ const NearbyYourLocation = () => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          marginBottom:15
+          marginBottom: 15,
         }}
       >
-        <Text style={{ fontWeight: '600', fontSize: 16 }}>Nearby your location</Text>
-        <Text style={{ color: "#2972FE", fontWeight: '600' }}>See all</Text>
+        <Text style={{ fontWeight: "600", fontSize: 16 }}>
+          Nearby your location
+        </Text>
+        <Text style={{ color: "#2972FE", fontWeight: "600" }}>See all</Text>
       </View>
       <FlatList
         data={popArr}
         renderItem={({ item }) => (
           <PopularCard
-          name={item.name}
-          img={item.img}
-          type={item.type}
-          price={item.price}
-          location={item.location}
+            name={item.name}
+            img={item.img}
+            type={item.type}
+            price={item.price}
+            location={item.location}
           />
-          )}
-          keyExtractor={(item) => item.id}
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
+        )}
+        keyExtractor={(item) => item.id}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );
