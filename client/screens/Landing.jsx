@@ -40,12 +40,8 @@ const Landing = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-
         <MyButton onPress={()=>{navigation.navigate("Intro")}}>
-    
-
           <FontAwesome5 size={50} name="home" color="white" />
-          {/* <Text style={{ color: "white" }}>Go Finance</Text> */}
         </MyButton>
         <View style={styles.text}>
           <Text style={styles.finance}>Go Finance</Text>
