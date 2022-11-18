@@ -39,12 +39,17 @@ const Favorites = () => {
         </TouchableOpacity>
       </View>
       <View style={styles.sad_area}>
-        <View
-         style={styles.sad}
-        >
+        <View style={styles.sad}>
           <Ionicons name="sad-outline" size={50} color="white" />
         </View>
-        <Text style={{ fontSize: 20, color: "#2972FE", fontWeight: "650", marginTop:20 }}>
+        <Text
+          style={{
+            fontSize: 20,
+            color: "#2972FE",
+            fontWeight: "650",
+            marginTop: 20,
+          }}
+        >
           You don't have a favorite yet
         </Text>
       </View>
@@ -113,8 +118,8 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 50,
-    justifyContent:"center",
-    alignItems:"center"
+    justifyContent: "center",
+    alignItems: "center",
   },
   sad_area: {
     width: "100%",
