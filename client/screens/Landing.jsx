@@ -40,7 +40,11 @@ const Landing = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
-        <MyButton onPress={()=>{navigation.navigate("Intro")}}>
+        <MyButton
+          onPress={() => {
+            navigation.navigate("Intro");
+          }}
+        >
           <FontAwesome5 size={50} name="home" color="white" />
         </MyButton>
         <View style={styles.text}>
@@ -73,7 +77,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
-    bottom:-10
+    bottom: -10,
   },
 });
 
