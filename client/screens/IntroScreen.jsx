@@ -2,19 +2,19 @@ import { ImageBackground , StyleSheet , Text , TouchableOpacity , View } from "r
 import { useState }                                                      from "react";
 import { useNavigation }                                                 from "@react-navigation/native";
 import  {data}                                                           from "../components/Intro/CarouselPagination";
-
+import { CarouselPagination }                                            from "../components/Intro/CarouselPagination";
 
 export const IntroScreen = () => {
     const navigation = useNavigation();
 
-    const [countID , setCountId] = useState(1)
+    const [countId , setCountId] = useState(1)
 
     const handleNext = () => {
-        if (countID === data.length) {
+        if (countId === data.length) {
             navigation.navigate("HomeActionMenu")
         } else {
-            setCountId(countID + 1)
-            setState(data[countID])
+            setCountId(countId + 1)
+            setState(data[countId])
         }
     }
 
@@ -31,6 +31,7 @@ export const IntroScreen = () => {
             <View style={styles.boxTwo}>
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.description}>{description}</Text>
+                <CarouselPagination countID={countId}/>
                 <TouchableOpacity style={[styles.button, styles.buttonTransparent]} onPress={() => {
                     navigation.navigate("HomeActionMenu")
                 }}>

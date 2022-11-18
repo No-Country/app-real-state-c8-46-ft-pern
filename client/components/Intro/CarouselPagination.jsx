@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {StyleSheet, Text, View, Dimensions} from "react-native";
+import React    from "react";
+import { View, StyleSheet } from "react-native";
 
 
 export const data = [
@@ -23,9 +23,43 @@ export const data = [
     } ,
 ]
 
-export const CarouselPagination = () => {
+export const CarouselPagination = ({countID}) => {
+
     return (
-        <>
-        </>
-    )
-}
+        <View style={styles.pagination}>
+            {data.map((item) => {
+                const {id} = item
+                return (
+                    <View key={id} style={id === countID ? styles.selected : styles.unselected}/>
+                )
+
+            })}
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    pagination: {
+        flexDirection: "row" ,
+        alignSelf: "center" ,
+        width: "100%" ,
+        justifyContent: "center" ,
+        paddingTop: 30 ,
+    } ,
+    unselected: {
+        width: 8 ,
+        height: 8 ,
+        borderRadius: 5 ,
+        backgroundColor: "gray" ,
+        marginHorizontal: 8 ,
+        alignSelf: "center" ,
+    },
+    selected: {
+        width: 10 ,
+        height: 10 ,
+        borderRadius: 5 ,
+        backgroundColor: "blue" ,
+        marginHorizontal: 8 ,
+        alignSelf: "center" ,
+    }
+})
