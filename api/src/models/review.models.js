@@ -8,7 +8,7 @@ const Review = db.define('Reviews', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        allowNull: false
+        autoIncrement: true,
     },
     message: {
         type: DataTypes.STRING,
