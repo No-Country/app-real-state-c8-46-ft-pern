@@ -3,19 +3,14 @@ const uuid = require('uuid')
 const crypto = require('../users/utils/crypto')
 
 const getAllUsers = async () => {
-    const data = await Users.findAll({
-        where: {
-            status: 'active'
-        }
-    })
+    const data = await Users.findAll()
     return data
 }
 
 const getUserById = async (id) => {
     const data = await Users.findOne({
         where: {
-            id,
-            status: 'active'
+            id
         }
     })
     return data
@@ -63,8 +58,7 @@ const deleteUser = async (id) => {
 const getUserByEmail = async (email) => {
     const data = await Users.findOne({
         where: {
-            email:email,
-            status: 'active'
+            email:email
         }
     }) ;
 
