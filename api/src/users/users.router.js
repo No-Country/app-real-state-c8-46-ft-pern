@@ -11,8 +11,8 @@ require('../middlewares/auth.middleware')(passport)
  *
  */
 
-// router.get('/', passport.authenticate('jwt', {session: false}) ,userServices.getAllUsers )
 router.get('/', userServices.getAllUsers)
+router.post('/', userServices.registerUser)
 
 //? ruta de informacion propia del usuario logeado
 router.route('/me')
@@ -24,7 +24,8 @@ router.route('/me')
         userServices.deletMyUser)
 
 router.route('/:id')
-    .get(userServices.getUserById)
+    .get(passport.authenticate('jwt', {session: false}),
+    userServices.getUserById)
 
     .patch( passport.authenticate('jwt', {session: false}),
         adminValidate,

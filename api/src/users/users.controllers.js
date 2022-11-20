@@ -14,9 +14,7 @@ const getUserById = async (id) => {
         }
     })
     return data
-    
 }
-
 
 const createUser = async (data) => {
     const newUser = await Users.create({
@@ -25,10 +23,7 @@ const createUser = async (data) => {
         lastName: data.lastName,
         email: data.email,
         password: crypto.hashPassword(data.password),
-        phone: data.phone,
-        birthday: data.birthday,
-        gender: data.gender,
-        country: data.country
+        profileImage: data.profileImage,
     })
 
     return newUser
