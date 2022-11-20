@@ -7,8 +7,9 @@ const User = require('./user.models')
 const Review = db.define('Reviews', {
     id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
         autoIncrement: true,
+        primaryKey: true,
+
     },
     message: {
         type: DataTypes.STRING,
