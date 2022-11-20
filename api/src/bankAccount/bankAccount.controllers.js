@@ -1,4 +1,4 @@
-const BankAccount = require('../models/bank_account.models')
+const BankAccount = require('../models/bankAccount.models')
 const uuid = require('uuid')
 
 const addBankAccount = async (data) => {
