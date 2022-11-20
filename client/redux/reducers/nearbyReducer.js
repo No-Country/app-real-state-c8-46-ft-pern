@@ -28,5 +28,9 @@ export const nearbyReducer = (state = initialState, { type, payload }) => {
         isLoading: false,
         nearby: payload,
       };
+      default:
+        return {
+            ...state
+        }
   }
 };
