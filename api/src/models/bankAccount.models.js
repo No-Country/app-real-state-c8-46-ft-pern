@@ -3,7 +3,7 @@ const db = require('../database/database')
 const { DataTypes } = require('sequelize')
 const Users = require('./user.models')
 
-const BankAccount = db.define('bank_acount', {
+const bankAccount = db.define('BankAccounts', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -18,15 +18,6 @@ const BankAccount = db.define('bank_acount', {
         type: DataTypes.INTEGER,
         allowNull: false 
     },
-    propertyId:{
-        type: DataTypes.UUID,
-        allowNull: false,
-        field: 'property_id',
-        references: {
-            key: 'id',
-            model: Users
-        }
-    },
     found:{
         type: DataTypes.FLOAT,
         allowNull: false
@@ -38,4 +29,4 @@ const BankAccount = db.define('bank_acount', {
     }
 })
 
-module.exports = BankAccount
+module.exports = bankAccount
