@@ -12,7 +12,9 @@ const Profile = () => {
         lastName={"Prueba"}
         email={"user@prueba.com"}
         city={"mi casa"}
-        userImg={"https://esteticafacialdexeus.com/wp-content/uploads/2016/09/tipos-de-cara.jpg"}
+        userImg={
+          "https://esteticafacialdexeus.com/wp-content/uploads/2016/09/tipos-de-cara.jpg"
+        }
       />
       <Menu />
     </View>

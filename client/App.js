@@ -47,7 +47,7 @@ export default function App() {
                 headerShown: false,
               }}
             />
-              <Stack.Screen
+            <Stack.Screen
               name="Profile"
               component={Profile}
               options={{
