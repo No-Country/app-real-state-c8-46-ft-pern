@@ -20,11 +20,13 @@ const authRouter = require('./auth/auth.router')
 const initModels = require('./models/init.models')
 const bankAccountRouter = require('./bankAccount/bankAccount.router') ;
 const reviewRouter = require('./review/review.router') ;
+const propertyRouter = require('./property/property.router') ;
 
 app.use('/api/v1/users', userRouter)
 
 app.use('/api/v1/auth',authRouter)
 app.use('/api/v1/review',reviewRouter )
+app.use('/api/v1/property',propertyRouter )
 app.use('/api/v1/bank-account', bankAccountRouter)
 
 
