@@ -8,7 +8,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt; //? Extrae los header de 
 
 module.exports = (passport) => {
     const options = {
-        jwtFromRequest : ExtractJwt.fromAuthHeaderWithScheme('jwt'),
+        jwtFromRequest : ExtractJwt.fromAuthHeaderAsBearerToken(),
         secretOrKey : jwtSecret
     };
     
@@ -20,7 +20,6 @@ module.exports = (passport) => {
                         return done(null, false)
                     
                     }
-                console.log('decoded JWT', decoded);
                 return done(null, decoded)
             } catch (error) {
                 /* handle error */
