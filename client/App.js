@@ -3,6 +3,7 @@ import HomeActionMenu from "./screens/HomeActionMenu";
 import Details from "./screens/Details";
 import { IntroScreen } from "./screens/IntroScreen";
 
+import { Profile } from "./components";
 import theme from "./theme";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -42,6 +43,13 @@ export default function App() {
             <Stack.Screen
               name="Details"
               component={Details}
+              options={{
+                headerShown: false,
+              }}
+            />
+              <Stack.Screen
+              name="Profile"
+              component={Profile}
               options={{
                 headerShown: false,
               }}

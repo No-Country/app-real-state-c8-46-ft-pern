@@ -48,7 +48,7 @@ const Landing = () => {
           <FontAwesome5 size={50} name="home" color="white" />
         </MyButton>
         <View style={styles.text}>
-          <Text style={styles.finance}>Go Finance</Text>
+          <Text style={styles.finance}>Go Rent</Text>
         </View>
       </ImageBackground>
     </View>
