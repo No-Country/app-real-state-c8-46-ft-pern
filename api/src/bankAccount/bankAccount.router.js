@@ -8,7 +8,8 @@ require('../middlewares/auth.middleware')(passport)
 
 //PERF: crear una cuenta de banco
 router.route('/bank-account')
-    .post( bankAccount.createBankAccount )
+    .post(passport.authenticate('jwt', {session: false}),
+        bankAccount.createBankAccount )
 
 module.exports = router
 
