@@ -34,7 +34,7 @@ const Menu = () => {
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("Security")}
         >
           <Fontisto style={styles.icon} name="locked" size={20} />
           <Text style={styles.text}>Security</Text>
@@ -44,7 +44,7 @@ const Menu = () => {
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("Appearance")}
         >
           <Fontisto style={styles.icon} name="eye" />
           <Text style={styles.text}>Appearance</Text>

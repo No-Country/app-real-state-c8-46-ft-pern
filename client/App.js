@@ -11,6 +11,8 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import EditProfile from "./screens/Profile Screens/EditProfile";
 import Notifications from "./screens/Profile Screens/Notifications";
+import Security from "./screens/Profile Screens/Security";
+import Appearance from "./screens/Profile Screens/Appearance";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -65,6 +67,20 @@ export default function App() {
             <Stack.Screen
               name="Notifications"
               component={Notifications}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Security"
+              component={Security}
+              options={{
+                headerShown: false,
+              }}
+            />
+              <Stack.Screen
+              name="Appearance"
+              component={Appearance}
               options={{
                 headerShown: false,
               }}
