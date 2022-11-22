@@ -1,4 +1,8 @@
+import { useEffect } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { getPopularProperties } from "../../redux/actions/popularAction";
+import { getProperties } from "../../redux/actions/propertiesAction";
 import PopularCard from "./PopularCard";
 
 const popArr = [
@@ -29,6 +33,16 @@ const popArr = [
 ];
 
 const Popular = () => {
+  const dispatch = useDispatch();
+  const { isLoading, popularProperties } = useSelector(
+    (state) => state.popular
+  );
+  useEffect(() => {
+    dispatch(getPopularProperties);
+    dispatch(getProperties);
+  }, []);
+
+  
   return (
     <View style={styles.container}>
       <View
@@ -45,7 +59,7 @@ const Popular = () => {
       </View>
       <FlatList
         showsHorizontalScrollIndicator={false}
-        data={popArr}
+        data={popularProperties.length ? popularProperties : popArr}
         renderItem={({ item }) => (
           <PopularCard
             name={item.name}

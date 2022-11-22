@@ -9,9 +9,11 @@ import {
   MaterialIcons,
   FontAwesome,
 } from "@expo/vector-icons";
-import { Profile, Favorites } from "../components";
+import { Favorites } from "../components";
 import SearchMap from "../components/Search/SearchMap";
 import NearbyYourLocation from "../components/HomeActionMenu/NearbyYourLocation";
+import Profile from "./Profile Screens/Profile";
+
 
 const Home = () => {
   return (
@@ -26,6 +28,7 @@ const Home = () => {
 
 const HomeActionMenu = () => {
   const Tab = createBottomTabNavigator();
+
   return (
     <Tab.Navigator initialRouteName="Home">
       <Tab.Screen

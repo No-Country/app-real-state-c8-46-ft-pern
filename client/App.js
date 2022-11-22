@@ -2,14 +2,14 @@ import Landing from "./screens/Landing";
 import HomeActionMenu from "./screens/HomeActionMenu";
 import Details from "./screens/Details";
 import { IntroScreen } from "./screens/IntroScreen";
-
-import { Profile } from "./components";
+import Profile from "./screens/Profile Screens/Profile";
 import theme from "./theme";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import EditProfile from "./screens/Profile Screens/EditProfile";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -50,6 +50,13 @@ export default function App() {
             <Stack.Screen
               name="Profile"
               component={Profile}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="EditProfile"
+              component={EditProfile}
               options={{
                 headerShown: false,
               }}
