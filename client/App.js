@@ -10,6 +10,7 @@ import { ThemeProvider } from "styled-components";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import EditProfile from "./screens/Profile Screens/EditProfile";
+import Notifications from "./screens/Profile Screens/Notifications";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -57,6 +58,13 @@ export default function App() {
             <Stack.Screen
               name="EditProfile"
               component={EditProfile}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Notifications"
+              component={Notifications}
               options={{
                 headerShown: false,
               }}

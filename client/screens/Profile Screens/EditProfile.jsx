@@ -6,9 +6,10 @@ import {
   TextInput,
   View,
 } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import MenuTitle from "../../components/Profile/MenuTitle";
 const EditProfile = () => {
   const [userData, setUserData] = useState({
     firstName: "User",
@@ -24,14 +25,7 @@ const EditProfile = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
-      <View style={styles.titleContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
-          <Ionicons name="arrow-back" size={20} color="#2972FE" />
-        </TouchableOpacity>
-        <Text style={{ fontSize: 20, fontWeight: "700", marginLeft: 15 }}>
-          Edit Profile
-        </Text>
-      </View>
+      <MenuTitle component="Profile" title="Edit Profile" />
 
       <View style={styles.imageContainer}>
         <Image
@@ -101,6 +95,7 @@ const EditProfile = () => {
             textAlign: "center",
             padding: 8,
             fontSize: 16,
+            fontWeight:"bold"
           }}
         >
           Save Changes
@@ -114,13 +109,7 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 10,
   },
-  titleContainer: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    height: 30,
-    marginTop: 30,
-  },
+
   imageContainer: {
     display: "flex",
     justifyContent: "center",

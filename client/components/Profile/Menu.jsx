@@ -24,7 +24,7 @@ const Menu = () => {
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("Notifications")}
         >
           <FontAwesome5 style={styles.icon} name="bell" size={20} />
           <Text style={styles.text}>Notification</Text>
