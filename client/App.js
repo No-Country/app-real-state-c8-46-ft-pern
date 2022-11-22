@@ -13,6 +13,7 @@ import EditProfile from "./screens/Profile Screens/EditProfile";
 import Notifications from "./screens/Profile Screens/Notifications";
 import Security from "./screens/Profile Screens/Security";
 import Appearance from "./screens/Profile Screens/Appearance";
+import Help from "./screens/Profile Screens/Help";
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -81,6 +82,13 @@ export default function App() {
               <Stack.Screen
               name="Appearance"
               component={Appearance}
+              options={{
+                headerShown: false,
+              }}
+            />
+             <Stack.Screen
+              name="Help"
+              component={Help}
               options={{
                 headerShown: false,
               }}

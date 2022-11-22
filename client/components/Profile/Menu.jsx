@@ -54,7 +54,7 @@ const Menu = () => {
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("Help")}
         >
           <MaterialIcons style={styles.icon} name="info" size={20} />
           <Text style={styles.text}>Help</Text>
