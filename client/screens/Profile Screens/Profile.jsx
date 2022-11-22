@@ -1,9 +1,16 @@
+import { useEffect } from "react";
 import { View } from "react-native";
-import Menu from "../components/Profile/Menu";
-import Settings from "../components/Profile/Settings";
-import UserData from "../components/Profile/UserData";
+import { useSelector } from "react-redux";
+import Menu from "../../components/Profile/Menu";
+import Settings from "../../components/Profile/Settings";
+import UserData from "../../components/Profile/UserData";
 
 const Profile = () => {
+
+// useEffect(() => {
+//   dispatch()
+// }, []);
+
   return (
     <View style={{}}>
       <Settings />

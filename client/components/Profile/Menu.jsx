@@ -6,13 +6,15 @@ import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 const Menu = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("EditProfile")}
         >
           <FontAwesome5 style={styles.icon} name="user-alt" size={20} />
           <Text style={styles.text}>Edit Profile</Text>
@@ -22,7 +24,7 @@ const Menu = () => {
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("Notifications")}
         >
           <FontAwesome5 style={styles.icon} name="bell" size={20} />
           <Text style={styles.text}>Notification</Text>
@@ -32,7 +34,7 @@ const Menu = () => {
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("Security")}
         >
           <Fontisto style={styles.icon} name="locked" size={20} />
           <Text style={styles.text}>Security</Text>
@@ -42,7 +44,7 @@ const Menu = () => {
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("Appearance")}
         >
           <Fontisto style={styles.icon} name="eye" />
           <Text style={styles.text}>Appearance</Text>
@@ -52,7 +54,7 @@ const Menu = () => {
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onStartShouldSetResponder={() => navigation.navigate("Help")}
         >
           <MaterialIcons style={styles.icon} name="info" size={20} />
           <Text style={styles.text}>Help</Text>
