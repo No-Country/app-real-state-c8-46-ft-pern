@@ -7,7 +7,7 @@ const Property = require('./property.models')
 
 const initModels =  () => {
 
-    //Relationships
+    //TODO:Relationships
     //backAccount 
     BankAccount.belongsTo(Users)
 
