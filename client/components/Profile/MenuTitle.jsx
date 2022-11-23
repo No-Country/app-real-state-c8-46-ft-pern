@@ -10,6 +10,7 @@ const MenuTitle = ({title}) => {
             alignItems: "center",
             height: 30,
             marginTop: 30,
+            marginBottom:10
           }}>
         <TouchableOpacity onPress={() => navigation.navigate("Profile")}>
           <Ionicons name="arrow-back" size={20} color="#2972FE" />

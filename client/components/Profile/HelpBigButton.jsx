@@ -5,16 +5,17 @@ const HelpBigButton = ({ icon, color, title }) => {
     <View
       style={{
         backgroundColor: color,
-        width: 110,
-        height: 110,
+        width: 140,
+        height: 120,
         borderRadius: 15,
         display: "flex",
         alignItems: "center",
-        margin: 20,
+        justifyContent:"center",
+        margin: 10,
       }}
     >
-      <Foundation name={icon} size={40} color="white" />
-      <Text color="white">{title}</Text>
+      <Foundation name={icon} size={60} color="white" />
+      <Text style={{color:"white", fontWeight:"700", marginTop:10, fontSize:16}}>{title}</Text>
     </View>
   );
 };
