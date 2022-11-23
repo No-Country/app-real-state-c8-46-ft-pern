@@ -3,6 +3,7 @@ import { SocialButton }                                      from "../components
 import { StatusBar }                                         from "expo-status-bar";
 import { SignInButton }                                      from "../components/Login/SignInButton";
 import { KeyboardAwareScrollView }                           from "react-native-keyboard-aware-scroll-view";
+import { FontAwesome5 }                                      from "@expo/vector-icons";
 
 export const RegisterScreen = () => {
 
@@ -12,6 +13,7 @@ export const RegisterScreen = () => {
     return (
         <KeyboardAwareScrollView style={styles.container}>
             <View style={styles.form}>
+                <FontAwesome5 name="home" size={70} color="blue" style={{padding: 20}}/>
                 <Text style={styles.subTitle}>Sign Up Fast! and GO for the Rent</Text>
                 <Text style={styles.label}> First Name </Text>
                 <TextInput placeholder={"First Name"} style={styles.inputText}/>
@@ -53,14 +55,14 @@ const styles = StyleSheet.create({
                                          textShadowRadius: 4 ,
                                          width: Dimensions.get("window").width - 50 ,
                                          textAlign: "center" ,
+                                         padding: 10 ,
                                      } ,
                                      inputText: {
                                          fontSize: 14 ,
                                          color: "grey" ,
-                                         padding: 10 ,
+                                         padding: 8 ,
                                          borderRadius: 30 ,
                                          width: Dimensions.get("window").width - 50 ,
-                                         height: 50 ,
                                          backgroundColor: "#fff" ,
                                          paddingStart: 20 ,
                                          elevation: 5 ,
@@ -77,7 +79,6 @@ const styles = StyleSheet.create({
                                          marginBottom: 3 ,
                                          textAlign: "center" ,
                                          alignSelf: "flex-start" ,
-                                         marginLeft: 25 ,
                                          color: "#D4E3FF" ,
                                          fontWeight: "bold" ,
                                      } ,
