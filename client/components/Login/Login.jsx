@@ -1,6 +1,7 @@
 import { Dimensions , StyleSheet , Text , TextInput , View } from "react-native";
 
 export const Login = () => {
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Go Rent</Text>

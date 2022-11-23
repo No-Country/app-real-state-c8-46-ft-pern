@@ -1,12 +1,15 @@
 import { Dimensions , StyleSheet , Text , TouchableOpacity , View } from "react-native";
 import React                                                        from "react";
+import { useNavigation }                                            from "@react-navigation/native";
 
 
 // make a button gradient component
-export const Button = ({title}) => {
+export const SignInButton = ({title, style}) => {
+    const navigation = useNavigation();
+
     return (
-        <View>
-            <TouchableOpacity style={styles.button}>
+        <View style={style}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("HomeActionMenu")}>
                 <Text style={styles.buttonText}>{title}</Text>
             </TouchableOpacity>
         </View>
@@ -35,6 +38,6 @@ const styles = StyleSheet.create({
                                          fontWeight: "bold" ,
                                          textAlign: "center" ,
                                          marginTop: 20 ,
-                                     }
+                                     },
                                  });
 

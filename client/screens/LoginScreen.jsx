@@ -1,18 +1,21 @@
-import { StatusBar }                from "expo-status-bar";
-import { StyleSheet , Text , View } from "react-native";
-import SvgTop                       from "../assets/svg/SvgTop";
-import { Button }                   from "../components/Login/Button";
-import { Login }                    from "../components/Login/Login";
-import React                        from "react";
-import { SocialButton }             from "../components/Login/SocialButton";
+import { StatusBar }                                   from "expo-status-bar";
+import { StyleSheet , Text , TouchableOpacity , View } from "react-native";
+import SvgTop                                          from "../assets/svg/SvgTop";
+import { SignInButton }                                from "../components/Login/SignInButton";
+import { Login }                                       from "../components/Login/Login";
+import React                                           from "react";
+import { SocialButton }                                from "../components/Login/SocialButton";
+import { useNavigation }                               from "@react-navigation/native";
+import { KeyboardAwareScrollView }                     from "react-native-keyboard-aware-scroll-view";
 
 export const LoginScreen = () => {
 
+    const navigation = useNavigation();
     const googleIcon = require('../assets/google48.png');
     const facebookIcon = require('../assets/facebook48.png');
 
     return (
-        <View style={styles.container}>
+        <KeyboardAwareScrollView style={styles.container}>
             <View style={styles.svgTop}>
                 <SvgTop/>
             </View>
@@ -20,36 +23,44 @@ export const LoginScreen = () => {
                 <Login/>
             </View>
             <View style={styles.buttonContainer}>
-                <Button title="Sign in"/>
+                <SignInButton title="Sign in"/>
                 <Text style={styles.text}>or continue with</Text>
                 <View style={styles.buttonSocial}>
                     <SocialButton source={googleIcon} title="Google"/>
                     <SocialButton source={facebookIcon} title="Facebook"/>
                 </View>
-                <Text style={styles.text}>Don't have an account? <Text style={styles.textBold}>Sign up</Text></Text>
+                <Text style={styles.text}>Don't have an account?
+                </Text>
+                <TouchableOpacity onPress={
+                    () => navigation.navigate("Register")
+                }>
+                    <Text style={styles.textBold}>Sign up</Text>
+                </TouchableOpacity>
             </View>
             <StatusBar style="auto"/>
-        </View>
+        </KeyboardAwareScrollView>
     );
 }
 
 const styles = StyleSheet.create({
                                      container: {
-                                         flex: 100 ,
+                                         flex: 1 ,
                                          backgroundColor: "#f1f1f1" ,
                                      } ,
                                      buttonContainer: {
-                                         flex: 35 ,
-                                         width: "100%" ,
-                                         justifyContent: "space-evenly" ,
-                                         alignItems: "center" ,
-                                     } ,
-                                     loginContainer: {
-                                         flex: 65 ,
                                          width: "100%" ,
                                          justifyContent: "space-evenly" ,
                                          alignItems: "center" ,
                                          padding: 20 ,
+                                         marginTop: 20 ,
+                                     } ,
+                                     loginContainer: {
+                                         width: "100%" ,
+                                         justifyContent: "space-evenly" ,
+                                         alignItems: "center" ,
+                                         padding: 20 ,
+                                         marginVertical: 20 ,
+                                         top: 40 ,
                                      } ,
                                      svgTop: {
                                          position: "absolute" ,
@@ -63,6 +74,7 @@ const styles = StyleSheet.create({
                                          color: "#05445E" ,
                                          fontSize: 15 ,
                                          fontWeight: "bold" ,
+                                         padding: 10 ,
                                      } ,
                                      textBold: {
                                          color: "#05445E" ,
@@ -74,6 +86,7 @@ const styles = StyleSheet.create({
                                          flexDirection: "row" ,
                                          justifyContent: "space-evenly" ,
                                          width: "100%" ,
+                                         padding: 20 ,
                                      } ,
 
                                  });

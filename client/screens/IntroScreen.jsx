@@ -1,10 +1,11 @@
 import { ImageBackground , StyleSheet , Text , TouchableOpacity , View , } from "react-native";
-import { useState }                                                        from "react";
+import React , { useState }                                                from "react";
 import { useNavigation }                                                   from "@react-navigation/native";
 import {
     CarouselPagination ,
     data
 }                                                                          from "../components/Intro/CarouselPagination";
+import { StatusBar }                                                       from "expo-status-bar";
 
 export const IntroScreen = () => {
     const navigation = useNavigation();
@@ -53,6 +54,7 @@ export const IntroScreen = () => {
                     <Text style={styles.buttonText}>Next</Text>
                 </TouchableOpacity>
             </View>
+            <StatusBar style="auto" />
         </ImageBackground>
     );
 };
