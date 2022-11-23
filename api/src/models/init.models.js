@@ -1,5 +1,5 @@
 const Users = require('./user.models')
-const bankAccount = require('./bankAccount.models')
+const BankAccount = require('./bankAccount.models')
 const Favorites = require('./favorites.models')
 const Review = require('./review.models')
 const propertyImage = require('./propertyImage.models')
@@ -9,7 +9,7 @@ const initModels =  () => {
 
     //Relationships
     //backAccount 
-    bankAccount.belongsTo(Users)
+    BankAccount.belongsTo(Users)
 
     //Favorites
     Favorites.belongsTo(Users)
@@ -25,7 +25,7 @@ const initModels =  () => {
     //Users Relationships
     Users.hasMany(Favorites)
     Users.hasMany(Review)
-    Users.hasOne(bankAccount)
+    Users.hasOne(BankAccount)
     /* Users.hasMany(Property) */
 
     //Property 

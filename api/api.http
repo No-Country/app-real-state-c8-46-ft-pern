@@ -1,0 +1,46 @@
+GET localhost:3009
+Content-Type: application/json
+
+POST localhost:3009/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "firstName":"Gean",
+    "lastName":"Franco",
+    "email":"gean@example.com",
+    "password":"root"
+}
+
+POST localhost:3009/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email":"gean@example.com",
+    "password":"root"
+}
+
+POST localhost:3009/api/v1/property/me
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ1ODZiLTAwY2QtNDIwNS1iMmZlLWQ0NzUxMTAwMmJhOCIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjkxNzkzMzZ9.xr4FjfH-MlGqySq1LDlvAAbSvyXWP9pX6Ykj_4YS-tI
+Content-Type: application/json
+
+{
+    "name":"Mansion con piscina",
+    "addres":"San francisco AT400",
+    "status":"HOT"
+}
+
+GET localhost:3009/api/v1/property/me
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ1ODZiLTAwY2QtNDIwNS1iMmZlLWQ0NzUxMTAwMmJhOCIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjkxNzkzMzZ9.xr4FjfH-MlGqySq1LDlvAAbSvyXWP9pX6Ykj_4YS-tI
+Content-Type: application/json
+
+POST localhost:3009/api/v1/bank-account
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ1ODZiLTAwY2QtNDIwNS1iMmZlLWQ0NzUxMTAwMmJhOCIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjkxNzkzMzZ9.xr4FjfH-MlGqySq1LDlvAAbSvyXWP9pX6Ykj_4YS-tI
+Content-Type: application/json
+
+{
+    "numberAccount":"4557805845457",
+    "expired":"2023",
+    "found":"100",
+    "cvv":"421"
+}
+

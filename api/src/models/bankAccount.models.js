@@ -3,7 +3,7 @@ const db = require('../database/database')
 const { DataTypes } = require('sequelize')
 const Users = require('./user.models')
 
-const bankAccount = db.define('BankAccounts', {
+const BankAccount = db.define('BankAccounts', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -26,7 +26,8 @@ const bankAccount = db.define('BankAccounts', {
         type: DataTypes.STRING,
         unique: true,
         allowNull: false
-    }
+    },
+    
 })
 
-module.exports = bankAccount
+module.exports = BankAccount
