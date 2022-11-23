@@ -19,18 +19,16 @@ const SearchMap = () => {
 
   const onChangeSearch = (query) => setSearchQuery(query);
 
-const handlerSelectedProperty=(e)=>{
-  
-  setSelected({
-    img: e.img,
-    type: e.type,
-    price: e.price,
-    name: e.name,
-    location: e.location,
-  });
-  setIsModalOpen(!isModalOpen)
-}
-
+  const handlerSelectedProperty = (e) => {
+    setSelected({
+      img: e.img,
+      type: e.type,
+      price: e.price,
+      name: e.name,
+      location: e.location,
+    });
+    setIsModalOpen(!isModalOpen)
+  }
 
   return (
     <View>
@@ -40,7 +38,6 @@ const handlerSelectedProperty=(e)=>{
         value={searchQuery}
         style={{ marginTop: 25 }}
       />
-
       <MapView
         style={styles.map}
         initialRegion={{
@@ -49,15 +46,13 @@ const handlerSelectedProperty=(e)=>{
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
-        >
+      >
         {
-          popArr.map(e=> (<Marker onPress={()=>handlerSelectedProperty(e)} key={e.id} coordinate={{latitude:e.latitude,longitude:e.longitude}}   pinColor = {"red"} // any color
-          title={e.name}/>))
+          popArr.map(e => (<Marker onPress={() => handlerSelectedProperty(e)} key={e.id} coordinate={{ latitude: e.latitude, longitude: e.longitude }} pinColor={"red"} // any color
+            title={e.name} />))
         }
-       
       </MapView>
-      
-      <BottomPopup isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} info={selected}/>
+      <BottomPopup isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} info={selected} />
     </View>
   );
 };
