@@ -4,7 +4,7 @@ const getMyProperties = async(req,res) => {
 
     propertyController.getMyProperties(req.user.id)
     .then( result => {
-        res.status(201).json(result)
+        res.status(200).json(result)
     } )
     .catch(err => {
         res.json({message: err.message})
@@ -14,15 +14,16 @@ const getMyProperties = async(req,res) => {
 
 const createProperty = async(req,res) => {
     
-    const {name,address,status} = req.body;
+    const userId = req.user.id ;
+    const {name,addres,status} = req.body;
 
-    if (name,address,status) {
-        propertyController.createProperty({name,address,status })
+    if (name && addres && status) {
+        propertyController.createProperty({name,addres,userId,status })
             .then( result => {
                 res.status(201).json(result)
             } )
             .catch(err => {
-                res.json({message: err.message})
+                res.status(400).json({message: err.message})
             })
     }else{
         res.json({
@@ -39,7 +40,7 @@ const createProperty = async(req,res) => {
 const deleteMyProperty = async(req,res) => {
 
     const {propertyId} = req.params
-    propertyController.deleteMyProperty(propertyId,{user:req.user})
+    propertyController.deleteMyProperty(propertyId)
     .then( result => {
         res.status(201).json(result)
     } )

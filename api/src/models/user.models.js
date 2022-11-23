@@ -2,7 +2,7 @@ const db = require('../database/database')
 
 const { DataTypes } = require('sequelize')
 
-const User = db.define('Users', {
+const Users = db.define('Users', {
     id: {
         type: DataTypes.UUID,
         primaryKey: true,
@@ -37,7 +37,7 @@ const User = db.define('Users', {
     },
     profileImage:{
         type: DataTypes.STRING,
-        allowNull: false,
+        defaultValue: null
     },
     wallet:{
         type: DataTypes.DOUBLE,
@@ -46,4 +46,4 @@ const User = db.define('Users', {
     },
 })
 
-module.exports = User
+module.exports = Users

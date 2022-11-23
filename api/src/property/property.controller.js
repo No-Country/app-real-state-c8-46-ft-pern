@@ -1,6 +1,7 @@
 const Review = require('../models/review.models')
 const User = require('../models/user.models')
 const Property = require('../models/property.models')
+const uuid = require('uuid') ;
 
 const getMyProperties = async (userId) => {
     const myProperties = await Property.findAll({
@@ -14,18 +15,20 @@ const getMyProperties = async (userId) => {
       })
       return myProperties
 }
-const createProperty = async (userId) => {
+const createProperty = async (data) => {
     const newProperty = 
     await Property
     .create({
+            id: uuid.v4(),
             name: data.name,
-            address : data.address,
-            status:data.status
+            addres : data.addres,
+            creatorId : data.userId,
+            status : data.status 
             })
     return newProperty
 }
 
-const deleteMyProperty = async (propertyId,user) => {
+const deleteMyProperty = async (propertyId) => {
 //is lacking implements user filter
     await Property.destroy({ where: { id:propertyId } })
     return "Property deleted"

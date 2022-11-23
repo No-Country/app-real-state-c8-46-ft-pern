@@ -1,5 +1,4 @@
 //estrategias --> diferentes maneras de hacer un login
-
 const { jwtSecret } = require('../config');
 const { getUserById } = require('../users/users.controllers');
 
@@ -8,7 +7,7 @@ const ExtractJwt = require('passport-jwt').ExtractJwt; //? Extrae los header de 
 
 module.exports = (passport) => {
     const options = {
-        jwtFromRequest : ExtractJwt.fromAuthHeaderAsBearerToken(),
+        jwtFromRequest : ExtractJwt.fromAuthHeaderWithScheme('jwt'),
         secretOrKey : jwtSecret
     };
     
@@ -20,6 +19,7 @@ module.exports = (passport) => {
                         return done(null, false)
                     
                     }
+                console.log('Decoded jwt', decoded)
                 return done(null, decoded)
             } catch (error) {
                 /* handle error */
