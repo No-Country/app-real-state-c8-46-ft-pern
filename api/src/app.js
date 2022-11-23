@@ -6,6 +6,7 @@ const db = require('./database/database')
 const app = express()
 
 app.use(express.json())
+app.use('/public', express.static(`${__dirname}/images`))  
 
 app.get('/', (req, res)=> {
     res.status(200).json({
