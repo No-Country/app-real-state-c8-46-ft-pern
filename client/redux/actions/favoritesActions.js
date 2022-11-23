@@ -41,7 +41,7 @@ export const removeFromFavorites = (payload) => {
   return async function (dispatch) {
     dispatch({ type: REMOVE_FROM_FAVORITES_PENDING });
     try {
-      const json = await axios.post(
+      const json = await axios.delete(
         `${URL_BACK}/favorites/me/${payload.favId}`
       );
       return dispatch({
