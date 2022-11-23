@@ -2,6 +2,7 @@ import Landing from "./screens/Landing";
 import HomeActionMenu from "./screens/HomeActionMenu";
 import Details from "./screens/Details";
 import { IntroScreen } from "./screens/IntroScreen";
+import { LoginScreen } from "./screens/LoginScreen";
 import Profile from "./screens/Profile Screens/Profile";
 import theme from "./theme";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -33,6 +34,13 @@ export default function App() {
             <Stack.Screen
               name="Intro"
               component={IntroScreen}
+              options={{
+                headerShown: false,
+              }}
+            />
+              <Stack.Screen
+              name="Login"
+              component={LoginScreen}
               options={{
                 headerShown: false,
               }}
