@@ -9,13 +9,13 @@ const Help = () => {
       <View style={styles.buttonRow}>
         <HelpBigButton
           style={styles.button}
-          icon="social-instagram"
+          icon="instagram"
           color="#FF6666"
           title="Instagram"
         />
         <HelpBigButton
           style={styles.button}
-          icon="social-twitter"
+          icon="twitter"
           color="#2972FE"
           title="Twitter"
         />
@@ -23,13 +23,13 @@ const Help = () => {
       <View style={styles.buttonRow}>
         <HelpBigButton
           style={styles.button}
-          icon="web"
+          icon="earth"
           color="#FFC52C"
           title="Website"
         />
         <HelpBigButton
           style={styles.button}
-          icon="social-youtube"
+          icon="youtube"
           color="#FF6666"
           title="Youtube"
         />
