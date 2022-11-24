@@ -41,8 +41,7 @@ const Popular = () => {
     (state) => state.popular
   );
   useEffect(() => {
-    dispatch(getPopularProperties);
-    dispatch(getProperties);
+    dispatch(getPopularProperties());
   }, []);
 
   
@@ -65,8 +64,8 @@ const Popular = () => {
         data={popularProperties.length ? popularProperties : popArr}
         renderItem={({ item }) => (
           <PopularCard
-            name={item.name}
-            img={item.img}
+            name={item.title}
+            img={item.coverPhoto}
             type={item.type}
             price={item.price}
             location={item.location}

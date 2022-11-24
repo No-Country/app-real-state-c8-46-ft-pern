@@ -38,11 +38,11 @@ export const popArr = [
 const AllProperties = () => {
   const dispatch = useDispatch();
   const { isLoading, popularProperties } = useSelector(
-    (state) => state.popular
+    (state) => state.properties
   );
   useEffect(() => {
-    dispatch(getPopularProperties);
-    dispatch(getProperties);
+    dispatch(getProperties());
+    // dispatch(getProperties);
   }, []);
 
   
@@ -65,8 +65,8 @@ const AllProperties = () => {
         data={popularProperties.length ? popularProperties : popArr}
         renderItem={({ item }) => (
           <PopularCard
-            name={item.name}
-            img={item.img}
+            name={item.title}
+            img={item.coverPhoto}
             type={item.type}
             price={item.price}
             location={item.location}

@@ -23,7 +23,7 @@ const Home = () => {
       <HVA />
       <Popular />
       <NearbyYourLocation />
-      <AllProperties/>
+      {/* <AllProperties/> */}
     </ScrollView>
   );
 };
