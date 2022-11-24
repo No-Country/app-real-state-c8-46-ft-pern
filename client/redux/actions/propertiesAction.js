@@ -9,7 +9,7 @@ export const getProperties = () => {
   return async function (dispatch) {
     dispatch({ type: GET_PROPERTIES_PENDING });
     try {
-      const json = await axios(`${URL_BACK}/property´`);
+      const json = await axios(`${URL_BACK}/properties`);
       return dispatch({
         type: GET_PROPERTIES_SUCCESS,
         payload: json.data,

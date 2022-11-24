@@ -14,7 +14,6 @@ import SearchMap from "../components/Search/SearchMap";
 import NearbyYourLocation from "../components/HomeActionMenu/NearbyYourLocation";
 import Profile from "./Profile Screens/Profile";
 
-
 const Home = () => {
   return (
     <ScrollView style={{ backgroundColor: "white" }}>

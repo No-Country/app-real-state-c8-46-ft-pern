@@ -34,11 +34,11 @@ const Help = () => {
           title="Youtube"
         />
       </View>
-   <MenuItem text="FAQ" navigate="Profile"/>
-   <MenuItem text="Contact us" navigate="Profile"/>
-   <MenuItem text="Terms & Conditions" navigate="Profile"/>   
-   <MenuItem text="Privacy Policy" navigate="Profile"/>
-   <MenuItem text="About Us" navigate="Profile"/>
+      <MenuItem text="FAQ" navigate="Profile" />
+      <MenuItem text="Contact us" navigate="Profile" />
+      <MenuItem text="Terms & Conditions" navigate="Profile" />
+      <MenuItem text="Privacy Policy" navigate="Profile" />
+      <MenuItem text="About Us" navigate="Profile" />
     </View>
   );
 };
@@ -51,6 +51,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   button: {},
- 
 });
 export default Help;
