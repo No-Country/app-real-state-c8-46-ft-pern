@@ -22,6 +22,15 @@ const Property = db.define('Properties', {
         allowNull: false,
         defaultValue: 'active'
     },
+    creatorId: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        field: "creator_id",
+        references: {
+            key: 'id',
+            model: Users
+        }
+    }
 })
 
 module.exports = Property

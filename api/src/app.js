@@ -15,7 +15,7 @@ app.get('/', (req, res)=> {
     })
 })
 
-
+//TODO: rutas
 const userRouter =  require('./users/users.router');
 const authRouter = require('./auth/auth.router')
 const initModels = require('./models/init.models')
