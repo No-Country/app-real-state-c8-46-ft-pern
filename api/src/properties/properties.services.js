@@ -21,6 +21,7 @@ const filterGetProperties = async () => {
             coverPhoto: e.coverPhoto.url,
             contactName: e.contactName,
             type: e.type,
+            location:e.location[1].name
         }
     })
     return filteredProperties;

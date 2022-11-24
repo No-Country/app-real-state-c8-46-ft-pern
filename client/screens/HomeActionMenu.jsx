@@ -13,6 +13,7 @@ import { Favorites } from "../components";
 import SearchMap from "../components/Search/SearchMap";
 import NearbyYourLocation from "../components/HomeActionMenu/NearbyYourLocation";
 import Profile from "./Profile Screens/Profile";
+import AllProperties from "../components/HomeActionMenu/AllProperties";
 
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
       <HVA />
       <Popular />
       <NearbyYourLocation />
+      <AllProperties/>
     </ScrollView>
   );
 };
