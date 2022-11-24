@@ -12,6 +12,7 @@ import {
 } from "../types/registerTypes";
 
 export const registerUser = (payload) => {
+  console.log("registeruser");
   return async function (dispatch) {
     dispatch({ type: REGISTER_USER_PENDING });
     try {

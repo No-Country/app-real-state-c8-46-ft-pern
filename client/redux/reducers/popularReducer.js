@@ -17,12 +17,12 @@ export const popularReducer = (state = initialState, { type, payload }) => {
         isLoading: true,
         popularProperties: [],
       };
-    case GET_POPULAR_PROPERTIES_REJECTED:
+      case GET_POPULAR_PROPERTIES_REJECTED:
       return {
         ...state,
         isLoading: false,
       };
-    case GET_POPULAR_PROPERTIES_SUCCESS:
+      case GET_POPULAR_PROPERTIES_SUCCESS:
       return {
         ...state,
         isLoading: false,

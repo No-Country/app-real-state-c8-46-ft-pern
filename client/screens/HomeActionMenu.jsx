@@ -15,7 +15,6 @@ import NearbyYourLocation from "../components/HomeActionMenu/NearbyYourLocation"
 import Profile from "./Profile Screens/Profile";
 import AllProperties from "../components/HomeActionMenu/AllProperties";
 
-
 const Home = () => {
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
