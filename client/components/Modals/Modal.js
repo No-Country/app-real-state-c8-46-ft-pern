@@ -34,7 +34,7 @@ const BottomPopup = ({isModalOpen,setIsModalOpen,info}) => {
                 <View style={modalStyle}>
                     <Image
                         source={{
-                            uri: info.img,
+                            uri: info.coverPhoto,
                         }}
                         style={{
                             width: "100%",
@@ -44,7 +44,7 @@ const BottomPopup = ({isModalOpen,setIsModalOpen,info}) => {
                         }}
                     />
                     <View style={styles.typePrice}>
-                        <Text style={styles.type}>{info.type}</Text>
+                        <Text style={styles.type}>{info.purpose}</Text>
                         <View style={styles.price}>
                             <Text style={{ fontSize: 16, color: "#2972FE", fontWeight: "600" }}>
                                {info.price}{" "}
