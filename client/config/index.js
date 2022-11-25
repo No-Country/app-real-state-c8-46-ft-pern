@@ -1,2 +1,3 @@
-export const URL_BACK =
-  process.env.REACT_APP_URL_BASE || "http://localhost:3009/api/v1";
+export const URL_BACK = "http://192.168.1.37:3009/api/v1";
+//  || "http://localhost:3009/api/v1";
+

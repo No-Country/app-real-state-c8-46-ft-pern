@@ -7,17 +7,25 @@ import {
 } from "../types/popularTypes";
 
 export const getPopularProperties = () => {
-  return async function (dispatch) {
-    dispatch({ type: GET_POPULAR_PROPERTIES_PENDING });
+  return async (dispatch) => {
+    dispatch({ type: GET_POPULAR_PROPERTIES_PENDING })
     try {
-      const json = await axios(`${URL_BACK}/popular`);
+      const json = await axios.get(`${URL_BACK}/popular`)
       return dispatch({
-        type: GET_POPULAR_PROPERTIES_SUCCESS,
+        type: GET_POPULAR_PROPERTIES_SUCCESS, 
         payload: json.data,
       });
     } catch (err) {
-      console.log(err);
+      console.log(err.message); 
       return dispatch({ type: GET_POPULAR_PROPERTIES_REJECTED });
     }
   };
+  // return function (dispatch) {
+  //   axios.get(`${URL_BACK}/popular`).then((json) =>
+  //     dispatch({
+  //       type: GET_POPULAR_PROPERTIES_SUCCESS,
+  //       payload: json.data,
+  //     })
+  //   );
+  // };
 };
