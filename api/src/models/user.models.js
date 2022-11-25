@@ -44,6 +44,14 @@ const Users = db.define('Users', {
         allowNull: false,
         defaultValue: 0
     },
+    isValidate:{
+        type: DataTypes.BOOLEAN,
+        defaultValue:false
+    },
+    token:{
+        type: DataTypes.STRING,
+        
+    },
 })
 
 module.exports = Users
