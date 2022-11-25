@@ -9,7 +9,7 @@ const Property = db.define('Properties', {
         primaryKey: true,
         allowNull: false 
     },
-    name: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -17,10 +17,54 @@ const Property = db.define('Properties', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    status: {
+    state: {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'active'
+    },
+    lat:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    lon:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    purpose:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    price:{
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    product:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    category:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    rentFrequency:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    rooms:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    baths:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }, 
+    area:{
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    contactName:{
+        type: DataTypes.STRING,
+        allowNull: false
     },
     creatorId: {
         type: DataTypes.UUID,
