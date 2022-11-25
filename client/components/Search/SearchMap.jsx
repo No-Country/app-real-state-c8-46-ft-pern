@@ -21,8 +21,8 @@ const SearchMap = () => {
 
   const handlerSelectedProperty = (e) => {
     setSelected({
-      img: e.img,
-      type: e.type,
+      coverPhoto: e.coverPhoto,
+      purpose: e.purpose,
       price: e.price,
       name: e.name,
       location: e.location,

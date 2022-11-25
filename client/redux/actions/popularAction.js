@@ -20,12 +20,4 @@ export const getPopularProperties = () => {
       return dispatch({ type: GET_POPULAR_PROPERTIES_REJECTED });
     }
   };
-  // return function (dispatch) {
-  //   axios.get(`${URL_BACK}/popular`).then((json) =>
-  //     dispatch({
-  //       type: GET_POPULAR_PROPERTIES_SUCCESS,
-  //       payload: json.data,
-  //     })
-  //   );
-  // };
 };
