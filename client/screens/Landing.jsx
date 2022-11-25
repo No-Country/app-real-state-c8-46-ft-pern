@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react";
+import React            from "react";
 import { FontAwesome5 } from "@expo/vector-icons";
 import {
   ImageBackground,
@@ -8,8 +8,9 @@ import {
   Button,
   Text,
   View,
-} from "react-native";
-import styled from "styled-components/native";
+}                       from "react-native";
+import styled           from "styled-components/native";
+import { StatusBar }    from "expo-status-bar";
 
 const image = {
   uri: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=0c5bd491254142e1cc277a6d84cdc6ba",
@@ -51,6 +52,7 @@ const Landing = () => {
           <Text style={styles.finance}>Go Rent</Text>
         </View>
       </ImageBackground>
+      <StatusBar style="auto" />
     </View>
   );
 };
