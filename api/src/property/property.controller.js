@@ -15,34 +15,35 @@ const getMyProperties = async (userId) => {
       })
       return myProperties
 }
-const createProperty = async (data) => {
+const createProperty = async (data,userId) => {
+
     const newProperty = 
     await Property
     .create({
             id: uuid.v4(),
-            name: data.name,
-            addres : data.addres,
-            creatorId : data.userId,
-            status : data.status 
+            creatorId: userId,
+            ...data
             })
     return newProperty
 }
 
-const deleteMyProperty = async (propertyId) => {
-//is lacking implements user filter
-    await Property.destroy({ where: { id:propertyId } })
+const deleteMyProperty = async (propertyId,userId) => {
+
+    const myProperty = await Property.findOne({where: {creatorId:userId}})
+    await myProperty.destroy({ where: { id:propertyId } })
     return "Property deleted"
 
 }
 
-const editMyProperty = async (propertyid,data,user) => {
-//is lacking implements user filter
+const editMyProperty = async (propertyId,userId,data) => {
+
     await Property.update(data,{
         where: {
-            id:propertyid
+            id:propertyId,
+            creatorId:userId
         }
     })
-    return "Property deleted"
+    return "Property edited"
 }
 
 const getPropertyById = async (propertyId) => {
@@ -59,13 +60,13 @@ const editProperty = async (propertyid,data) => {
             id:propertyid
         }
     })
-    return "Property edit"
+    return "Property edited"
 
 }
 
 const deleteProperty = async (propertyId) => {
 
-    await Property.destroy({ where: { id:propertyId , } })
+    await Property.destroy({ where: { id:propertyId } })
     return "Property deleted"
 
 }
