@@ -49,7 +49,7 @@ const Popular = () => {
   }, []);
 
   // const name = popularProperties && popularProperties.title.split(" ")
-console.log(popularProperties);
+
   return (
     <View style={styles.container}>
       <View

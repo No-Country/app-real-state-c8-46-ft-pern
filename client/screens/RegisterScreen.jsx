@@ -1,14 +1,25 @@
-import { Dimensions , StyleSheet , Text , TextInput , View } from "react-native";
+import { Dimensions , StyleSheet , Text , TextInput , View , TouchableOpacity} from "react-native";
 import { SocialButton }                                      from "../components/Login/SocialButton";
 import { StatusBar }                                         from "expo-status-bar";
-import { SignInButton }                                      from "../components/Login/SignInButton";
+// import { SignInButton }                                      from "../components/Login/SignInButton";
 import { KeyboardAwareScrollView }                           from "react-native-keyboard-aware-scroll-view";
 import { FontAwesome5 }                                      from "@expo/vector-icons";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import {registerUser} from "../redux/actions/registerAction"
 
 export const RegisterScreen = () => {
 
     const googleIcon = require('../assets/google48.png');
     const facebookIcon = require('../assets/facebook48.png');
+
+    const dispatch = useDispatch()
+    const [data,setData]=useState({firstName:'',lastName:'',email:'',password:''})
+
+    const hardcodeado = {firstName:"ads", lastName:"das", email:"das@gmail.comas", password:"098asdasd7654321"}
+    const handleSubmit=()=>{
+        dispatch(registerUser(hardcodeado))
+    }
 
     return (
         <KeyboardAwareScrollView style={styles.container}>
@@ -16,14 +27,17 @@ export const RegisterScreen = () => {
                 <FontAwesome5 name="home" size={70} color="blue" style={{padding: 20}}/>
                 <Text style={styles.subTitle}>Sign Up Fast! and GO for the Rent</Text>
                 <Text style={styles.label}> First Name </Text>
-                <TextInput placeholder={"First Name"} style={styles.inputText}/>
+                <TextInput onChangeText={(e)=>setData({...data,firstName:e})} placeholder={"First Name"} style={styles.inputText}/>
                 <Text style={styles.label}> Last Name </Text>
-                <TextInput placeholder={"Last Name"} style={styles.inputText}/>
+                <TextInput onChangeText={(e)=>setData({...data,lastName:e})} placeholder={"Last Name"} style={styles.inputText}/>
                 <Text style={styles.label}> Email </Text>
-                <TextInput placeholder={"Email"} style={styles.inputText}/>
+                <TextInput onChangeText={(e)=>setData({...data,email:e})} placeholder={"Email"} style={styles.inputText}/>
                 <Text style={styles.label}>Password</Text>
-                <TextInput placeholder="Password" style={styles.inputText} secureTextEntry={true}/>
-                <SignInButton title="Sign up" style={{marginTop: 20}}/>
+                <TextInput onChangeText={(e)=>setData({...data,password:e})} placeholder="Password" style={styles.inputText} secureTextEntry={true}/>
+                <TouchableOpacity  onPress={()=>handleSubmit()}>
+                <Text style={styles.buttonText}>sign up</Text>
+                </TouchableOpacity>
+                {/* <SignInButton  title="Sign up" style={{marginTop: 20}}/> */}
             </View>
             <Text style={styles.text}>or continue with</Text>
             <View style={styles.socialButtonContainer}>
