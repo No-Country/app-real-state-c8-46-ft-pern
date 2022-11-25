@@ -6,7 +6,7 @@ const addBankAccount = async (data) => {
         id: uuid.v4(),
         numberAccount: data.numberAccount,
         expired: data.expired,
-        propertyId: data.userId,
+        UserId: data.userId,
         found: data.found,
         cvv: data.cvv 
     })

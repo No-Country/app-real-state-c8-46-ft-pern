@@ -1,5 +1,6 @@
 const multer = require('multer') ;
 
+//TODO: Subir archivot
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'images/')
