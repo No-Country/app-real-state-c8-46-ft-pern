@@ -19,7 +19,6 @@ module.exports = (passport) => {
                         return done(null, false)
                     
                     }
-                console.log('Decoded jwt', decoded)
                 return done(null, decoded)
             } catch (error) {
                 /* handle error */
