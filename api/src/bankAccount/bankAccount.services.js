@@ -3,12 +3,12 @@ const bankAccountController = require('../bankAccount/bankAccount.controllers') 
 const createBankAccount = async (req, res) => {
 
     const userId = req.user.id ;
-    const {id, numberAccount, expired, propertyId, found, cvv } = req.body ;
+    const {numberAccount, expired, found, cvv } = req.body ;
 
-    if (id && numberAccount && expired && propertyId && found && cvv) {
-        bankAccountController.addBankAccount({id, numberAccount, expired, propertyId, found, cvv, userId })
-            .then( res => {
-                res.status(201).json(res)
+    if (numberAccount && expired && found && cvv) {
+        bankAccountController.addBankAccount({ numberAccount, expired, found, cvv, userId })
+            .then( response => {
+                res.status(201).json(response)
             } )
             .catch(err => {
                 res.json({message: err.message})
