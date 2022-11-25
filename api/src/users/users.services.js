@@ -62,17 +62,18 @@ const deleteUser = (req, res) => {
 };
 
 const registerUser =  (req, res) => {
-    const {firstName, lastName, email, password} = req.body;
+    const {firstName, lastName, email, password,profileImage} = req.body;
 
     if (
         firstName &&
         lastName &&
         email &&
-        password 
+        password &&
+        profileImage
     ) {
         //? Ejecutamos el controller
         usersControllers.createUser({
-            firstName, lastName, email, password
+            firstName, lastName, email, password, profileImage
         })
             .then( data => {
                 res.status(201).json(data)
