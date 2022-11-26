@@ -1,25 +1,42 @@
 import { Dimensions , StyleSheet , Text , TextInput , View , TouchableOpacity} from "react-native";
 import { SocialButton }                                      from "../components/Login/SocialButton";
 import { StatusBar }                                         from "expo-status-bar";
-// import { SignInButton }                                      from "../components/Login/SignInButton";
+import { SignInButton }                                      from "../components/Login/SignInButton";
 import { KeyboardAwareScrollView }                           from "react-native-keyboard-aware-scroll-view";
 import { FontAwesome5 }                                      from "@expo/vector-icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import {registerUser} from "../redux/actions/registerAction"
+import { useNavigation } from "@react-navigation/native";
 
 export const RegisterScreen = () => {
-
+    const navigation = useNavigation();
     const googleIcon = require('../assets/google48.png');
     const facebookIcon = require('../assets/facebook48.png');
 
     const dispatch = useDispatch()
-    const [data,setData]=useState({firstName:'',lastName:'',email:'',password:''})
-
-    const hardcodeado = {firstName:"ads", lastName:"das", email:"das@gmail.comas", password:"098asdasd7654321"}
+    const [data,setData]=useState({firstName:'',lastName:'',email:'',password:'',profileImage:"http://localhost:8080"})
+    const [error,setError] = useState(false)
     const handleSubmit=()=>{
-        dispatch(registerUser(hardcodeado))
+        if (!data.email) {
+            setError(true)
+        }
+         if (!data.lastName) {
+            setError(true)
+        }
+        if (!data.firstName) {
+            setError(true)
+        }
+        if (!data.password) {
+            setError(true)
+        }
+        else{
+            setError(false)
+            navigation.navigate('HomeActionMenu')
+            dispatch(registerUser(data));
+        }
     }
+
 
     return (
         <KeyboardAwareScrollView style={styles.container}>
@@ -34,10 +51,8 @@ export const RegisterScreen = () => {
                 <TextInput onChangeText={(e)=>setData({...data,email:e})} placeholder={"Email"} style={styles.inputText}/>
                 <Text style={styles.label}>Password</Text>
                 <TextInput onChangeText={(e)=>setData({...data,password:e})} placeholder="Password" style={styles.inputText} secureTextEntry={true}/>
-                <TouchableOpacity  onPress={()=>handleSubmit()}>
-                <Text style={styles.buttonText}>sign up</Text>
-                </TouchableOpacity>
-                {/* <SignInButton  title="Sign up" style={{marginTop: 20}}/> */}
+                {error?(<Text style={{color:'red'}}>you have to complet all the inputs</Text>):null}
+                <SignInButton  title="Sign up" style={{marginTop: 20}} action={handleSubmit}/>
             </View>
             <Text style={styles.text}>or continue with</Text>
             <View style={styles.socialButtonContainer}>
