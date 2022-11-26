@@ -14,6 +14,10 @@ export const LoginScreen = () => {
     const googleIcon = require('../assets/google48.png');
     const facebookIcon = require('../assets/facebook48.png');
 
+    const handleSubmit=()=>{
+        navigation.navigate('HomeActionMenu')
+    }
+
     return (
         <KeyboardAwareScrollView style={styles.container}>
             <View style={styles.svgTop}>
@@ -23,7 +27,7 @@ export const LoginScreen = () => {
                 <Login/>
             </View>
             <View style={styles.buttonContainer}>
-                <SignInButton title="Sign in"/>
+                <SignInButton title="Sign in" action={handleSubmit}/>
                 <Text style={styles.text}>or continue with</Text>
                 <View style={styles.buttonSocial}>
                     <SocialButton source={googleIcon} title="Google"/>
