@@ -4,6 +4,7 @@ const Favorites = require('./favorites.models')
 const Review = require('./review.models')
 const propertyImage = require('./propertyImage.models')
 const Property = require('./property.models')
+const Orders = require('./order.models')
 
 const initModels =  () => {
 
@@ -26,12 +27,14 @@ const initModels =  () => {
     Users.hasMany(Favorites)
     Users.hasMany(Review)
     Users.hasOne(BankAccount)
+    Users.hasMany(Orders)
     /* Users.hasMany(Property) */
 
     //Property 
     Property.hasMany(propertyImage)
     Property.hasMany(Review)
     Property.hasMany(Favorites)
+    Property.hasOne(Orders)
     /* Property.belongsTo(Users) */
 
     
@@ -39,6 +42,9 @@ const initModels =  () => {
     Property.belongsToMany(Users,{through:'userProperties'}) 
 
 
+    //Order
+    Orders.belongsTo(Users)
+    Orders.belongsTo(Property)
 
 
 };
