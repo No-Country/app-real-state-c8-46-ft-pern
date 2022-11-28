@@ -4,12 +4,12 @@ import { useNavigation }                                            from "@react
 
 
 // make a button gradient component
-export const SignInButton = ({title, style}) => {
+export const SignInButton = ({title, style, action }) => {
     const navigation = useNavigation();
 
     return (
         <View style={style}>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate("HomeActionMenu")}>
+            <TouchableOpacity style={styles.button} onPress={() => action()}>
                 <Text style={styles.buttonText}>{title}</Text>
             </TouchableOpacity>
         </View>
