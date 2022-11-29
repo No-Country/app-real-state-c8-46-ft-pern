@@ -15,7 +15,6 @@ export const getProperties = () => {
         payload: json.data,
       });
     } catch (e) {
-      console.log('entro al catch');
       console.log(e);
       return dispatch({ type: GET_PROPERTIES_REJECTED });
     }
