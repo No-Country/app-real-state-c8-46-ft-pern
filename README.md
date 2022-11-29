@@ -22,7 +22,7 @@ Go Rent is a mobile app that makes it easy to buy and rent properties around the
  - Run the server with npm run dev (development) or npm start (production)
 
  - Scan your QR with Expo Go
-
+ </br>
 
 ### Api .env
  ```
@@ -38,3 +38,11 @@ DB_NAME= Database name
  ```
 REACT_APP_URL_BASE = Your IPV4 adress + "/api/v1"
  ```
+ </br>
+ ## Developers
+ 
+ <img src="https://avatars.githubusercontent.com/u/55055505" alt="Miguel"/>
+ <img src="https://avatars.githubusercontent.com/u/90942448" alt="Thomas"/>
+ <img src="https://avatars.githubusercontent.com/u/88212205" alt="Gean"/>
+ <img src="https://avatars.githubusercontent.com/u/70654398" alt="Leandro"/>
+ <img src="https://avatars.githubusercontent.com/u/90948666" alt="Jesus"/>
