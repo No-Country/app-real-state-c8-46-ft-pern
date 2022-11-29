@@ -50,17 +50,7 @@ REACT_APP_URL_BASE = Your IPV4 adress + "/api/v1"
 |----|-----|-------|----|-----|  
 |Miguel Beltran|Thomas Dominguez|Gean|Leandro Pereyra|Jesus Clemente|  
 |----|-----|-------|----|-----|  
-|<a href="https://www.linkedin.com/in/miguelbel00/">
-<img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/>
-</a>|<a href="https://www.linkedin.com/in/dominguezthomas/">
-<img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/>
-</a>|<a href="https://www.linkedin.com/in/gean-franco-saboya-rodr%C3%ADguez-57105724a/">
-<img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/>
-</a>|<a href="https://www.linkedin.com/in/leandro-pereyra/">
-<img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/>
-</a>|<a href="https://www.linkedin.com/in/jesus-maria-clemente-garcia/">
-<img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/>
-</a>|  
+|<a href="https://www.linkedin.com/in/miguelbel00/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|<a href="https://www.linkedin.com/in/dominguezthomas/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|<a href="https://www.linkedin.com/in/gean-franco-saboya-rodr%C3%ADguez-57105724a/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|<a href="https://www.linkedin.com/in/leandro-pereyra/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|<a href="https://www.linkedin.com/in/jesus-maria-clemente-garcia/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|  
 
 
 <!-- 
