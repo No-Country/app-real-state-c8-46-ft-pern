@@ -43,8 +43,8 @@ REACT_APP_URL_BASE = Your IPV4 adress + "/api/v1"
 
 ## Developers
  
- <img src="https://avatars.githubusercontent.com/u/55055505?m=40" alt="Miguel"/>
- <img src="https://avatars.githubusercontent.com/u/90942448?m=40" alt="Thomas"/>
- <img src="https://avatars.githubusercontent.com/u/88212205?m=40" alt="Gean"/>
- <img src="https://avatars.githubusercontent.com/u/70654398?m=40" alt="Leandro"/>
- <img src="https://avatars.githubusercontent.com/u/90948666?m=40" alt="Jesus"/>
+ <img src="https://avatars.githubusercontent.com/u/55055505?s=100" alt="Miguel"/>
+ <img src="https://avatars.githubusercontent.com/u/90942448?s=100" alt="Thomas"/>
+ <img src="https://avatars.githubusercontent.com/u/88212205?s=100" alt="Gean"/>
+ <img src="https://avatars.githubusercontent.com/u/70654398?s=100" alt="Leandro"/>
+ <img src="https://avatars.githubusercontent.com/u/90948666?s=100" alt="Jesus"/>
