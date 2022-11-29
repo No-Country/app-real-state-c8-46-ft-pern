@@ -13,14 +13,14 @@ import {
 
 export const registerUser = (payload) => {
   console.log(payload);
-  return async  (dispatch) => {
+  return async (dispatch) => {
     dispatch({ type: REGISTER_USER_PENDING });
     try {
       const json = await axios.post(`${URL_BACK}/users`, payload);
       console.log(json);
       return dispatch({ type: REGISTER_USER_SUCCESS, payload: json.data });
     } catch (e) {
-      console.log('fallo aca');
+      console.log("fallo aca");
       console.log(e);
       return dispatch({ type: REGISTER_USER_REJECTED });
     }
