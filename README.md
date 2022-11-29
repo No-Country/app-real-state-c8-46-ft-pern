@@ -45,6 +45,24 @@ REACT_APP_URL_BASE = Your IPV4 adress + "/api/v1"
 
 ## Developers
 <p align="center" display="flex" flexDirection="row">
+
+|<img height="160" width="160" src="https://avatars.githubusercontent.com/u/55055505?s=200&v=4" alt="Miguel"/>|Miguel Beltran|Full-Stack Developer|      
+|----|-----|-------|      
+
+|<img height="160" width="160" src="https://avatars.githubusercontent.com/u/90942448?s=200&v=4" alt="Thomas"/>|Thomas Dominguez|Full-Stack Developer|      
+|----|-----|-------|      
+
+|<img height="160" width="160" src="https://avatars.githubusercontent.com/u/88212205?s=200&v=4" alt="Gean"/>|Gean|Full-Stack Developer|      
+|----|-----|-------|      
+
+|<img height="160" width="160" src="https://avatars.githubusercontent.com/u/70654398?s=200&v=4" alt="Leandro"/>|Leandro Pereyra|Full-Stack Developer|      
+|----|-----|-------|      
+
+| <img height="160" width="160" src="https://avatars.githubusercontent.com/u/90948666?s=200&v=4" alt="Jesus"/>|Jesus Clemente|Full-Stack Developer|      
+|----|-----|-------|      
+
+<!-- 
+
 <div display="flex" flexDirection="column">
  <img height="160" width="160" src="https://avatars.githubusercontent.com/u/55055505?s=200&v=4" alt="Miguel"/>
 <h4>Miguel Beltran</h4>
@@ -70,4 +88,4 @@ REACT_APP_URL_BASE = Your IPV4 adress + "/api/v1"
 <p></p>
 <h4></h4>
 </div>
-  </p>
+  </p> -->
