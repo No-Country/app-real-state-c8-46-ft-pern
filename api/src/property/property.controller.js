@@ -3,15 +3,11 @@ const User = require('../models/user.models')
 const Property = require('../models/property.models')
 const uuid = require('uuid') ;
 
-const getMyProperties = async (userId) => {
-    const myProperties = await Property.findAll({
-        include: 
-          {
-            model: User,
-            where:{
-                id:userId
-            }
-          }
+const getMyProperties = (userId) => {
+    const myProperties =  Property.findAll({
+        where: {
+            creator_id: userId
+        }
       })
       return myProperties
 }
