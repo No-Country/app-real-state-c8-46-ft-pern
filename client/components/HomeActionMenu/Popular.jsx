@@ -4,39 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getPopularProperties } from "../../redux/actions/popularAction";
 import { registerUser } from "../../redux/actions/registerAction";
 import PopularCard from "./PopularCard";
-
-export const popArr = [
-  {
-    id: 1,
-    coverPhoto: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
-    purpose: "Apartment",
-    price: "1,800",
-    name: "Owent Apartment",
-    location: "Surabaya, Indonesia",
-    latitude: 37.73825,
-    longitude: -122.4324,
-  },
-  {
-    id: 2,
-    coverPhoto: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796",
-    purpose: "Apartment",
-    price: "1,400",
-    name: "Semie Aparment",
-    location: "Surabaya, Indonesia",
-    latitude: 37.76825,
-    longitude: -122.4324,
-  },
-  {
-    id: 3,
-    coverPhoto: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba",
-    purpose: "House",
-    price: "2,200",
-    name: "Inda Perum House",
-    location: "Surabaya, Indonesia",
-    latitude: 37.77825,
-    longitude: -122.4524,
-  },
-];
+import { SkeletonCard } from "./SkeletonCard";
+import { popArr } from "./SkeletonCard";
 
 const Popular = () => {
   const dispatch = useDispatch();
@@ -49,7 +18,6 @@ const Popular = () => {
   }, []);
 
   // const name = popularProperties && popularProperties.title.split(" ")
-
   return (
     <View style={styles.container}>
       <View
@@ -64,9 +32,11 @@ const Popular = () => {
         <Text style={{ fontWeight: "700", fontSize: 16 }}>Popular</Text>
         <Text style={{ color: "#2972FE", fontWeight: "600" }}>See all</Text>
       </View>
-      <FlatList
+      {
+        popularProperties.length?(
+          <FlatList
         showsHorizontalScrollIndicator={false}
-        data={popularProperties.length ? popularProperties : popArr}
+        data={popularProperties}
         renderItem={({ item }) => (
           <PopularCard
             name={item.title}
@@ -79,6 +49,17 @@ const Popular = () => {
         keyExtractor={(item) => item.id}
         horizontal={true}
       />
+        ):
+        (  <FlatList
+          showsHorizontalScrollIndicator={false}
+          data={popArr}
+          renderItem={({ item }) => (
+            <SkeletonCard/>
+          )}
+          keyExtractor={(item) => item.id}
+          horizontal={true}
+        />)
+      }
     </View>
   );
 };

@@ -1,32 +1,8 @@
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import PopularCard from "./PopularCard";
+import { popArr } from "./SkeletonCard";
+import { SkeletonCard } from "./SkeletonCard";
 
-const popArr = [
-  {
-    id: 1,
-    img: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
-    type: "Apartment",
-    price: "$1,800",
-    name: "Owent Apartment",
-    location: "Surabaya, Indonesia",
-  },
-  {
-    id: 2,
-    img: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796",
-    type: "Apartment",
-    price: "$1,400",
-    name: "Semie Aparment",
-    location: "Surabaya, Indonesia",
-  },
-  {
-    id: 3,
-    img: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba",
-    type: "House",
-    price: "$2,200",
-    name: "Inda Perum House",
-    location: "Surabaya, Indonesia",
-  },
-];
 
 const NearbyYourLocation = () => {
   return (
@@ -45,21 +21,34 @@ const NearbyYourLocation = () => {
         </Text>
         <Text style={{ color: "#2972FE", fontWeight: "600" }}>See all</Text>
       </View>
-      <FlatList
-        data={popArr}
+      {
+        false?(
+          <FlatList
+        showsHorizontalScrollIndicator={false}
+        data={popularProperties}
         renderItem={({ item }) => (
           <PopularCard
-            name={item.name}
-            img={item.img}
-            type={item.type}
-            price={item.price}
+            name={item.title}
+            img={item.coverPhoto}
+            type={item.purpose}
+            price={`$ ${item.price}`}
             location={item.location}
           />
         )}
         keyExtractor={(item) => item.id}
         horizontal={true}
-        showsHorizontalScrollIndicator={false}
       />
+        ):
+        (  <FlatList
+          showsHorizontalScrollIndicator={false}
+          data={popArr}
+          renderItem={({ item }) => (
+            <SkeletonCard/>
+          )}
+          keyExtractor={(item) => item.id}
+          horizontal={true}
+        />)
+      }
     </View>
   );
 };

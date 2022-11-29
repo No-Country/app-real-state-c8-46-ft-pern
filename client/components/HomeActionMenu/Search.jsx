@@ -6,7 +6,6 @@ const Search = () => {
   const [clicked, setClicked] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState("");
   const handleSearch = () => {
-    console.log(searchPhrase);
   };
   return (
     <View style={styles.container}>

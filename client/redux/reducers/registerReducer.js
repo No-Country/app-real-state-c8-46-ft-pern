@@ -17,7 +17,6 @@ const initialState = {
 export const registerReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case REGISTER_USER_PENDING:
-      console.log("pending");
       return { ...state, isLoading: true, user: null, token: null };
     case REGISTER_USER_REJECTED:
       return {
