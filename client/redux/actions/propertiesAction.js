@@ -1,6 +1,6 @@
 import axios from "axios";
 import { URL_BACK } from "../../config";
-import GET_PROPERTIES_PENDING, {
+import  {GET_PROPERTIES_PENDING,
   GET_PROPERTIES_REJECTED,
   GET_PROPERTIES_SUCCESS,
 } from "../types/propertiesTypes";
@@ -15,6 +15,7 @@ export const getProperties = () => {
         payload: json.data,
       });
     } catch (e) {
+      console.log('entro al catch');
       console.log(e);
       return dispatch({ type: GET_PROPERTIES_REJECTED });
     }
