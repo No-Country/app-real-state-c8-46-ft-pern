@@ -20,17 +20,27 @@ Content-Type: application/json
 }
 
 POST localhost:3009/api/v1/property/me
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ1ODZiLTAwY2QtNDIwNS1iMmZlLWQ0NzUxMTAwMmJhOCIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjkxNzkzMzZ9.xr4FjfH-MlGqySq1LDlvAAbSvyXWP9pX6Ykj_4YS-tI
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhNTgyYjAzLTMyODAtNGMwMy04ODc5LTRlYzg1YmI3ODliMiIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2Njk3NTcyMDV9.j-V5vWRkAMgqSAqZDVc7MkAUA6ly1mYJypo_1jPVOeU
 Content-Type: application/json
 
 {
-    "name":"Mansion con piscina",
-    "addres":"San francisco AT400",
-    "status":"HOT"
+    "title":"Casa con piscina",
+    "address":"San Francisco ay10",
+    "lat":"102",
+    "lon":"25",
+    "purpose":"De vacacione",
+    "price":"1000",
+    "product":"none",
+    "category":"Hot",
+    "rentFrequency":"si",
+    "rooms":"5",
+    "baths":"2",
+    "area":"303.5",
+    "contactName":"admin"
 }
 
 GET localhost:3009/api/v1/property/me
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIyMGQ1ODZiLTAwY2QtNDIwNS1iMmZlLWQ0NzUxMTAwMmJhOCIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2NjkxNzkzMzZ9.xr4FjfH-MlGqySq1LDlvAAbSvyXWP9pX6Ykj_4YS-tI
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhNTgyYjAzLTMyODAtNGMwMy04ODc5LTRlYzg1YmI3ODliMiIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2Njk3NTcyMDV9.j-V5vWRkAMgqSAqZDVc7MkAUA6ly1mYJypo_1jPVOeU
 Content-Type: application/json
 
 POST localhost:3009/api/v1/bank-account
@@ -42,5 +52,13 @@ Content-Type: application/json
     "expired":"2023",
     "found":"100",
     "cvv":"421"
+}
+
+POST localhost:3009/api/v1/order/buy/a9f41c88-3d2c-4f06-b57f-f0d72d8b5736
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhNTgyYjAzLTMyODAtNGMwMy04ODc5LTRlYzg1YmI3ODliMiIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2Njk3NTc2ODd9.jUWmXpxDTkUEre_dc2cghLYSKomX5JwAaTl5Fg5wOFI
+Content-Type: application/json
+
+{
+    "total": 1
 }
 

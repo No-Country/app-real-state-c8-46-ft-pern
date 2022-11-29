@@ -28,6 +28,7 @@ const propertyRouter = require("./property/property.router");
 const favoritesRouter = require("./favorites/favorites.router");
 const propertiesRouter = require("./properties/properties.routes");
 const popularRouter = require("./popular/popular.routes");
+const orderRouter = require("./order/order.router");
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
@@ -37,6 +38,7 @@ app.use("/api/v1/popular", popularRouter);
 app.use("/api/v1/favorites", favoritesRouter);
 app.use("/api/v1/bank-account", bankAccountRouter);
 app.use("/api/v1/properties", propertiesRouter);
+app.use("/api/v1/order", orderRouter);
 
 db.authenticate()
   .then(() => {
