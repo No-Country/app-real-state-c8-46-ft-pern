@@ -39,10 +39,12 @@ DB_NAME= Database name
 REACT_APP_URL_BASE = Your IPV4 adress + "/api/v1"
  ```
  </br>
- ## Developers
+
+
+## Developers
  
- <img src="https://avatars.githubusercontent.com/u/55055505" alt="Miguel"/>
- <img src="https://avatars.githubusercontent.com/u/90942448" alt="Thomas"/>
- <img src="https://avatars.githubusercontent.com/u/88212205" alt="Gean"/>
- <img src="https://avatars.githubusercontent.com/u/70654398" alt="Leandro"/>
- <img src="https://avatars.githubusercontent.com/u/90948666" alt="Jesus"/>
+ <img src="https://avatars.githubusercontent.com/u/55055505?s=40" alt="Miguel"/>
+ <img src="https://avatars.githubusercontent.com/u/90942448?s=40" alt="Thomas"/>
+ <img src="https://avatars.githubusercontent.com/u/88212205?s=40" alt="Gean"/>
+ <img src="https://avatars.githubusercontent.com/u/70654398?s=40" alt="Leandro"/>
+ <img src="https://avatars.githubusercontent.com/u/90948666?s=40" alt="Jesus"/>
