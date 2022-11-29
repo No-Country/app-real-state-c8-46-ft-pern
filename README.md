@@ -45,9 +45,9 @@ REACT_APP_URL_BASE = Your IPV4 adress + "/api/v1"
 
 ## Developers
 <p align="center" display="flex">
- <img height="200" width="200" src="https://avatars.githubusercontent.com/u/55055505?s=200&v=4" alt="Miguel"/>
- <img height="200" width="200" src="https://avatars.githubusercontent.com/u/90942448?s=200&v=4" alt="Thomas"/>
- <img height="200" width="200" src="https://avatars.githubusercontent.com/u/88212205?s=200&v=4" alt="Gean"/>
- <img height="200" width="200" src="https://avatars.githubusercontent.com/u/70654398?s=200&v=4" alt="Leandro"/>
- <img height="200" width="200" src="https://avatars.githubusercontent.com/u/90948666?s=200&v=4" alt="Jesus"/>
+ <img height="160" width="160" src="https://avatars.githubusercontent.com/u/55055505?s=200&v=4" alt="Miguel"/>
+ <img height="160" width="160" src="https://avatars.githubusercontent.com/u/90942448?s=200&v=4" alt="Thomas"/>
+ <img height="160" width="160" src="https://avatars.githubusercontent.com/u/88212205?s=200&v=4" alt="Gean"/>
+ <img height="160" width="160" src="https://avatars.githubusercontent.com/u/70654398?s=200&v=4" alt="Leandro"/>
+ <img height="160" width="160" src="https://avatars.githubusercontent.com/u/90948666?s=200&v=4" alt="Jesus"/>
   </p>
