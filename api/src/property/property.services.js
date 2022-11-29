@@ -15,10 +15,10 @@ const getMyProperties = async(req,res) => {
 const createProperty = async(req,res) => {
     
     const userId = req.user.id ;
-    const {name,addres,status} = req.body;
+    const {title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName} = req.body;
 
-    if (name && addres && status) {
-        propertyController.createProperty({name,addres,userId,status })
+    if (title && address && lat && lon && purpose && price && product && category && rentFrequency && rooms && baths && area && contactName) {
+        propertyController.createProperty({title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName},userId)
             .then( result => {
                 res.status(201).json(result)
             } )
@@ -29,9 +29,19 @@ const createProperty = async(req,res) => {
         res.json({
             message: "missing data",
             fields: {
-                name: "String",
-                address: "String",
-                status: "String",
+                title:  "STRING",
+                address:  "STRING",
+                lat: "STRING",
+                lon: "STRING",
+                purpose: "STRING",
+                price:"FLOAT",
+                product:"STRING",
+                category:"STRING",
+                rentFrequency:"STRING",
+                rooms:"INTEGER",
+                baths:"INTEGER",
+                area: "FLOAT",
+                contactName: "STRING",
             }
         })
     }
@@ -40,7 +50,7 @@ const createProperty = async(req,res) => {
 const deleteMyProperty = async(req,res) => {
 
     const {propertyId} = req.params
-    propertyController.deleteMyProperty(propertyId)
+    propertyController.deleteMyProperty(propertyId,req.user.id)
     .then( result => {
         res.status(201).json(result)
     } )
@@ -51,8 +61,8 @@ const deleteMyProperty = async(req,res) => {
 }
 const editMyProperty =async (req,res) => {
     const {propertyId} = req.params
-    const {name,address,status} = req.body
-    propertyController.editMyProperty(propertyId,{name,address,status},{user:req.user})
+    const {title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName} = req.body
+    propertyController.editMyProperty(propertyId,req.user.id,{title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName})
     .then( result => {
         res.status(201).json(result)
     } )
@@ -73,8 +83,8 @@ const getPropertyById = async(req,res) => {
 }
 const editProperty = async(req,res) => {
     const {propertyId} = req.params
-    const {name,address,status} = req.body
-    propertyController.editProperty(propertyId,{name,address,status})
+    const {title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName} = req.body
+    propertyController.editProperty(propertyId,{title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName})
     .then( result => {
         res.status(201).json(result)
     } )

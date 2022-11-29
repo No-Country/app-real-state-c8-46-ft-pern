@@ -13,7 +13,7 @@ const Property = db.define('Properties', {
         type: DataTypes.STRING,
         allowNull: false
     },
-    addres: {
+    address: {
         type: DataTypes.STRING,
         allowNull: false
     },

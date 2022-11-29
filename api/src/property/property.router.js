@@ -23,7 +23,7 @@ router.route('/:propertyId')
     .delete(passport.authenticate('jwt', {session: false}),adminValidate,propertyServices.deleteProperty)
 
 router.route('/')
-    .get(passport.authenticate('jwt', {session: false}),adminValidate,propertyServices.getAllProperties)
+    .get(propertyServices.getAllProperties)
 
 module.exports = router
 
