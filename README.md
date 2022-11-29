@@ -1,7 +1,10 @@
 <h1 >Go Rent</h1>
  <p align="center">
 
-Go Rent is a mobile app that makes it easy to buy and rent and buy properties around the world. As simple as register and start looking for. Go Rent trys to make it as easy as possible for users to search, allowing users to filter by location, property type, by price, find a location in the map. 
+Go Rent is a mobile app that makes it easy to buy and rent and buy properties around the world. As simple as register and go for it!
+</br> 
+Go Rent trys to make it as easy as possible for users to search, allowing users to filter by location, property type, by price, find a location in the map. 
+Allows users to add to their favorites and leave a review once rented or purchased.
 
  </br>
 <img align="center" src="https://res.cloudinary.com/ddkurzft6/image/upload/v1669732004/gorent/gorent_captura_readme_huhwh2.jpg" alt="gorent"/>
