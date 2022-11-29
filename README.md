@@ -51,32 +51,3 @@ REACT_APP_URL_BASE = Your IPV4 adress + "/api/v1"
 |Miguel Beltran|Thomas Dominguez|Gean|Leandro Pereyra|Jesus Clemente|  
 |<a href="https://www.linkedin.com/in/miguelbel00/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|<a href="https://www.linkedin.com/in/dominguezthomas/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|<a href="https://www.linkedin.com/in/gean-franco-saboya-rodr%C3%ADguez-57105724a/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|<a href="https://www.linkedin.com/in/leandro-pereyra/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|<a href="https://www.linkedin.com/in/jesus-maria-clemente-garcia/"><img align="center" src="https://user-images.githubusercontent.com/76783198/182481396-19c89e94-f3ba-4e33-9df4-f5b7a094cf8f.svg"/></a>|  
 
-
-<!-- 
-
-<div display="flex" flexDirection="column">
- <img height="160" width="160" src="https://avatars.githubusercontent.com/u/55055505?s=200&v=4" alt="Miguel"/>
-<h4>Miguel Beltran</h4>
-<p>Full Stack Developer</p>
-</div>
-<div display="flex" flexDirection="column">
- <img height="160" width="160" src="https://avatars.githubusercontent.com/u/90942448?s=200&v=4" alt="Thomas"/>
-<h4></h4>
-<p></p>
-</div>
-<div display="flex" flexDirection="column">
- <img height="160" width="160" src="https://avatars.githubusercontent.com/u/88212205?s=200&v=4" alt="Gean"/>
-<h4></h4>
-<p></p>
-</div>
-<div display="flex" flexDirection="column">
- <img height="160" width="160" src="https://avatars.githubusercontent.com/u/70654398?s=200&v=4" alt="Leandro"/>
-<h4></h4>
-<p></p>
-</div>
-<div display="flex" flexDirection="column">
- <img height="160" width="160" src="https://avatars.githubusercontent.com/u/90948666?s=200&v=4" alt="Jesus"/>
-<p></p>
-<h4></h4>
-</div>
-  </p> -->
