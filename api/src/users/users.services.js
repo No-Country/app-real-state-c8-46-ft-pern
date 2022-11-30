@@ -134,6 +134,28 @@ const deletMyUser = (req, res) => {
         
 } ;
 
+const forgotPassword = (req, res) => {
+    const {email, password} = req.body ;
+
+    if (email && password) {
+        usersControllers.forgotPassword({email, password})
+            .then(response => {
+                res.json({message: "Password modify correctly", response})
+            })
+            .catch(err => {
+                res.json({message: err})
+            })
+        
+    }else{
+        res.status(400).json(
+            {message: "Field missing", 
+                field: {
+                    email: "String",
+                    password: "String"
+                } })
+    }
+} ;
+
 module.exports = {
     getAllUsers,
     getUserById,
@@ -142,5 +164,6 @@ module.exports = {
     deleteUser,
     getMyUser,
     updateMyUser,
-    deletMyUser
+    deletMyUser,
+    forgotPassword
 }

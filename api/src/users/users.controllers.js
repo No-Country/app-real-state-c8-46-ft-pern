@@ -61,12 +61,35 @@ const getUserByEmail = async (email) => {
     
 } ;
 
+const forgotPassword = async (data) => {
+    const user = await Users.findOne({
+        where: {
+            email: data.email
+        }
+    }) ;
+
+    if (user) {
+         user.set({
+        password: crypto.hashPassword(data.password)
+        }) 
+        await user.save()
+        return user;
+        
+    }else{
+       
+        throw 'Email not exist'
+    }
+
+    
+}  ;
+
 module.exports = {
     createUser,
     getAllUsers,
     getUserById,
     updateUser,
     deleteUser,
-    getUserByEmail
+    getUserByEmail,
+    forgotPassword
 }
 

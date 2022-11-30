@@ -24,7 +24,7 @@ const login = (req, res) => {
                 }
             })
             .catch(error => {
-                res.status(400).json({message: error.message})
+                res.status(400).json({message: "correo o contraseña incorrectos"})
             })
      }  else{
              res.status(400).json({message: 'Mising Dta' })
