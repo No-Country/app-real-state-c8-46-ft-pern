@@ -29,7 +29,7 @@ export const LoginScreen = () => {
         <Login />
       </View>
       <View style={styles.buttonContainer}>
-        <SignInButton title="Sign in" action={handleSubmit} />
+        
         <Text style={styles.text}>or continue with</Text>
         {/* <View style={styles.buttonSocial}>
           <SocialButton source={googleIcon} title="Google" />

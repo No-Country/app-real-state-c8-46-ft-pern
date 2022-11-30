@@ -32,7 +32,6 @@ export const RegisterScreen = () => {
         }
         else{
             setError(false)
-            navigation.navigate('HomeActionMenu')
             dispatch(registerUser(data));
         }
     }
