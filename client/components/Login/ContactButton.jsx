@@ -1,11 +1,15 @@
 import {Text, TouchableOpacity, View} from "react-native";
-import { FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
-import {faEnvelope, faPhone} from "@fortawesome/free-solid-svg-icons";
+import { MaterialIcons } from '@expo/vector-icons';
+
 
 export const ContactButton = ({title, option}) => {
     return (
         <TouchableOpacity>
-            <FontAwesomeIcon icon={title === 'SMS' ? faPhone : faEnvelope} size={20}/>
+            {title === 'SMS' ? (
+                <MaterialIcons name={'sms'} size={24} color={'black'}/>
+            ) : (
+                <MaterialIcons name={'email'} size={24} color={'black'}/>
+            )}
             <View>
                 <Text> via {title}</Text>
                 <Text> via {option}</Text>
