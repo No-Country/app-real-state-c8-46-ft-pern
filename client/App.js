@@ -16,6 +16,7 @@ import Notifications            from "./screens/Profile Screens/Notifications";
 import Security                 from "./screens/Profile Screens/Security";
 import Appearance               from "./screens/Profile Screens/Appearance";
 import Help                     from "./screens/Profile Screens/Help";
+import {ForgotPassword} from "./screens/ForgotPassword";
 
 export default function App() {
     const Stack = createStackNavigator();
@@ -42,6 +43,13 @@ export default function App() {
                         <Stack.Screen
                             name="Login"
                             component={LoginScreen}
+                            options={{
+                                headerShown: false ,
+                            }}
+                        />
+                        <Stack.Screen
+                            name="Forgot"
+                            component={ForgotPassword}
                             options={{
                                 headerShown: false ,
                             }}

@@ -1,7 +1,9 @@
-import { Dimensions , StyleSheet , Text , TextInput , View } from "react-native";
+import {Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {useNavigation} from "@react-navigation/native";
 
 export const Login = () => {
 
+    const navigation = useNavigation();
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Go Rent</Text>
@@ -10,7 +12,11 @@ export const Login = () => {
             <TextInput placeholder={"Email"} style={styles.inputText}/>
             <Text style={styles.label}>Password</Text>
             <TextInput placeholder="Password" style={styles.inputText} secureTextEntry={true}/>
-            <Text style={styles.text}>Forgot Password?</Text>
+            <TouchableOpacity
+                onPress={() => navigation.navigate("Forgot")}
+            >
+                <Text style={styles.text}>Forgot Password?</Text>
+            </TouchableOpacity>
         </View>
     )
 }

@@ -4,7 +4,7 @@ import { useNavigation }                                            from "@react
 
 
 // make a button gradient component
-export const SignInButton = ({title, style, action }) => {
+export const SubmitButton = ({title, style, action }) => {
     const navigation = useNavigation();
 
     return (

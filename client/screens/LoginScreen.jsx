@@ -1,7 +1,7 @@
 import { StatusBar }                                   from "expo-status-bar";
 import { StyleSheet , Text , TouchableOpacity , View } from "react-native";
 import SvgTop                                          from "../assets/svg/SvgTop";
-import { SignInButton }                                from "../components/Login/SignInButton";
+import { SubmitButton }                                from "../components/Login/SubmitButton";
 import { Login }                                       from "../components/Login/Login";
 import React                                           from "react";
 import { SocialButton }                                from "../components/Login/SocialButton";
@@ -27,7 +27,7 @@ export const LoginScreen = () => {
                 <Login/>
             </View>
             <View style={styles.buttonContainer}>
-                <SignInButton title="Sign in" action={handleSubmit}/>
+                <SubmitButton title="Sign in" action={handleSubmit}/>
                 <Text style={styles.text}>or continue with</Text>
                 <View style={styles.buttonSocial}>
                     <SocialButton source={googleIcon} title="Google"/>

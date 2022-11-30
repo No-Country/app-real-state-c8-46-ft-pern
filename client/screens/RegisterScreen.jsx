@@ -1,7 +1,7 @@
 import { Dimensions , StyleSheet , Text , TextInput , View , TouchableOpacity} from "react-native";
 import { SocialButton }                                      from "../components/Login/SocialButton";
 import { StatusBar }                                         from "expo-status-bar";
-import { SignInButton }                                      from "../components/Login/SignInButton";
+import { SubmitButton }                                      from "../components/Login/SubmitButton";
 import { KeyboardAwareScrollView }                           from "react-native-keyboard-aware-scroll-view";
 import { FontAwesome5 }                                      from "@expo/vector-icons";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export const RegisterScreen = () => {
                 <Text style={styles.label}>Password</Text>
                 <TextInput onChangeText={(e)=>setData({...data,password:e})} placeholder="Password" style={styles.inputText} secureTextEntry={true}/>
                 {error?(<Text style={{color:'red'}}>you have to complet all the inputs</Text>):null}
-                <SignInButton  title="Sign up" style={{marginTop: 20}} action={handleSubmit}/>
+                <SubmitButton title="Sign up" style={{marginTop: 20}} action={handleSubmit}/>
             </View>
             <Text style={styles.text}>or continue with</Text>
             <View style={styles.socialButtonContainer}>
