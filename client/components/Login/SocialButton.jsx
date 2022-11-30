@@ -1,14 +1,14 @@
-import { Dimensions , Image , StyleSheet , Text , TouchableOpacity , View } from "react-native";
+import {Image, StyleSheet, Text, TouchableNativeFeedback, TouchableOpacity, View} from "react-native";
 
 export const SocialButton = ({title, source}) => {
 
     return (
-        <TouchableOpacity>
+        <TouchableNativeFeedback>
             <View style={styles.buttonContainer}>
                 <Image source={source} style={styles.img}/>
                 <Text style={styles.title}> {title} </Text>
             </View>
-        </TouchableOpacity>
+        </TouchableNativeFeedback>
     )
 }
 

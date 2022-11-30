@@ -123,6 +123,7 @@ const styles = StyleSheet.create({
                                          justifyContent: "space-evenly" ,
                                          width: "100%" ,
                                          padding: 20 ,
+                                         marginBottom: 30 ,
                                      }
                                  });
 
