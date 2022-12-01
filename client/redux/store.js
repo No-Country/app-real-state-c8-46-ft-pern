@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   properties: propertiesReducer,
   rent: rentReducer,
   nearby: nearbyReducer,
-  user:registerReducer
+  user: registerReducer,
 });
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));
