@@ -37,3 +37,7 @@ export const loginUser = (payload) => {
     }
   };
 };
+
+export const logoutUser = (payload) => {
+  
+}

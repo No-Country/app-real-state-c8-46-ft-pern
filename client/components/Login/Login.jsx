@@ -1,43 +1,54 @@
-import { Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { SignInButton } from "./SignInButton";
 import { loginUser } from "../../redux/actions/registerAction";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigation } from "@react-navigation/native";
 
 export const Login = () => {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
   const { login } = useContext(AuthContext);
-  const [data, setData] = useState({ password: '', email: '' })
-  const [error,setError] = useState(false);
-  const { token } = useSelector(
-    (state) => state.user
-  );
-  console.log(token);
-  const HandleLogin =  () => {
+  const [data, setData] = useState({ password: "", email: "" });
+  const [error, setError] = useState(false);
+  const { token } = useSelector((state) => state.user);
+  console.log("vamos " + token);
+  const HandleLogin = () => {
     if (!data.email) {
-      setError(true)
+      setError(true);
     }
     if (!data.password) {
-      setError(true)
+      setError(true);
     }
-    else {
-      setError(false)
+    if (error) {
+      console.log(error);
+    } else {
+      setError(false);
+      login(data.email, data.password);
       dispatch(loginUser(data));
     }
-  }
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Go Rent</Text>
       <Text style={styles.subTitle}>Sign in and Go for it!</Text>
       <Text style={styles.label}> Email </Text>
-      <TextInput 
-        onChangeText={(e)=>setData({...data,email:e})}
+      <TextInput
+        onChangeText={(e) => setData({ ...data, email: e })}
         placeholder={"Email"}
-        style={styles.inputText} />
+        style={styles.inputText}
+      />
       <Text style={styles.label}>Password</Text>
       <TextInput
-        onChangeText={(e)=>setData({...data,password:e})}
+        onChangeText={(e) => setData({ ...data, password: e })}
         placeholder="Password"
         style={styles.inputText}
         secureTextEntry={true}
