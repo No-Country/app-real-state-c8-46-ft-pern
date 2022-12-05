@@ -81,7 +81,23 @@ const forgotPassword = async (data) => {
     }
 
     
-}  ;
+};
+
+const uploadProfileImage= async (data) => {
+    const user = await Users.findOne({
+        where: {
+            id: data.userId
+        }
+    })
+
+    user.set({
+        profileImage: `http://localhost:3009/public/${data.profileImage}`
+    })
+
+    user.save()
+
+    return user.profileImage
+} ;
 
 module.exports = {
     createUser,
@@ -90,6 +106,7 @@ module.exports = {
     updateUser,
     deleteUser,
     getUserByEmail,
-    forgotPassword
+    forgotPassword,
+    uploadProfileImage
 }
 

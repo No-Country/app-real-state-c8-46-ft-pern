@@ -156,6 +156,19 @@ const forgotPassword = (req, res) => {
     }
 } ;
 
+const postProfileImage = (req, res) => {
+    const profileImage = req.file.filename ;
+    const userId = req.user.id ;
+
+    usersControllers.uploadProfileImage({profileImage, userId})
+        .then( response => {
+            res.status(201).json({message: response})
+        } )
+        .catch( err => {
+            res.json({message: err.message})
+        } )
+} ;
+
 module.exports = {
     getAllUsers,
     getUserById,
@@ -165,5 +178,6 @@ module.exports = {
     getMyUser,
     updateMyUser,
     deletMyUser,
-    forgotPassword
+    forgotPassword,
+    postProfileImage
 }
