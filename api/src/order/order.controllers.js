@@ -18,14 +18,29 @@ const buyProperty = async (data) => {
     });
 
     const user = await Users.findOne({where:{id: data.userId}}) ;
+    const orderId = await Order.findOne({where: {PropertyId: data.propertyId}});
+
     const { firstName, lastName, email } = user ;
-    sendOrder({firstName, lastName, email});
+        const {id} = orderId ;
+    const { title, address, state, rooms, baths, area } = property ;
+    sendOrder({firstName, lastName, email, id , title, address, state, rooms, baths, area});
 
     return order
 } ;
 
 const getMyOrder = async (data) => {
-    const order = await Order.findAll({where: {UserId : data.userId }}) ;
+    const order = await Order.findAll(
+        {
+            where:{UserId : data.userId },
+
+            include:[
+                {
+                    model:Property,
+                    as: 'Property',
+                    attributes: ['id', 'title', 'address', 'state', 'lat', 'lon', 'purpose', 'rooms', 'baths', 'area', 'photosProperty']
+                }
+            ]
+        }) ;
 
     return order
 } ;

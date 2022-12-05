@@ -2,6 +2,7 @@ const Review = require('../models/review.models')
 const User = require('../models/user.models')
 const Property = require('../models/property.models')
 const uuid = require('uuid') ;
+const { Sequelize, where } = require('sequelize');
 
 const getMyProperties = (userId) => {
     const myProperties =  Property.findAll({
@@ -18,6 +19,7 @@ const createProperty = async (data,userId) => {
     .create({
             id: uuid.v4(),
             creatorId: userId,
+            photosProperty:[`http://localhost:3009/public/${data.imageProp}`] ,
             ...data
             })
     return newProperty
@@ -72,6 +74,17 @@ const getAllProperties = async (req,res) => {
     return allProperties
 }
 
+const addImage = async (data) => {
+    const property = await Property.update(
+                    {
+                        'photosProperty': Sequelize.fn(`array_append`, Sequelize.col('photos_property'), `http://localhost:3009/public/${data.image}`)
+                    }, {
+                        where: {id: data.propertyId}
+                    }) ;
+
+    return  'Imagen subida exitosamente'
+} ;
+
 
  
 module.exports = {
@@ -82,6 +95,7 @@ module.exports = {
     editProperty,
     deleteProperty,
     getAllProperties,
-    getMyProperties
+    getMyProperties,
+    addImage
 }
 

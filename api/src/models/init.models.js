@@ -17,7 +17,7 @@ const initModels =  () => {
     Favorites.belongsTo(Property)
 
     //propertyImage
-    propertyImage.belongsTo(Property)
+    // Property.belongsTo(propertyImage)
 
     //Review 
     Review.belongsTo(Users)
@@ -31,7 +31,7 @@ const initModels =  () => {
     /* Users.hasMany(Property) */
 
     //Property 
-    Property.hasMany(propertyImage)
+    // propertyImage.hasMany(Property)
     Property.hasMany(Review)
     Property.hasMany(Favorites)
     Property.hasOne(Orders)
