@@ -1,3 +1,4 @@
+const sendOrder = require('../libs/sendEmail');
 const Property = require('../models/property.models');
 const orderController = require('./order.controllers') ;
 
@@ -21,6 +22,19 @@ const postOrder = async (req, res) => {
            
 } ;
 
+const getAllMyOrder = (req, res) => {
+    const userId = req.user.id;
+
+    orderController.getMyOrder({userId})
+        .then(response => {
+            res.json(response)
+        })
+        .catch(err => {
+            res.json({message: err.message})
+        })
+} ;
+
 module.exports = {
-    postOrder
+    postOrder,
+    getAllMyOrder
 }
