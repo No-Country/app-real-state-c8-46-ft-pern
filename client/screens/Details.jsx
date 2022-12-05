@@ -24,6 +24,8 @@ import { useNavigation } from "@react-navigation/native";
 //     location: "Surabaya, Indonesia",
 
 const Details = () => {
+  console.log("aaaaaaaaa");
+  console.log(img);
   const navigation = useNavigation();
   return (
     <SafeAreaView>
@@ -31,7 +33,7 @@ const Details = () => {
         <ImageBackground
           style={{ height: 400, width: "100%", position: "relative" }}
           source={{
-            uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
+            uri: img,
           }}
         >
           <View style={styles.imgContainer}>
@@ -49,7 +51,7 @@ const Details = () => {
         </ImageBackground>
         <View style={styles.info}>
           <View style={styles.typereview}>
-            <Text style={styles.type}>Apartment</Text>
+            <Text style={styles.type}>{type}</Text>
             <View style={{ display: "flex", flexDirection: "row" }}>
               <AntDesign name="star" size={18} color="yellow" />
               <Text style={{ fontWeight: "600" }}> 4.5 (1.265 reviews) </Text>
@@ -59,7 +61,7 @@ const Details = () => {
             <Text
               style={{ fontSize: 20, fontWeight: "600", paddingVertical: 10 }}
             >
-              Owent Apartment
+              {name}
             </Text>
             <View
               style={{
@@ -70,9 +72,7 @@ const Details = () => {
               }}
             >
               <Entypo name="location-pin" size={15} color="#2972FE" />
-              <Text style={{ fontWeight: "300" }}>
-                Sudirman St. 169, Surabaya, Indonesia
-              </Text>
+              <Text style={{ fontWeight: "300" }}>{location}</Text>
             </View>
             <View
               style={{
@@ -208,7 +208,7 @@ const Details = () => {
                 <Text
                   style={{ fontSize: 24, fontWeight: "700", color: "#2972FE" }}
                 >
-                  $1,700{" "}
+                  {price}{" "}
                 </Text>
                 <Text style={{ fontSize: 14 }}>/month</Text>
               </View>

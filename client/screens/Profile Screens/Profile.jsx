@@ -9,17 +9,6 @@ import { getUser } from "../../redux/actions/userActions";
 const Profile = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  // useEffect(() => {
-  //   // dispatch();
-  // }, []);
-  console.log(
-    "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-  );
-  console.log(user);
-  // useEffect(() => {
-  //   dispatch(getUser())
-  // }, []);
-
 
   return (
     <View style={{}}>
