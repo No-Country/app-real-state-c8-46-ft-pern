@@ -1,15 +1,10 @@
 import { Dimensions , StyleSheet , Text , TouchableOpacity , View } from "react-native";
-import React                                                        from "react";
-import { useNavigation }                                            from "@react-navigation/native";
-
 
 // make a button gradient component
 export const SubmitButton = ({title, style, action }) => {
-    const navigation = useNavigation();
-
     return (
         <View style={style}>
-            <TouchableOpacity style={styles.button} onPress={() => action()}>
+            <TouchableOpacity style={styles.button} onPress={action}>
                 <Text style={styles.buttonText}>{title}</Text>
             </TouchableOpacity>
         </View>
