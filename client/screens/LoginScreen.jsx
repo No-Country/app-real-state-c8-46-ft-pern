@@ -1,7 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import SvgTop from "../assets/svg/SvgTop";
-import { SignInButton } from "../components/Login/SignInButton";
 import { Login } from "../components/Login/Login";
 import { SocialButton } from "../components/Login/SocialButton";
 import { useNavigation } from "@react-navigation/native";
@@ -19,26 +17,23 @@ export const LoginScreen = () => {
     navigation.navigate("HomeActionMenu");
   };
 
-
   return (
     <KeyboardAwareScrollView style={styles.container}>
-      <View style={styles.svgTop}>
-        <SvgTop />
-      </View>
       <View style={styles.loginContainer}>
         <Login />
       </View>
       <View style={styles.buttonContainer}>
-        
         <Text style={styles.text}>or continue with</Text>
-        {/* <View style={styles.buttonSocial}>
+        <View style={styles.buttonSocial}>
           <SocialButton source={googleIcon} title="Google" />
           <SocialButton source={facebookIcon} title="Facebook" />
-        </View> */}
-        <Text style={styles.text}>Don't have an account?</Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-          <Text style={styles.textBold}>Sign up</Text>
-        </TouchableOpacity>
+        </View>
+        <View style={styles.signUp}>
+          <Text style={styles.text}>Don't have an account?{" "}</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+            <Text style={styles.textBold}>Sign up</Text>
+          </TouchableOpacity>
+        </View>
       </View>
       <StatusBar style="auto" />
     </KeyboardAwareScrollView>
@@ -48,14 +43,13 @@ export const LoginScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f1f1f1",
+    backgroundColor: "white",
   },
   buttonContainer: {
     width: "100%",
     justifyContent: "space-evenly",
     alignItems: "center",
-    padding: 20,
-    marginTop: 20,
+    padding: 10,
   },
   loginContainer: {
     width: "100%",
@@ -65,25 +59,20 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     top: 40,
   },
-  svgTop: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: -1,
-  },
   text: {
-    color: "#05445E",
-    fontSize: 15,
-    fontWeight: "bold",
-    padding: 10,
+    fontSize: 14,
+    fontWeight: "300",
+  },
+  signUp: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent:"center",
+    alignItems:"center"
   },
   textBold: {
-    color: "#05445E",
-    fontSize: 15,
+    color: "#2972FE",
+    fontSize: 14,
     fontWeight: "bold",
-    textDecorationLine: "underline",
   },
   buttonSocial: {
     flexDirection: "row",

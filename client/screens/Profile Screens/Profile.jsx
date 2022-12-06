@@ -1,15 +1,14 @@
 import { useEffect } from "react";
 import { View } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Menu from "../../components/Profile/Menu";
 import Settings from "../../components/Profile/Settings";
 import UserData from "../../components/Profile/UserData";
+import { getUser } from "../../redux/actions/userActions";
 
 const Profile = () => {
-
-// useEffect(() => {
-//   dispatch()
-// }, []);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
 
   return (
     <View style={{}}>
@@ -20,7 +19,7 @@ const Profile = () => {
         email={"user@prueba.com"}
         city={"Unknown"}
         userImg={
-          "https://esteticafacialdexeus.com/wp-content/uploads/2016/09/tipos-de-cara.jpg"
+          "https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg"
         }
       />
       <Menu />

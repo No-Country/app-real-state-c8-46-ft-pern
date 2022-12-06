@@ -2,7 +2,7 @@ const db = require("../database/database")
 
 const { DataTypes } = require('sequelize')
 const Users = require("./user.models")
-const PropertyImage = require("./propertyImage.models")
+// const PropertyImage = require("./propertyImage.models")
 
 const Property = db.define('Properties', {
     id: {

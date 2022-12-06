@@ -12,7 +12,7 @@ const Popular = () => {
   const { isLoading, popularProperties } = useSelector(
     (state) => state.popular
   );
-  
+
   useEffect(() => {
     dispatch(getPopularProperties());
   }, []);
@@ -27,39 +27,36 @@ const Popular = () => {
           flexDirection: "row",
           justifyContent: "space-between",
           marginBottom: 5,
-        }} 
+        }}
       >
         <Text style={{ fontWeight: "700", fontSize: 16 }}>Popular</Text>
         <Text style={{ color: "#2972FE", fontWeight: "600" }}>See all</Text>
       </View>
-      {
-        popularProperties.length?(
-          <FlatList
-        showsHorizontalScrollIndicator={false}
-        data={popularProperties}
-        renderItem={({ item }) => (
-          <PopularCard
-            name={item.title}
-            img={item.coverPhoto}
-            type={item.purpose}
-            price={`$ ${item.price}`}
-            location={item.location}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-        horizontal={true}
-      />
-        ):
-        (  <FlatList
+      {popularProperties.length ? (
+        <FlatList
           showsHorizontalScrollIndicator={false}
-          data={popArr}
+          data={popularProperties}
           renderItem={({ item }) => (
-            <SkeletonCard/>
+            <PopularCard
+              name={item.title}
+              img={item.coverPhoto}
+              type={item.purpose}
+              price={`$ ${item.price}`}
+              location={item.location}
+            />
           )}
           keyExtractor={(item) => item.id}
           horizontal={true}
-        />)
-      }
+        />
+      ) : (
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          data={popArr}
+          renderItem={({ item }) => <SkeletonCard />}
+          keyExtractor={(item) => item.id}
+          horizontal={true}
+        />
+      )}
     </View>
   );
 };

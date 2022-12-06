@@ -12,6 +12,7 @@ import { SignInButton } from "./SignInButton";
 import { loginUser } from "../../redux/actions/registerAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export const Login = () => {
   const navigation = useNavigation();
@@ -20,7 +21,7 @@ export const Login = () => {
   const [data, setData] = useState({ password: "", email: "" });
   const [error, setError] = useState(false);
   const { token } = useSelector((state) => state.user);
-  console.log("vamos " + token);
+  // console.log("vamos " + token);
   const HandleLogin = () => {
     if (!data.email) {
       setError(true);
@@ -38,9 +39,13 @@ export const Login = () => {
   };
   return (
     <View style={styles.container}>
+      <View style={styles.titleContainer}>
+        <FontAwesome5 size={40} name="home" color="white" style={styles.icon} />
+      </View>
       <Text style={styles.title}>Go Rent</Text>
-      <Text style={styles.subTitle}>Sign in and Go for it!</Text>
-      <Text style={styles.label}> Email </Text>
+
+      <Text style={styles.subtitle}>Sign in to your account</Text>
+      <Text style={styles.label}>Email</Text>
       <TextInput
         onChangeText={(e) => setData({ ...data, email: e })}
         placeholder={"Email"}
@@ -53,65 +58,76 @@ export const Login = () => {
         style={styles.inputText}
         secureTextEntry={true}
       />
-      <Text style={styles.text}>Forgot Password?</Text>
-      {/* <TouchableOpacity onPress={()=> {login()}}>
-        <Text>Sign In</Text>
-      </TouchableOpacity> */}
-      <SignInButton title="Sign in" action={HandleLogin} />
+
+      <TouchableOpacity onPress={() => HandleLogin()} style={styles.signIn}>
+        <Text style={{ color: "white", fontWeight: "600" }}>Sign In</Text>
+      </TouchableOpacity>
+
+      <Text style={styles.text}>Forgot the password?</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  title: {
-    fontSize: 60,
-    color: "#05445E",
-    fontWeight: "Bold",
-    textShadowColor: "#D4E3FF",
-    textShadowOffset: { width: 4, height: 4 },
-    textShadowRadius: 4,
+  titleContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#2972FE",
+    width: 70,
+    height: 70,
+    borderRadius: 50,
   },
-  subTitle: {
-    fontSize: 25,
-    color: "#05445E",
+  title: {
+    marginTop: 5,
+    marginBottom: 15,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#2972FE",
+  },
+  subtitle: {
+    marginTop: 25,
+    marginBottom: 10,
+    fontWeight: "bold",
+  },
+  label: {
+    alignSelf: "flex-start",
+    fontSize: 14,
+    fontWeight: "300",
+    marginLeft: 10,
+    color: "gray",
+    paddingVertical: 5,
   },
   inputText: {
-    fontSize: 17,
-    color: "grey",
+    fontSize: 14,
     padding: 10,
     borderRadius: 30,
     width: Dimensions.get("window").width - 50,
-    height: 50,
+    height: 40,
     backgroundColor: "#fff",
-    paddingStart: 20,
-    elevation: 5,
+    // paddingStart: 20,
+    elevation: 1,
   },
-  forgotPassword: {
-    fontSize: 16,
-    color: "grey",
+  signIn: {
+    backgroundColor: "#2972FE",
+    width: Dimensions.get("window").width - 50,
+    height: 45,
     marginTop: 20,
-    textAlign: "center",
-  },
-  label: {
-    fontSize: 16,
-    marginTop: 20,
-    marginBottom: 3,
-    textAlign: "center",
-    alignSelf: "flex-start",
-    marginLeft: 25,
-    color: "#D4E3FF",
-    fontWeight: "bold",
+    borderRadius: 25,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
-    fontSize: 15,
-    color: "#05445E",
+    fontSize: 14,
+    color: "#2972FE",
     marginTop: 20,
     textAlign: "center",
-    fontWeight: "bold",
+    fontWeight: "300",
   },
 });
