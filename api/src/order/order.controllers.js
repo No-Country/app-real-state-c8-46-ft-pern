@@ -2,7 +2,6 @@ const uuid = require('uuid') ;
 const sendOrder = require('../libs/sendEmail');
 
 const Order = require("../models/order.models");
-const Property = require("../models/property.models");
 const Users = require('../models/user.models');
 const { filterGetProperties } = require('../properties/properties.services');
 
@@ -38,14 +37,15 @@ const getMyOrder = async (data) => {
         }) ;
 
     const response = order.map( o => o.propId )
-    // console.log(response);
     const property = await filterGetProperties()
-    // const dataProperty = property.find( e => e.id == ) ;
+
+    let res = []
+
     for (let i = 0; i<response.length; i++){
        const dataProperty = property.find( e => e.id == response[i] )
-        return { result: dataProperty }
+         res.push(dataProperty) 
     }
-
+    return res
 } ;
 
 module.exports = {
