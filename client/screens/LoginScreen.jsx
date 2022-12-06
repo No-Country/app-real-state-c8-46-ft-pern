@@ -1,6 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { SignInButton } from "../components/Login/SignInButton";
 import { Login } from "../components/Login/Login";
 import { SocialButton } from "../components/Login/SocialButton";
 import { useNavigation } from "@react-navigation/native";

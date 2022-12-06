@@ -2,7 +2,7 @@ const Users = require('./user.models')
 const BankAccount = require('./bankAccount.models')
 const Favorites = require('./favorites.models')
 const Review = require('./review.models')
-const propertyImage = require('./propertyImage.models')
+// const propertyImage = require('./propertyImage.models')
 const Property = require('./property.models')
 const Orders = require('./order.models')
 

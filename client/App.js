@@ -6,11 +6,11 @@ import AppNav from "./navigation/AppNav";
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <AuthProvider>
+    <AuthProvider>
+      <Provider store={store}>
         <AppNav />
-      </AuthProvider>
-    </Provider>
+      </Provider>
+    </AuthProvider>
   );
 };
 
