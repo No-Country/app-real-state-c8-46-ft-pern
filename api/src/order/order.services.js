@@ -13,7 +13,7 @@ const postOrder = async (req, res) => {
                 res.status(201).json(response)
             })
            .catch( err => {
-            res.json({message: err.message})
+            res.status(400).json({message: err.message})
         } )
 
     }else {

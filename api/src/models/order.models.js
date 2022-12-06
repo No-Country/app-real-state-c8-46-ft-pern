@@ -12,6 +12,10 @@ const Order = db.define('Orders', {
     total: {
         type: DataTypes.FLOAT,
         allowNull: false
+    },
+    propId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
     }
    
 })
