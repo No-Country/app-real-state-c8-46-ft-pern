@@ -2,6 +2,7 @@ const db = require("../database/database")
 
 const { DataTypes } = require('sequelize')
 const Users = require("./user.models")
+// const PropertyImage = require("./propertyImage.models")
 
 const Property = db.define('Properties', {
     id: {
@@ -74,7 +75,12 @@ const Property = db.define('Properties', {
             key: 'id',
             model: Users
         }
+    },
+    photosProperty: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        field: 'photos_property'
     }
+
 })
 
 module.exports = Property

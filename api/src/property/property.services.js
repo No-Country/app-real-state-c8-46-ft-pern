@@ -12,13 +12,14 @@ const getMyProperties = async(req,res) => {
     
 }
 
-const createProperty = async(req,res) => {
+const createProperty = (req,res) => {
     
     const userId = req.user.id ;
+     const imageProp = req.file.filename ;
     const {title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName} = req.body;
 
-    if (title && address && lat && lon && purpose && price && product && category && rentFrequency && rooms && baths && area && contactName) {
-        propertyController.createProperty({title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName},userId)
+    if (title && address && lat && lon && purpose && price && product && category && rentFrequency && rooms && baths && area && contactName && req.file) {
+        propertyController.createProperty({title,address,lat,lon,purpose,price,product,category,rentFrequency,rooms,baths,area,contactName, imageProp},userId)
             .then( result => {
                 res.status(201).json(result)
             } )
@@ -111,6 +112,22 @@ const getAllProperties = async(req,res) => {
         res.json({message: err.message})
     })
 }
+
+
+const addImage = (req, res) => {
+    const image = req.file.filename
+    const propertyId = req.params.propertyId ;
+
+    propertyController.addImage({image, propertyId})
+        .then(response => {
+            res.json({response})
+        })
+        .catch(err => {
+            res.json({message: err.message})
+        })
+    
+} ;
+
 module.exports = {
     getMyProperties,
     createProperty,
@@ -120,4 +137,5 @@ module.exports = {
     editProperty,
     deleteProperty,
     getAllProperties,
+    addImage
 }

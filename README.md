@@ -19,11 +19,11 @@ It also allows users to add to their favorites any property, and leave a review 
 
 - You will have to create you own database in PostgreSQL
 
-- Install the dependencies with npm install at Back and Front folders
+- Install the dependencies with `npm install` at Back and Front folders
 
 - Install Expo Go on your mobile phone
 
-- Run the server with npm run dev (development) or npm start (production)
+- Run the server with `npm run dev` (development) and `npm start` (production)
 
 - Scan your QR with Expo Go
   </br>

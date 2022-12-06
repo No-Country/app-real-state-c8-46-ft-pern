@@ -13,7 +13,7 @@ export const getUser = (payload) => {
   return async function (dispatch) {
     dispatch({ type: GET_USER_DATA_PENDING });
     try {
-      const json = await axios(`${URL_BACK}/users/user${payload.id}`);
+      const json = await axios(`${URL_BACK}/users/user/me`);
       return dispatch({
         type: GET_USER_DATA_SUCCESS,
         payload: json.data,

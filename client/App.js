@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Landing                  from "./screens/Landing";
 import HomeActionMenu           from "./screens/HomeActionMenu";
 import Details                  from "./screens/Details";
@@ -17,10 +18,15 @@ import Security                 from "./screens/Profile Screens/Security";
 import Appearance               from "./screens/Profile Screens/Appearance";
 import Help                     from "./screens/Profile Screens/Help";
 import {ForgotPassword} from "./screens/ForgotPassword";
+=======
+import { Provider } from "react-redux";
+import { AuthProvider } from "./context/AuthContext";
+import { store } from "./redux/store";
+>>>>>>> 9874074bd68cd2ca277de02b93da3b45b918e577
 
-export default function App() {
-    const Stack = createStackNavigator();
+import AppNav from "./navigation/AppNav";
 
+<<<<<<< HEAD
     return (
         <ThemeProvider theme={theme}>
             <Provider store={store}>
@@ -123,3 +129,16 @@ export default function App() {
         </ThemeProvider>
     );
 }
+=======
+const App = () => {
+  return (
+    <AuthProvider>
+      <Provider store={store}>
+        <AppNav />
+      </Provider>
+    </AuthProvider>
+  );
+};
+
+export default App;
+>>>>>>> 9874074bd68cd2ca277de02b93da3b45b918e577

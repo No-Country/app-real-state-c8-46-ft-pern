@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {
   FontAwesome5,
   AntDesign,
@@ -7,7 +7,10 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 const Menu = () => {
+  const { logout } = useContext(AuthContext);
   const navigation = useNavigation();
   return (
     <View>
@@ -72,9 +75,9 @@ const Menu = () => {
         <AntDesign style={styles.icon1} name="right" size={20} />
       </View>
       <View style={styles.section}>
-        <View
+        <TouchableOpacity
           style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
+          onPress={() => logout()}
         >
           <MaterialCommunityIcons
             style={{
@@ -87,7 +90,7 @@ const Menu = () => {
             size={20}
           />
           <Text style={styles.text}>Logout</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

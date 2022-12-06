@@ -5,9 +5,9 @@ POST localhost:3009/api/v1/auth/register
 Content-Type: application/json
 
 {
-    "firstName":"Gean",
-    "lastName":"Franco",
-    "email":"gean@example.com",
+    "firstName":"gean",
+    "lastName":"franco",
+    "email":"gean120@gmail.com",
     "password":"root"
 }
 
@@ -15,12 +15,20 @@ POST localhost:3009/api/v1/auth/login
 Content-Type: application/json
 
 {
-    "email":"gean@example.com",
+    "email":"gean120@gmail.com",
     "password":"root"
 }
 
+PATCH localhost:3009/api/v1/auth/forgot_password
+Content-Type: application/json
+
+{
+    "email":"fran@example.com",
+    "password":"root2"
+}
+
 POST localhost:3009/api/v1/property/me
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhNTgyYjAzLTMyODAtNGMwMy04ODc5LTRlYzg1YmI3ODliMiIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2Njk3NTcyMDV9.j-V5vWRkAMgqSAqZDVc7MkAUA6ly1mYJypo_1jPVOeU
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImUxNGUyZmU2LTQ3OGYtNGM5Mi1iMTAxLWFiMDA3NDM5MGU0YSIsImVtYWlsIjoiZ2VhbjEyMEBnbWFpbC5jb20iLCJyb2xlIjoibm9ybWFsIiwiaWF0IjoxNjY5OTQ1MzQ5fQ.KgHFbnXpFH5K1ElJCTnifcEW82dkgtnMW7tEIdH3oiY
 Content-Type: application/json
 
 {
@@ -40,7 +48,18 @@ Content-Type: application/json
 }
 
 GET localhost:3009/api/v1/property/me
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU4NDlmNWM1LWY2ZDYtNDE5OC04OWNkLWFiOWUyNTllOGIwZiIsImVtYWlsIjoiZ2VhbngxMjBAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjY5OTMxODQ3fQ.HHrCt4DKcL1MYfcc1AmCLWdqX2e9k-nzHDKkXZjWYeU
+Content-Type: application/json
+
+GET localhost:3009/api/v1/property/
+Content-Type: application/json
+
+GET localhost:3009/api/v1/property/a9f41c88-3d2c-4f06-b57f-f0d72d8b5736
 Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhNTgyYjAzLTMyODAtNGMwMy04ODc5LTRlYzg1YmI3ODliMiIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2Njk3NTcyMDV9.j-V5vWRkAMgqSAqZDVc7MkAUA6ly1mYJypo_1jPVOeU
+Content-Type: application/json
+
+POST localhost:3009/api/v1/property/image/a9f41c88-3d2c-4f06-b57f-f0d72d8b5736
+Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImU4NDlmNWM1LWY2ZDYtNDE5OC04OWNkLWFiOWUyNTllOGIwZiIsImVtYWlsIjoiZ2VhbngxMjBAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjY5OTMxODQ3fQ.HHrCt4DKcL1MYfcc1AmCLWdqX2e9k-nzHDKkXZjWYeU
 Content-Type: application/json
 
 POST localhost:3009/api/v1/bank-account
@@ -54,9 +73,13 @@ Content-Type: application/json
     "cvv":"421"
 }
 
-POST localhost:3009/api/v1/order/buy/a9f41c88-3d2c-4f06-b57f-f0d72d8b5736
-Authorization: JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJhNTgyYjAzLTMyODAtNGMwMy04ODc5LTRlYzg1YmI3ODliMiIsImVtYWlsIjoiZ2VhbkBleGFtcGxlLmNvbSIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2Njk3NTc2ODd9.jUWmXpxDTkUEre_dc2cghLYSKomX5JwAaTl5Fg5wOFI
-Content-Type: application/json
+GET localhost:3009/api/v1/order
+authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiZTRmMTA5LTMxOTQtNDg1OS1iYmQzLWVhNzc4YTQyNmYwOCIsImVtYWlsIjoiZ2VhbjEyMEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAwMzY5MTF9.JLORjavIuJdd9qN0D199BdAFSQAuiWrVV0Js7bzb6uQ
+content-type: application/json
+
+POST localhost:3009/api/v1/order/buy/8c6b163e-cb70-4582-ad22-7b67bf4186c5
+authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjdiZTRmMTA5LTMxOTQtNDg1OS1iYmQzLWVhNzc4YTQyNmYwOCIsImVtYWlsIjoiZ2VhbjEyMEBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NzAwMzY5MTF9.JLORjavIuJdd9qN0D199BdAFSQAuiWrVV0Js7bzb6uQ
+content-type: application/json
 
 {
     "total": 1

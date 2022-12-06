@@ -15,7 +15,7 @@ async function getProperties() {
       categoryExternalID: "4",
     },
     headers: {
-      "X-RapidAPI-Key": "fb9d440a17mshdeb12f5ec33d353p1c958bjsn0ce8f2b9c97f",
+      "X-RapidAPI-Key": "01670b4a34mshd88cb6dfd40dfa5p1073adjsnc0dbe370dfa7",
       "X-RapidAPI-Host": "bayut.p.rapidapi.com",
     },
   };
