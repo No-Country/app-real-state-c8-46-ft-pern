@@ -16,7 +16,7 @@ import PopularCard from "../components/HomeActionMenu/PopularCard";
 const Rents = () => {
   const dispatch = useDispatch();
   const { userInfo } = useContext(AuthContext);
-  const { rents, rent } = useSelector((state) => state.rent);
+  const { rents } = useSelector((state) => state.rent);
   useEffect(() => {
     dispatch(getAllRents(userInfo.token));
   }, []);
