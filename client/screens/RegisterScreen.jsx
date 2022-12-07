@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { SocialButton } from "../components/Login/SocialButton";
 import { StatusBar } from "expo-status-bar";
-import { SubmitButton } from "../components/Login/SubmitButton";
+import { SignInButton } from "../components/Login/SignInButton";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useState } from "react";
@@ -88,10 +88,10 @@ export const RegisterScreen = () => {
                         you have to complet all the inputs
                     </Text>
                 ) : null}
-                <SubmitButton title="Sign Up" handleSubmit={handleSubmit}
-                    title="Sign up"
-                    style={{ marginTop: 20 }}
-                    action={handleSubmit}
+                <SignInButton title="Sign Up" handleSubmit={handleSubmit}
+                              title="Sign up"
+                              style={{ marginTop: 20 }}
+                              action={handleSubmit}
                 />
             </View>
             <Text style={styles.text}>or continue with</Text>

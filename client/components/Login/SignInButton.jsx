@@ -1,7 +1,7 @@
 import { Dimensions , StyleSheet , Text , TouchableOpacity , View } from "react-native";
 
 // make a button gradient component
-export const SubmitButton = ({title, style, action }) => {
+export const SignInButton = ({title, style, action }) => {
     return (
         <View style={style}>
             <TouchableOpacity style={styles.button} onPress={action}>

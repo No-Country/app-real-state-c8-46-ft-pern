@@ -1,6 +1,6 @@
 import {Text, View, StyleSheet, SafeAreaView} from "react-native";
 import {ContactButton} from "../components/Login/ContactButton";
-import {SubmitButton} from "../components/Login/SubmitButton";
+import {SignInButton} from "../components/Login/SignInButton";
 import React, {useState} from "react";
 import {OtpVerification} from "../components/Login/OtpVerification";
 
@@ -41,7 +41,7 @@ export const ForgotPassword = () => {
                                    onPress={handleOptionChange}/>
                     <ContactButton title="Email" option={email} value={selectedOption} onPress={handleOptionChange}/>
                 </View>
-                <SubmitButton title="Send" action={
+                <SignInButton title="Send" action={
                     () => {
                         handleRenderOption()
                     }
