@@ -46,7 +46,7 @@ const Details = (currentProp) => {
   const dispatch = useDispatch();
 
   const createTwoButtonAlert = () =>
-    Alert.alert("Confirm Rent", "Are you sure to rent this property?", [
+    Alert.alert("Confirm Rent", "Are you sure you want to rent this property?", [
       {
         text: "Cancel",
         onPress: () => console.log("Cancel Pressed"),
@@ -56,8 +56,7 @@ const Details = (currentProp) => {
     ]);
 
   const { userToken } = useContext(AuthContext);
-  console.log(id);
-  console.log(userToken);
+
   const handleRent = async () => {
     dispatch(confirmRent(id, userToken));
     console.log("confirm rent");
