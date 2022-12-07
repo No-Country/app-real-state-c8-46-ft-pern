@@ -58,6 +58,8 @@ const Details = (currentProp) => {
   const { userToken } = useContext(AuthContext);
 
   const handleRent = async () => {
+    console.log(id);
+    console.log(userToken);
     dispatch(confirmRent(id, userToken));
     console.log("confirm rent");
   };

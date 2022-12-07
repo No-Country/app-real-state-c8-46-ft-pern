@@ -10,17 +10,19 @@ import { SocialButton } from "../components/Login/SocialButton";
 import { StatusBar } from "expo-status-bar";
 import { SignInButton } from "../components/Login/SignInButton";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../redux/actions/registerAction";
+import { loginUser, registerUser } from "../redux/actions/registerAction";
 import { useNavigation } from "@react-navigation/native";
+import { AuthContext } from "../context/AuthContext";
+import { useContext } from "react";
 
 export const RegisterScreen = () => {
   const navigation = useNavigation();
   const googleIcon = require("../assets/google48.png");
   const facebookIcon = require("../assets/facebook48.png");
-
+  const { login } = useContext(AuthContext);
   const dispatch = useDispatch();
   const [data, setData] = useState({
     firstName: "",
@@ -30,6 +32,7 @@ export const RegisterScreen = () => {
     profileImage: "http://localhost:8080",
   });
   const [error, setError] = useState(false);
+
   const handleSubmit = () => {
     if (!data.email) {
       setError(true);
@@ -45,19 +48,31 @@ export const RegisterScreen = () => {
     } else {
       setError(false);
       dispatch(registerUser(data));
+      login(data.email, data.password);
+      dispatch(loginUser(data));
     }
   };
-
   return (
     <KeyboardAwareScrollView style={styles.container}>
+      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <View style={styles.iconUp}>
+          <Ionicons name="arrow-back" size={20} color="#2972FE" />
+        </View>
+      </TouchableOpacity>
+
       <View style={styles.form}>
-        <FontAwesome5
-          name="home"
-          size={70}
-          color="blue"
-          style={{ padding: 20 }}
-        />
-        <Text style={styles.subTitle}>Sign Up Fast! and Go Rent</Text>
+        <View style={styles.titleContainer}>
+          <FontAwesome5
+            name="home"
+            size={40}
+            color="white"
+            style={styles.icon}
+          />
+        </View>
+
+        <Text style={styles.title}>Go Rent</Text>
+        <Text style={styles.subtitle}>Sign up to a new account</Text>
+
         <Text style={styles.label}> First Name </Text>
         <TextInput
           onChangeText={(e) => setData({ ...data, firstName: e })}
@@ -110,21 +125,31 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 20,
   },
+  titleContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#2972FE",
+    width: 70,
+    height: 70,
+    borderRadius: 50,
+  },
   form: {
     width: "100%",
     alignItems: "center",
     padding: 20,
   },
-  subTitle: {
-    fontSize: 30,
-    color: "#05445E",
-    fontWeight: "Bold",
-    textShadowColor: "#D4E3FF",
-    textShadowOffset: { width: 4, height: 4 },
-    textShadowRadius: 4,
-    width: Dimensions.get("window").width - 50,
-    textAlign: "center",
-    padding: 10,
+  title: {
+    marginTop: 5,
+    marginBottom: 15,
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#2972FE",
+  },
+  subtitle: {
+    marginTop: 25,
+    marginBottom: 10,
+    fontWeight: "bold",
   },
   inputText: {
     fontSize: 14,
