@@ -7,6 +7,7 @@ import {
   Text,
   View,
   SafeAreaView,
+  Alert,
 } from "react-native";
 import {
   Ionicons,
@@ -16,6 +17,10 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { confirmRent } from "../redux/actions/rentActions";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 // id: 1,
 //     imgContainer: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
 //     type: "Apartment",
@@ -23,10 +28,40 @@ import { useNavigation } from "@react-navigation/native";
 //     name: "Owent Apartment",
 //     location: "Surabaya, Indonesia",
 
-const Details = () => {
-  console.log("aaaaaaaaa");
-  console.log(img);
+const Details = (currentProp) => {
   const navigation = useNavigation();
+
+  let img = currentProp.route.params.img;
+  let location = currentProp.route.params.location;
+  let type = currentProp.route.params.type;
+  let name = currentProp.route.params.name;
+  let price = currentProp.route.params.price;
+  let area = currentProp.route.params.area;
+  let baths = currentProp.route.params.baths;
+  let rooms = currentProp.route.params.rooms;
+  let id = currentProp.route.params.id;
+  let lng = currentProp.route.params.lng;
+  let owner = currentProp.route.params.owner;
+
+  const dispatch = useDispatch();
+
+  const createTwoButtonAlert = () =>
+    Alert.alert("Confirm Rent", "Are you sure to rent this property?", [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      { text: "Confirm", onPress: () => handleRent() },
+    ]);
+
+  const { userToken } = useContext(AuthContext);
+  console.log(id);
+  console.log(userToken);
+  const handleRent = async () => {
+    dispatch(confirmRent(id, userToken));
+    console.log("confirm rent");
+  };
   return (
     <SafeAreaView>
       <ScrollView style={styles.container}>
@@ -101,7 +136,7 @@ const Details = () => {
               style={styles.profile}
             />
             <View>
-              <Text style={{ fontWeight: "600" }}>Ramona Flowers</Text>
+              <Text style={{ fontWeight: "600" }}>{owner}</Text>
               <Text>Partner</Text>
             </View>
             <MaterialIcons name="message" size={20} color="#2972FE" />
@@ -127,21 +162,21 @@ const Details = () => {
           <View style={styles.gallery}>
             <Image
               style={styles.imgGallery}
-              source={
-                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796"
-              }
+              source={{
+                uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796",
+              }}
             />
             <Image
               style={styles.imgGallery}
-              source={
-                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba"
-              }
+              source={{
+                uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba",
+              }}
             />
             <Image
               style={styles.imgGallery}
-              source={
-                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"
-              }
+              source={{
+                uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
+              }}
             />
           </View>
           {/* --------------------- LOCATION --------------------------------- */}
@@ -149,9 +184,9 @@ const Details = () => {
           <View style={{ marginTop: 10 }}>
             <Text style={styles.title}>Location</Text>
             <Image
-              source={
-                "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg"
-              }
+              source={{
+                uri: "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg",
+              }}
               style={{ borderRadius: 20, width: 360, height: 200 }}
             />
           </View>
@@ -223,9 +258,10 @@ const Details = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              onPress={() => createTwoButtonAlert()}
             >
               <Text style={{ fontSize: 16, fontWeight: "600", color: "white" }}>
-                Buy
+                Rent
               </Text>
             </TouchableOpacity>
           </View>

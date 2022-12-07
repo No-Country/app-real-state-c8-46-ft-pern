@@ -12,6 +12,7 @@ import { AuthContext } from "../../context/AuthContext";
 const Menu = () => {
   const { logout } = useContext(AuthContext);
   const navigation = useNavigation();
+
   return (
     <View>
       <View style={styles.section}>
@@ -54,6 +55,18 @@ const Menu = () => {
         </View>
         <AntDesign style={styles.icon1} name="right" size={20} />
       </View>
+
+      <View style={styles.section}>
+        <View
+          style={styles.sectionChild}
+          onStartShouldSetResponder={() => navigation.navigate("Rents")}
+        >
+          <MaterialCommunityIcons style={styles.icon} name="table-key" size={20} />
+          <Text style={styles.text}>Rents</Text>
+        </View>
+        <AntDesign style={styles.icon1} name="right" size={20} />
+      </View>
+
       <View style={styles.section}>
         <View
           style={styles.sectionChild}
@@ -64,16 +77,7 @@ const Menu = () => {
         </View>
         <AntDesign style={styles.icon1} name="right" size={20} />
       </View>
-      <View style={styles.section}>
-        <View
-          style={styles.sectionChild}
-          onStartShouldSetResponder={() => alert("se te perdió algo?")}
-        >
-          <FontAwesome5 style={styles.icon} name="user-friends" size={20} />
-          <Text style={styles.text}>Invite Friends</Text>
-        </View>
-        <AntDesign style={styles.icon1} name="right" size={20} />
-      </View>
+ 
       <View style={styles.section}>
         <TouchableOpacity
           style={styles.sectionChild}

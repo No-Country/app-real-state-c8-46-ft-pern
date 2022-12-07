@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { View, Text, FlatList, StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { getPopularProperties } from "../../redux/actions/popularAction";
-import { registerUser } from "../../redux/actions/registerAction";
 import PopularCard from "./PopularCard";
 import { SkeletonCard } from "./SkeletonCard";
 import { popArr } from "./SkeletonCard";
@@ -16,8 +15,6 @@ const Popular = () => {
   useEffect(() => {
     dispatch(getPopularProperties());
   }, []);
-
-  // const name = popularProperties && popularProperties.title.split(" ")
   return (
     <View style={styles.container}>
       <View
@@ -36,15 +33,23 @@ const Popular = () => {
         <FlatList
           showsHorizontalScrollIndicator={false}
           data={popularProperties}
-          renderItem={({ item }) => (
-            <PopularCard
-              name={item.title}
-              img={item.coverPhoto}
-              type={item.purpose}
-              price={`$ ${item.price}`}
-              location={item.location}
-            />
-          )}
+          renderItem={({ item }) => {
+            return (
+              <PopularCard
+                name={item.title}
+                img={item.coverPhoto}
+                type={item.purpose}
+                price={`$ ${item.price}`}
+                location={item.location}
+                area={item.area}
+                baths={item.baths}
+                rooms={item.rooms}
+                id={item.id}
+                lng={item.lng}
+                owner={item.contactName}
+              />
+            );
+          }}
           keyExtractor={(item) => item.id}
           horizontal={true}
         />

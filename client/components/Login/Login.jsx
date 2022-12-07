@@ -14,6 +14,7 @@ import { useNavigation } from "@react-navigation/native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export const Login = () => {
+<<<<<<< HEAD
     const navigation = useNavigation();
     const dispatch = useDispatch();
     const { login } = useContext(AuthContext);
@@ -43,6 +44,35 @@ export const Login = () => {
                 <FontAwesome5 size={40} name="home" color="white" style={styles.icon} />
             </View>
             <Text style={styles.title}>Go Rent</Text>
+=======
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const { login } = useContext(AuthContext);
+  const [data, setData] = useState({ password: "", email: "" });
+  const [error, setError] = useState(false);
+  const { token } = useSelector((state) => state.user);
+  const HandleLogin = () => {
+    if (!data.email) {
+      setError(true);
+    }
+    if (!data.password) {
+      setError(true);
+    }
+    if (error) {
+      console.log(error);
+    } else {
+      setError(false);
+      login(data.email, data.password);
+      dispatch(loginUser(data));
+    }
+  };
+  return (
+    <View style={styles.container}>
+      <View style={styles.titleContainer}>
+        <FontAwesome5 size={40} name="home" color="white" style={styles.icon} />
+      </View>
+      <Text style={styles.title}>Go Rent</Text>
+>>>>>>> 0b966ef446f398345ce0c63c32885789ee17ea93
 
             <Text style={styles.subtitle}>Sign in to your account</Text>
             <Text style={styles.label}>Email</Text>

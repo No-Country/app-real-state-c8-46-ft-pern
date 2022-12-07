@@ -15,11 +15,16 @@ import {
   GET_ALL_RENTS_SUCCESS,
 } from "../types/rentTypes";
 
-export const getAllRents = () => {
+export const getAllRents = (payload) => {
   return async function (dispatch) {
     dispatch({ type: GET_ALL_RENTS_PENDING });
     try {
-      const json = await axios(`${URL_BACK}/rent`);
+      const json = await axios(`${URL_BACK}/order`, {
+        headers: {
+          authorization: `jwt ${payload}`,
+          "Content-Type": "application/json",
+        },
+      });
       return dispatch({
         type: GET_ALL_RENTS_SUCCESS,
         payload: json.data,
@@ -31,11 +36,20 @@ export const getAllRents = () => {
   };
 };
 
-export const confirmRent = (payload) => {
+export const confirmRent = (id, payload) => {
   return async function (dispatch) {
     dispatch({ type: CONFIRM_RENT_PENDING });
     try {
-      const res = axios.post(`${URL_BACK}/rent`, payload);
+      const res = axios.post(
+        `${URL_BACK}/order/buy/${id}`,
+        { total: 1 },
+        {
+          headers: {
+            authorization: `jwt ${payload}`,
+            "content-type": "application/json",
+          },
+        }
+      );
       dispatch({
         type: CONFIRM_RENT_SUCCESS,
         payload: res.data,
