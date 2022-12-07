@@ -88,10 +88,7 @@ export const RegisterScreen = () => {
                         you have to complet all the inputs
                     </Text>
                 ) : null}
-                <SignInButton title="Sign Up" handleSubmit={handleSubmit}
-                              title="Sign up"
-                              style={{ marginTop: 20 }}
-                              action={handleSubmit}
+                <SignInButton title="Sign Up" action={handleSubmit} style={{ marginTop: 20 }}
                 />
             </View>
             <Text style={styles.text}>or continue with</Text>
