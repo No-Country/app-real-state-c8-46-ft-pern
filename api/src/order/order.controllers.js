@@ -24,7 +24,7 @@ const buyProperty = async (data) => {
     //
      const { firstName, lastName, email } = user ;
         const {id} = orderId ;
-    const { title, location, state, rooms, baths, area } = property ;
+    const { title, location, state, rooms, baths, area } = idProp ;
      sendOrder({firstName, lastName, email, id , title, location, state, rooms, baths, area});
     
      return order
