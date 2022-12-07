@@ -6,7 +6,8 @@ const db = new Sequelize({
     host : configEnv.db.host,
     username : configEnv.db.username,
     password : configEnv.db.password,
-    database : configEnv.db.dbName
+    database : configEnv.db.dbName,
+    port :configEnv.db.port
 })
 
 module.exports = db
