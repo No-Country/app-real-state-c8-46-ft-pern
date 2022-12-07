@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
 import { URL_BACK } from "../config";
 import { loginUser } from "../redux/actions/registerAction";
-
+import USER_LOGIN_SUCCESS from "../redux/types/userTypes";
 export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +22,9 @@ export const AuthProvider = ({ children }) => {
       setUserToken(userData.token);
       AsyncStorage.setItem("userData", JSON.stringify(userData));
       AsyncStorage.setItem("userToken", userData.token);
+      // return async function (dispatch) {
+      //   dispatch({ type: USER_LOGIN_SUCCESS, payload: res.data });
+      // };
     } catch (e) {
       console.log(`Login error ${e}`);
     }
@@ -56,7 +59,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ login, logout, isLoading, userToken }}>
+    <AuthContext.Provider value={{ login, logout, isLoading, userToken, userInfo }}>
       {children}
     </AuthContext.Provider>
   );

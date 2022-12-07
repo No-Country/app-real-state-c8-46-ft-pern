@@ -1,25 +1,25 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
 import Menu from "../../components/Profile/Menu";
 import Settings from "../../components/Profile/Settings";
 import UserData from "../../components/Profile/UserData";
-import { getUser } from "../../redux/actions/userActions";
+import { AuthContext } from "../../context/AuthContext";
 
 const Profile = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
-
+  const { userInfo } = useContext(AuthContext);
   return (
     <View style={{}}>
       <Settings />
       <UserData
-        firstName={"Usuario"}
-        lastName={"Prueba"}
-        email={"user@prueba.com"}
-        city={"Unknown"}
+        firstName={userInfo.response ? userInfo.response.firstName : "Prueba"}
+        lastName={userInfo.response ? userInfo.response.lastName : "Prueba"}
+        email={
+          userInfo.response ? userInfo.response.email : "prueba@prueba.com"
+        }
         userImg={
-          "https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg"
+          userInfo.response.profileImage
+            ? userInfo.response.profileImage
+            : "https://www.tuexperto.com/wp-content/uploads/2015/07/perfil_01.jpg"
         }
       />
       <Menu />
