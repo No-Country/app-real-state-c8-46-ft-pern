@@ -10,6 +10,10 @@ const Favorites = db.define('Favorites', {
         primaryKey: true,
         autoIncrement: true
     },
+    propId: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }
 })
 
 module.exports = Favorites

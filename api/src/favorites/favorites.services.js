@@ -1,7 +1,8 @@
 const favoritesController = require('./favorites.controller') ;
 
 const getMyFavorites = async (req,res) => {
-    reviewController.getMyFavorites(req.user)
+    const userId = req.user.id ;
+    favoritesController.getMyFavorites(userId)
     .then( result => {
         res.status(201).json(result)
     } )
@@ -12,7 +13,9 @@ const getMyFavorites = async (req,res) => {
 
 const createFavorites = async (req,res) => {
 
-    const {userId,propertyId} = req.body
+    const userId = req.user.id ;
+    const propertyId = req.params.favoriteId ;
+
     if (userId,propertyId) {
         favoritesController.createFavorite({userId,propertyId})
         .then( result => {
