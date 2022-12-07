@@ -1,14 +1,20 @@
 import { useState } from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity, Alert, } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Alert,
+} from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import { useNavigation } from "@react-navigation/native";
 import { Searchbar } from "react-native-paper";
 import { Entypo } from "@expo/vector-icons";
-import BottomPopup from '../Modals/Modal'
+import BottomPopup from "../Modals/Modal";
 import { popArr } from "../HomeActionMenu/Popular";
 import { useSelector } from "react-redux";
 const SearchMap = () => {
-
   const navigation = useNavigation();
   const [origin, setOrigin] = useState({
     latitude: 25.193583,
@@ -17,23 +23,27 @@ const SearchMap = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [selected, setSelected] = useState({});
-  const { isLoading, properties } = useSelector(
-    (state) => state.properties
-  );
-  console.log(properties[0].lng.lng);
+  const { isLoading, properties } = useSelector((state) => state.properties);
+  // console.log(properties[0].lng.lng);
 
   const onChangeSearch = (query) => setSearchQuery(query);
 
   const handlerSelectedProperty = (e) => {
+
     setSelected({
       coverPhoto: e.coverPhoto,
       purpose: e.purpose,
       price: e.price,
       name: e.name,
       location: e.location,
+      baths: e.baths,
+      area: e.area,
+      title: e.title,
+      lng: e.lng,
+      rooms: e.rooms
     });
-    setIsModalOpen(!isModalOpen)
-  }
+    setIsModalOpen(!isModalOpen);
+  };
 
   return (
     <View>
@@ -52,12 +62,20 @@ const SearchMap = () => {
           longitudeDelta: 0.08,
         }}
       >
-        {
-          properties?.map(e => (<Marker onPress={() => handlerSelectedProperty(e)} key={e.id} coordinate={{ latitude: e.lng.lat, longitude: e.lng.lng }} pinColor={"red"} // any color
-            />))
-        }
+        {properties?.map((e) => (
+          <Marker
+            onPress={() => handlerSelectedProperty(e)}
+            key={e.id}
+            coordinate={{ latitude: e.lng.lat, longitude: e.lng.lng }}
+            pinColor={"red"} // any color
+          />
+        ))}
       </MapView>
-      <BottomPopup isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} info={selected} />
+      <BottomPopup
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+        info={selected}
+      />
     </View>
   );
 };

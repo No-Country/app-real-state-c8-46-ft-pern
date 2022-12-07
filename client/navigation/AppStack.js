@@ -8,6 +8,7 @@ import Appearance from "../screens/Profile Screens/Appearance";
 import Help from "../screens/Profile Screens/Help";
 
 import { createStackNavigator } from "@react-navigation/stack";
+import Rents from "../screens/Rents";
 
 export default function AppStack() {
   const Stack = createStackNavigator();
@@ -66,6 +67,13 @@ export default function AppStack() {
       <Stack.Screen
         name="Help"
         component={Help}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Rents"
+        component={Rents}
         options={{
           headerShown: false,
         }}

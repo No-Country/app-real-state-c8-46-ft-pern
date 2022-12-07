@@ -21,7 +21,6 @@ export const Login = () => {
   const [data, setData] = useState({ password: "", email: "" });
   const [error, setError] = useState(false);
   const { token } = useSelector((state) => state.user);
-  // console.log("vamos " + token);
   const HandleLogin = () => {
     if (!data.email) {
       setError(true);
