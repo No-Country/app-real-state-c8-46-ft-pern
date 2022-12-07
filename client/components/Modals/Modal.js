@@ -32,7 +32,6 @@ const BottomPopup = ({ isModalOpen, setIsModalOpen, info }) => {
     justifyContent: "flex-end",
   };
   const dispatch = useDispatch();
-  console.log(info);
   const handleRent = () => {
     dispatch(confirmRent(info))
 }

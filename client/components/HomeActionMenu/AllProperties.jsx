@@ -40,11 +40,17 @@ const AllProperties = () => {
        data={properties}
        renderItem={({ item }) => (
          <PopularCard
-           name={item.title}
-           img={item.coverPhoto}
-           type={item.type}
-           price={item.price}
-           location={item.location}
+         name={item.title}
+         img={item.coverPhoto}
+         type={item.purpose}
+         price={`$ ${item.price}`}
+         location={item.location}
+         area={item.area}
+         baths={item.baths}
+         rooms={item.rooms}
+         id={item.id}
+         lng={item.lng}
+         owner={item.contactName}
          />
        )}
        keyExtractor={(item) => item.id}

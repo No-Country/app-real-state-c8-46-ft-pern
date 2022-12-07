@@ -24,7 +24,6 @@ const SearchMap = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selected, setSelected] = useState({});
   const { isLoading, properties } = useSelector((state) => state.properties);
-  // console.log(properties[0].lng.lng);
 
   const onChangeSearch = (query) => setSearchQuery(query);
 
