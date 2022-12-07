@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   FlatList,
   Image,
   SafeAreaView,
@@ -12,11 +13,10 @@ import { useContext, useEffect } from "react";
 import { getAllRents } from "../redux/actions/rentActions";
 import { AuthContext } from "../context/AuthContext";
 import { useDispatch, useSelector } from "react-redux";
-import PopularCard from "../components/HomeActionMenu/PopularCard";
 const Rents = () => {
   const dispatch = useDispatch();
   const { userInfo } = useContext(AuthContext);
-  const { rents } = useSelector((state) => state.rent);
+  const { rents, isLoading } = useSelector((state) => state.rent);
   useEffect(() => {
     dispatch(getAllRents(userInfo.token));
   }, []);
@@ -51,7 +51,9 @@ const Rents = () => {
           <Text style={styles.btntxt}>Apartment</Text>
         </TouchableOpacity>
       </View>
-      {rents[0] ? (
+      {isLoading ? (
+        <ActivityIndicator size={"large"} />
+      ) : rents[0] ? (
         <FlatList
           showsHorizontalScrollIndicator={false}
           data={rents}
