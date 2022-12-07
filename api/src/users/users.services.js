@@ -27,9 +27,9 @@ const getUserById = (req, res) => {
 const patchUser = (req, res) => {
     const id = req.params.id;
         
-    const {firstName, lastName, phone, birthday, gender, country} = req.body ;
+    const {firstName, lastName,profileImage } = req.body ;
 
-    usersControllers.updateUser(id, {firstName, lastName, phone, birthday, gender, country})
+    usersControllers.updateUser(id, {firstName, lastName,profileImage})
         .then(data => {
             if (data[0]) {
                 res.status(200).json({message: `user with ID: ${id} edited succesfully`})
@@ -48,7 +48,7 @@ const deleteUser = (req, res) => {
     usersControllers.deleteUser(id)
         .then(data => {
             if (data) {
-                res.status(204).json()
+                res.status(204).json('User Deleted')
                 
             } else {
                 res.status(400).json({message: 'Invalid ID'})
@@ -62,19 +62,17 @@ const deleteUser = (req, res) => {
 };
 
 const registerUser =  (req, res) => {
-    const {firstName, lastName, email, password, phone, birthday, gender, country } = req.body;
+    const {firstName, lastName, email, password} = req.body;
 
     if (
         firstName &&
         lastName &&
         email &&
-        password &&
-        phone &&
-        birthday
+        password 
     ) {
         //? Ejecutamos el controller
         usersControllers.createUser({
-            firstName, lastName, email, password, phone, birthday, gender, country
+            firstName, lastName, email, password
         })
             .then( data => {
                 res.status(201).json(data)
@@ -89,8 +87,7 @@ const registerUser =  (req, res) => {
             lastName: 'string',
             email: 'example@example.com',
             password: 'string',
-            phone: '+521231231231',
-            birthday: 'YYYY/MM/DD'
+            profileImage: "http://localhost:8080"
         }})
     }
     
@@ -111,9 +108,9 @@ const getMyUser = (req, res) => {
 
 const updateMyUser = (req, res) => {
     const id = req.user.id;
-    const {firstName, lastName, phone, birthday, gender, country} = req.body ;
+    const {firstName, lastName,profileImage } = req.body ;
 
-     usersControllers.updateUser(id, {firstName, lastName, phone, birthday, gender, country})
+     usersControllers.updateUser(id, {firstName, lastName, profileImage})
         .then(data => {
             if (data[0]) {
                 res.status(200).json({message: `user with ID: ${id} edited succesfully`})
@@ -127,7 +124,7 @@ const updateMyUser = (req, res) => {
 
 const deletMyUser = (req, res) => {
     const id = req.user.id ;
-    usersControllers.updateUser(id, {status: 'Inactive'})
+    usersControllers.updateUser(id)
         .then( () => {
             res.status(200).json({message: 'Your user was deletd succesfully'})
         } )
@@ -135,6 +132,41 @@ const deletMyUser = (req, res) => {
             res.status(400).json({message: err.message})
         } )
         
+} ;
+
+const forgotPassword = (req, res) => {
+    const {email, password} = req.body ;
+
+    if (email && password) {
+        usersControllers.forgotPassword({email, password})
+            .then(response => {
+                res.json({message: "Password modify correctly", response})
+            })
+            .catch(err => {
+                res.json({message: err})
+            })
+        
+    }else{
+        res.status(400).json(
+            {message: "Field missing", 
+                field: {
+                    email: "String",
+                    password: "String"
+                } })
+    }
+} ;
+
+const postProfileImage = (req, res) => {
+    const profileImage = req.file.filename ;
+    const userId = req.user.id ;
+
+    usersControllers.uploadProfileImage({profileImage, userId})
+        .then( response => {
+            res.status(201).json({message: response})
+        } )
+        .catch( err => {
+            res.json({message: err.message})
+        } )
 } ;
 
 module.exports = {
@@ -145,5 +177,7 @@ module.exports = {
     deleteUser,
     getMyUser,
     updateMyUser,
-    deletMyUser
+    deletMyUser,
+    forgotPassword,
+    postProfileImage
 }

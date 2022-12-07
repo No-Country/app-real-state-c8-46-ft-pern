@@ -1,5 +1,4 @@
 //estrategias --> diferentes maneras de hacer un login
-
 const { jwtSecret } = require('../config');
 const { getUserById } = require('../users/users.controllers');
 
@@ -20,7 +19,6 @@ module.exports = (passport) => {
                         return done(null, false)
                     
                     }
-                console.log('decoded JWT', decoded);
                 return done(null, decoded)
             } catch (error) {
                 /* handle error */

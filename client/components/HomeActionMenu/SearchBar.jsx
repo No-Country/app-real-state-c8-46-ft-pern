@@ -1,13 +1,10 @@
-import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
-import Card from "./Card";
+import { useContext, useEffect, useState } from "react";
+import { Text, View, StyleSheet } from "react-native";
 import Search from "./Search";
-import axios from "axios";
-import { Picker } from "@react-native-picker/picker";
 import { Entypo, Octicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet } from "react-native-web";
-
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthContext } from "../../context/AuthContext";
 
 const SearchBar = () => {
   const navigation = useNavigation();
@@ -15,53 +12,90 @@ const SearchBar = () => {
     uri: "https://cdn.icon-icons.com/icons2/2225/PNG/512/home_icon_134474.png",
   };
   const [selectedCity, setSelectedCity] = useState();
+  const [userData, setUserData] = useState({});
+  const {userInfo} = useContext(AuthContext)
 
   return (
-    <View style={{ backgroundColor: "white", marginTop: "30", paddingTop: 20 }}>
-
-      <View style={styles.container}>
-
-        <View style={styles.div1}>
-          <Picker
+    <View style={styles.container}>
+      <View style={styles.div1}>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          {/* <Picker
             style={styles.picker}
             selectedValue={selectedCity}
             onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
           >
-            <Picker.Item label="Location" value="" />
-            <Picker.Item label="Doha" value="Doha, Qatar" />
-            <Picker.Item label="Quito" value="Quito, Ecuador" />
-            <Picker.Item label="Lima" value="Lima, Peru" />
-          </Picker>
-          <Text style={styles.city}>
-            <Entypo
-              name="location-pin"
-              size={30}
-              color="#2972FE"
-              style={{ padding: 1 }}
+            <Picker.Item style={styles.pickerItem} label="Location" value="" />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Doha"
+              value="Doha, Qatar"
             />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Quito"
+              value="Quito, Ecuador"
+            />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Lima"
+              value="Lima, Peru"
+            />
+            <Picker.Item
+              style={styles.pickerItem}
+              label="Surabaya"
+              value="Surabaya, Indonesia"
+            />
+          </Picker> */}
 
-            {selectedCity ? selectedCity : "Select city"}
-          </Text>
-        </View>
-      <View style={styles.div2}>
+          <View
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginLeft: 15,
+              marginRight: 14,
+            }}
+          >
+            <View
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              {/* <Entypo
+                name="location-pin"
+                size={20}
+                color="#2972FE"
+                style={{ padding: 1 }}
+              />
 
-        <Octicons
-          name="bell-fill"
-          size={30}
-          color="#2972FE"
-          style={styles.icons}
-          />
+              <Text style={{ fontSize: 14, fontWeight: "600", marginLeft: 5 }}>
+                {selectedCity ? selectedCity : "Select a location"}
+              </Text> */}
+              <Text style={{ fontSize: 14, fontWeight: "600", marginLeft: 5 }}>
+                {userInfo.response ? `Hello ${userInfo.response.firstName} ${userInfo.response.lastName}` : `Hello Prueba Prueba`}
+              </Text>
+            </View>
+            <View style={styles.icons}>
+              <Octicons name="bell-fill" size={20} color="#2972FE" />
+            </View>
           </View>
+        </View>
       </View>
 
-      <View style={styles.container}>
-      <View style={styles.div1}>
-      <Search />
-      </View>
       <View style={styles.div2}>
+        <Search />
 
-      <Octicons name="filter" size={30} color="#2972FE" style={styles.icons} />
-      </View>
+        <View style={styles.icons}>
+          <Octicons name="filter" size={20} color="#2972FE" />
+        </View>
       </View>
     </View>
   );
@@ -70,38 +104,40 @@ const SearchBar = () => {
 export default SearchBar;
 
 const styles = StyleSheet.create({
-
   container: {
-    display:"grid",
-    gridTemplateColumns: "repeat(12,1fr)",
-    gridTemplateRows: "repeat(3,1fr)"
+    backgroundColor: "white",
+    marginTop: 20,
+    display: "flex",
   },
-  div1:{
-    display:"grid", 
-    gridArea:"1/2/3/10"
+
+  div1: {
+    display: "flex",
+    marginBottom: 5,
   },
-  div2:{
-    display:"grid", 
-    gridArea:"1/11/3/12"
+  div2: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
   picker: {
-    margin: 8,
-
+    marginLeft: 14,
     width: "40%",
     borderRadius: 15,
     backgroundColor: "white",
+    borderWidth: 0,
+  },
+  pickerItem: {
+    fontSize: 12,
+    fontWeight: "400",
   },
   icons: {
-    width: 50,
-    height: 50,
+    width: 48,
+    height: 48,
     backgroundColor: "#E5EDFE",
     borderRadius: 15,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
-  city:{
-    fontSize: 16,
-    fontWeight: 700
-  }
+  city: {},
 });
