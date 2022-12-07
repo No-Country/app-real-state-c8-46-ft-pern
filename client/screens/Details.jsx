@@ -21,6 +21,7 @@ import { useDispatch } from "react-redux";
 import { confirmRent } from "../redux/actions/rentActions";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
+
 // id: 1,
 //     imgContainer: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
 //     type: "Apartment",
@@ -46,21 +47,27 @@ const Details = (currentProp) => {
   const dispatch = useDispatch();
 
   const createTwoButtonAlert = () =>
-    Alert.alert("Confirm Rent", "Are you sure to rent this property?", [
-      {
-        text: "Cancel",
-        onPress: () => console.log("Cancel Pressed"),
-        style: "cancel",
-      },
-      { text: "Confirm", onPress: () => handleRent() },
-    ]);
+    Alert.alert(
+      "Confirm Rent",
+      "Are you sure you want to rent this property?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        { text: "Confirm", onPress: () => handleRent() },
+      ]
+    );
 
   const { userToken } = useContext(AuthContext);
-  console.log(id);
-  console.log(userToken);
+
   const handleRent = async () => {
+    console.log(id);
+    console.log(userToken);
     dispatch(confirmRent(id, userToken));
     console.log("confirm rent");
+    Alert.alert("Congratulations!", "Property successfully rented")
   };
   return (
     <SafeAreaView>
