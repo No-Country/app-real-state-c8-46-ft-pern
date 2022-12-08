@@ -13,9 +13,17 @@ import {
 } from "../types/favoritesTypes";
 export const getMyFavorites = (payload) => {
   return async function (dispatch) {
+    console.log("entró al pending");
     dispatch({ type: GET_MY_FAVORITES_PENDING });
     try {
-      const json = await axios(`${URL_BACK}/favorites/me`, payload);
+      console.log("entró al success");
+      console.log(payload);
+      const json = await axios(`${URL_BACK}/favorites/me`, {
+        headers: {
+          authorization: `jwt ${payload}`,
+          "Content-Type": "application/json",
+        },
+      });
       return dispatch({ type: GET_MY_FAVORITES_SUCCESS, payload: json.data });
     } catch (e) {
       console.log(e);
@@ -24,11 +32,24 @@ export const getMyFavorites = (payload) => {
   };
 };
 
-export const addToFavorites = (payload) => {
+export const addToFavorites = (id, payload) => {
+
   return async function (dispatch) {
+    console.log("entró al pending");
     dispatch({ type: ADD_TO_FAVORITES_PENDING });
+
     try {
-      const json = await axios.post(`${URL_BACK}/favorites/me`, payload);
+      const json = await axios.post(
+        `${URL_BACK}/favorites/me/${id}`,
+        {},
+        {
+          headers: {
+            authorization: `jwt ${payload}`,
+            "Content-Type": "application/json",
+          },
+        }
+        );
+        console.log("entró al success");
       return dispatch({ type: ADD_TO_FAVORITES_SUCCESS, payload: json.data });
     } catch (e) {
       console.log(e);

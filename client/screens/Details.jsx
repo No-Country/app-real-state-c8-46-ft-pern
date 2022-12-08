@@ -19,8 +19,9 @@ import {
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { confirmRent } from "../redux/actions/rentActions";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
+import { addToFavorites } from "../redux/actions/favoritesActions";
 
 // id: 1,
 //     imgContainer: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
@@ -31,6 +32,9 @@ import { AuthContext } from "../context/AuthContext";
 
 const Details = (currentProp) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const { userToken } = useContext(AuthContext);
+  const [fav, setFav] = useState("hearto");
 
   let img = currentProp.route.params.img;
   let location = currentProp.route.params.location;
@@ -43,8 +47,6 @@ const Details = (currentProp) => {
   let id = currentProp.route.params.id;
   let lng = currentProp.route.params.lng;
   let owner = currentProp.route.params.owner;
-
-  const dispatch = useDispatch();
 
   const createTwoButtonAlert = () =>
     Alert.alert(
@@ -60,14 +62,17 @@ const Details = (currentProp) => {
       ]
     );
 
-  const { userToken } = useContext(AuthContext);
-
   const handleRent = async () => {
-    console.log(id);
-    console.log(userToken);
+    // console.log(id);
+    // console.log(userToken);
     dispatch(confirmRent(id, userToken));
     console.log("confirm rent");
-    Alert.alert("Congratulations!", "Property successfully rented")
+    Alert.alert("Congratulations!", "Property successfully rented");
+  };
+
+  const handleFavs = () => {
+    dispatch(addToFavorites(id, userToken));
+    setFav("heart");
   };
   return (
     <SafeAreaView>
@@ -86,9 +91,11 @@ const Details = (currentProp) => {
                 <Ionicons name="arrow-back" size={20} color="#2972FE" />
               </View>
             </TouchableOpacity>
-            <View style={styles.iconUp}>
-              <AntDesign name="hearto" size={20} color="#2972FE" />
-            </View>
+            <TouchableOpacity onPress={() => handleFavs()}>
+              <View style={styles.iconUp}>
+                <AntDesign name={fav} size={20} color="#2972FE" />
+              </View>
+            </TouchableOpacity>
           </View>
         </ImageBackground>
         <View style={styles.info}>
