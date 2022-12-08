@@ -1,10 +1,13 @@
 import {
   ActivityIndicator,
+  FlatList,
   SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  Image,
+  ScrollView,
 } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
 import { getMyFavorites } from "../redux/actions/favoritesActions";
@@ -16,7 +19,7 @@ const Favorites = () => {
   const dispatch = useDispatch();
   const { userInfo } = useContext(AuthContext);
   const { favorites, isLoading } = useSelector((state) => state.favorites);
-  console.log(userInfo);
+  useEffect(() => {}, [favorites]);
   useEffect(() => {
     dispatch(getMyFavorites(userInfo.token));
   }, []);
@@ -52,26 +55,42 @@ const Favorites = () => {
           <Text style={styles.btntxt}>Apartment</Text>
         </TouchableOpacity>
       </View>
-
       {isLoading ? (
         <ActivityIndicator size={"large"} />
-      ) : favorites[0] ? (
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          data={favorites}
-          renderItem={({ item }) => (
-            <View style={styles.cardContainer}>
-              <Image source={{ uri: item.coverPhoto }} style={styles.img} />
-              <View style={styles.cardText}>
-                <Text>{item.title}</Text>
-                <Text>Price: ${item.price}</Text>
-                <Text>Location: {item.location}</Text>
+      ) : favorites?.length > 0 ? (
+        <ScrollView>
+          {favorites.map((item) => {
+            return (
+              <View style={styles.cardContainer} key={item.id}>
+                <Image source={{ uri: item.coverPhoto }} style={styles.img} />
+                <View style={styles.cardText}>
+                  <Text>{item.title}</Text>
+                  <Text>Price: ${item.price}</Text>
+                  <Text>Location: {item.location}</Text>
+                </View>
               </View>
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
-        />
+            );
+          })}
+        </ScrollView>
       ) : (
+        // <>
+        //   {console.log(favorites)}
+        //   <FlatList
+        //     showsHorizontalScrollIndicator={false}
+        //     data={favorites}
+        //     renderItem={({ item }) => (
+        //       <View style={styles.cardContainer} key={item.id}>
+        //         <Image source={{ uri: item.coverPhoto }} style={styles.img} />
+        //         <View style={styles.cardText}>
+        //           <Text>{item.title}</Text>
+        //           <Text>Price: ${item.price}</Text>
+        //           <Text>Location: {item.location}</Text>
+        //         </View>
+        //       </View>
+        //     )}
+        //     keyExtractor={(item) => item.id}
+        //   />
+        // </>
         <View style={styles.sad_area}>
           <View style={styles.sad}>
             <Ionicons name="sad-outline" size={50} color="white" />

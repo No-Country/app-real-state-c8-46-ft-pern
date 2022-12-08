@@ -12,6 +12,7 @@ import {
 const initialState = {
   isLoading: false,
   favorites: [],
+  allFavorites: [],
   error: null,
 };
 export const favoritesReducer = (state = initialState, { type, payload }) => {
@@ -27,7 +28,12 @@ export const favoritesReducer = (state = initialState, { type, payload }) => {
     case ADD_TO_FAVORITES_REJECTED:
       return { ...state, error: payload, isLoading: false };
     case ADD_TO_FAVORITES_SUCCESS:
-      return { ...state, error: null, isLoading: false, favorites: payload };
+      return {
+        ...state,
+        error: null,
+        isLoading: false,
+        favorites: [payload, ...state.favorites],
+      };
     case REMOVE_FROM_FAVORITES_PENDING:
       return { ...state, error: null, isLoading: true };
     case REMOVE_FROM_FAVORITES_REJECTED:
