@@ -63,8 +63,8 @@ const Details = (currentProp) => {
     );
 
   const handleRent = async () => {
-    console.log(id);
-    console.log(userToken);
+    // console.log(id);
+    // console.log(userToken);
     dispatch(confirmRent(id, userToken));
     console.log("confirm rent");
     Alert.alert("Congratulations!", "Property successfully rented");
