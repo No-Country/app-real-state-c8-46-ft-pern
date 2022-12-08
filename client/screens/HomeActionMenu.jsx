@@ -21,7 +21,7 @@ const Home = () => {
       <SearchBar />
       <HVA />
       <Popular />
-      <NearbyYourLocation />
+      {/* <NearbyYourLocation /> */}
       <AllProperties/>
     </ScrollView>
   );
