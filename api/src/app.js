@@ -6,7 +6,7 @@ const db = require("./database/database");
 const bodyParser = require("body-parser");
 
 const app = express();
-// app.use(cors())
+app.use(cors())
 
 app.use(express.json());
 app.use("/public", express.static(`${__dirname}/images`));
@@ -18,24 +18,6 @@ app.get("/", (req, res) => {
   });
 });
 
-const cookieParser = require("cookie-parser");
-const morgan = require("morgan");
-app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(cookieParser());
-app.use(morgan("dev"));
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  next();
-});
-
-// app.use(cors(corsOptions));
 
 const userRouter = require("./users/users.router");
 const authRouter = require("./auth/auth.router");
@@ -46,6 +28,7 @@ const propertyRouter = require("./property/property.router");
 const favoritesRouter = require("./favorites/favorites.router");
 const propertiesRouter = require("./properties/properties.routes");
 const popularRouter = require("./popular/popular.routes");
+const orderRouter = require("./order/order.router");
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/auth", authRouter);
@@ -55,6 +38,7 @@ app.use("/api/v1/popular", popularRouter);
 app.use("/api/v1/favorites", favoritesRouter);
 app.use("/api/v1/bank-account", bankAccountRouter);
 app.use("/api/v1/properties", propertiesRouter);
+app.use("/api/v1/order", orderRouter);
 
 db.authenticate()
   .then(() => {

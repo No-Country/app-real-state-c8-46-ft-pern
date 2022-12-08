@@ -2,6 +2,7 @@ const db = require("../database/database")
 
 const { DataTypes } = require('sequelize')
 const Users = require("./user.models")
+// const PropertyImage = require("./propertyImage.models")
 
 const Property = db.define('Properties', {
     id: {
@@ -9,18 +10,62 @@ const Property = db.define('Properties', {
         primaryKey: true,
         allowNull: false 
     },
-    name: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    addres: {
+    address: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    status: {
+    state: {
         type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 'active'
+    },
+    lat:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    lon:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    purpose:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    price:{
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    product:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    category:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    rentFrequency:{
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    rooms:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    baths:{
+        type: DataTypes.INTEGER,
+        allowNull: false
+    }, 
+    area:{
+        type: DataTypes.FLOAT,
+        allowNull: false
+    },
+    contactName:{
+        type: DataTypes.STRING,
+        allowNull: false
     },
     creatorId: {
         type: DataTypes.UUID,
@@ -30,7 +75,12 @@ const Property = db.define('Properties', {
             key: 'id',
             model: Users
         }
+    },
+    photosProperty: {
+        type: DataTypes.ARRAY(DataTypes.STRING),
+        field: 'photos_property'
     }
+
 })
 
 module.exports = Property

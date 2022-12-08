@@ -1,12 +1,29 @@
 import {
+  ActivityIndicator,
+  FlatList,
   SafeAreaView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  Image,
+  ScrollView,
 } from "react-native";
 import { Feather, Ionicons } from "@expo/vector-icons";
+import { getMyFavorites } from "../redux/actions/favoritesActions";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 const Favorites = () => {
+  const dispatch = useDispatch();
+  const { userInfo } = useContext(AuthContext);
+  const { favorites, isLoading } = useSelector((state) => state.favorites);
+  useEffect(() => {}, [favorites]);
+  useEffect(() => {
+    dispatch(getMyFavorites(userInfo.token));
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
       {/* ----------------------------- HEADER ---------------- */}
@@ -38,21 +55,58 @@ const Favorites = () => {
           <Text style={styles.btntxt}>Apartment</Text>
         </TouchableOpacity>
       </View>
-      <View style={styles.sad_area}>
-        <View style={styles.sad}>
-          <Ionicons name="sad-outline" size={50} color="white" />
+      {isLoading ? (
+        <ActivityIndicator size={"large"} />
+      ) : favorites?.length > 0 ? (
+        <ScrollView>
+          {favorites.map((item) => {
+            return (
+              <View style={styles.cardContainer} key={item.id}>
+                <Image source={{ uri: item.coverPhoto }} style={styles.img} />
+                <View style={styles.cardText}>
+                  <Text>{item.title}</Text>
+                  <Text>Price: ${item.price}</Text>
+                  <Text>Location: {item.location}</Text>
+                </View>
+              </View>
+            );
+          })}
+        </ScrollView>
+      ) : (
+        // <>
+        //   {console.log(favorites)}
+        //   <FlatList
+        //     showsHorizontalScrollIndicator={false}
+        //     data={favorites}
+        //     renderItem={({ item }) => (
+        //       <View style={styles.cardContainer} key={item.id}>
+        //         <Image source={{ uri: item.coverPhoto }} style={styles.img} />
+        //         <View style={styles.cardText}>
+        //           <Text>{item.title}</Text>
+        //           <Text>Price: ${item.price}</Text>
+        //           <Text>Location: {item.location}</Text>
+        //         </View>
+        //       </View>
+        //     )}
+        //     keyExtractor={(item) => item.id}
+        //   />
+        // </>
+        <View style={styles.sad_area}>
+          <View style={styles.sad}>
+            <Ionicons name="sad-outline" size={50} color="white" />
+          </View>
+          <Text
+            style={{
+              fontSize: 20,
+              color: "#2972FE",
+              fontWeight: "650",
+              marginTop: 20,
+            }}
+          >
+            You don't have a favorite yet
+          </Text>
         </View>
-        <Text
-          style={{
-            fontSize: 20,
-            color: "#2972FE",
-            fontWeight: "650",
-            marginTop: 20,
-          }}
-        >
-          You don't have a favorite yet
-        </Text>
-      </View>
+      )}
     </SafeAreaView>
   );
 };
@@ -128,5 +182,18 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+  },
+  img: {
+    width: 150,
+    height: 150,
+    borderRadius: 25,
+  },
+  cardContainer: {
+    display: "flex",
+    flexDirection: "row",
+    padding: 5,
+  },
+  cardText: {
+    padding: 10,
   },
 });

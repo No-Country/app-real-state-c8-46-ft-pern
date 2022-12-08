@@ -2,47 +2,46 @@ const Review = require('../models/review.models')
 const User = require('../models/user.models')
 const Property = require('../models/property.models')
 const uuid = require('uuid') ;
+const { Sequelize, where } = require('sequelize');
 
-const getMyProperties = async (userId) => {
-    const myProperties = await Property.findAll({
-        include: 
-          {
-            model: User,
-            where:{
-                id:userId
-            }
-          }
+const getMyProperties = (userId) => {
+    const myProperties =  Property.findAll({
+        where: {
+            creator_id: userId
+        }
       })
       return myProperties
 }
-const createProperty = async (data) => {
+const createProperty = async (data,userId) => {
+
     const newProperty = 
     await Property
     .create({
             id: uuid.v4(),
-            name: data.name,
-            addres : data.addres,
-            creatorId : data.userId,
-            status : data.status 
+            creatorId: userId,
+            photosProperty:[`http://localhost:3009/public/${data.imageProp}`] ,
+            ...data
             })
     return newProperty
 }
 
-const deleteMyProperty = async (propertyId) => {
-//is lacking implements user filter
-    await Property.destroy({ where: { id:propertyId } })
+const deleteMyProperty = async (propertyId,userId) => {
+
+    const myProperty = await Property.findOne({where: {creatorId:userId}})
+    await myProperty.destroy({ where: { id:propertyId } })
     return "Property deleted"
 
 }
 
-const editMyProperty = async (propertyid,data,user) => {
-//is lacking implements user filter
+const editMyProperty = async (propertyId,userId,data) => {
+
     await Property.update(data,{
         where: {
-            id:propertyid
+            id:propertyId,
+            creatorId:userId
         }
     })
-    return "Property deleted"
+    return "Property edited"
 }
 
 const getPropertyById = async (propertyId) => {
@@ -59,13 +58,13 @@ const editProperty = async (propertyid,data) => {
             id:propertyid
         }
     })
-    return "Property edit"
+    return "Property edited"
 
 }
 
 const deleteProperty = async (propertyId) => {
 
-    await Property.destroy({ where: { id:propertyId , } })
+    await Property.destroy({ where: { id:propertyId } })
     return "Property deleted"
 
 }
@@ -74,6 +73,17 @@ const getAllProperties = async (req,res) => {
     const allProperties = await Property.findAll()
     return allProperties
 }
+
+const addImage = async (data) => {
+    const property = await Property.update(
+                    {
+                        'photosProperty': Sequelize.fn(`array_append`, Sequelize.col('photos_property'), `http://localhost:3009/public/${data.image}`)
+                    }, {
+                        where: {id: data.propertyId}
+                    }) ;
+
+    return  'Imagen subida exitosamente'
+} ;
 
 
  
@@ -85,6 +95,7 @@ module.exports = {
     editProperty,
     deleteProperty,
     getAllProperties,
-    getMyProperties
+    getMyProperties,
+    addImage
 }
 

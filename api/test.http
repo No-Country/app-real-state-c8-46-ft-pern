@@ -1,0 +1,10 @@
+@api = http://localhost:3009/api/v1
+
+GET {{api}}/popular
+###
+POST {{api}}/users
+Content-Type: application/json
+
+{
+    "firstName":"thomas", "lastName":"dominguez", "email":"thomas@gmail.com", "password":"098asdasd7654321"
+}

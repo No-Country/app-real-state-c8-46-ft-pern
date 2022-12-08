@@ -61,12 +61,52 @@ const getUserByEmail = async (email) => {
     
 } ;
 
+const forgotPassword = async (data) => {
+    const user = await Users.findOne({
+        where: {
+            email: data.email
+        }
+    }) ;
+
+    if (user) {
+         user.set({
+        password: crypto.hashPassword(data.password)
+        }) 
+        await user.save()
+        return user;
+        
+    }else{
+       
+        throw 'Email not exist'
+    }
+
+    
+};
+
+const uploadProfileImage= async (data) => {
+    const user = await Users.findOne({
+        where: {
+            id: data.userId
+        }
+    })
+
+    user.set({
+        profileImage: `http://localhost:3009/public/${data.profileImage}`
+    })
+
+    user.save()
+
+    return user.profileImage
+} ;
+
 module.exports = {
     createUser,
     getAllUsers,
     getUserById,
     updateUser,
     deleteUser,
-    getUserByEmail
+    getUserByEmail,
+    forgotPassword,
+    uploadProfileImage
 }
 

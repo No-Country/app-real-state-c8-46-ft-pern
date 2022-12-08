@@ -5,10 +5,13 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-import { data } from "../components/Intro/CarouselPagination";
-import { CarouselPagination } from "../components/Intro/CarouselPagination";
+import {
+  CarouselPagination,
+  data,
+} from "../components/Intro/CarouselPagination";
+import { StatusBar } from "expo-status-bar";
 
 export const IntroScreen = () => {
   const navigation = useNavigation();
@@ -17,7 +20,7 @@ export const IntroScreen = () => {
 
   const handleNext = () => {
     if (countId === data.length) {
-      navigation.navigate("HomeActionMenu");
+      navigation.navigate("Login");
     } else {
       setCountId(countId + 1);
       setState(data[countId]);
@@ -41,7 +44,7 @@ export const IntroScreen = () => {
         <TouchableOpacity
           style={[styles.button, styles.buttonTransparent]}
           onPress={() => {
-            navigation.navigate("HomeActionMenu");
+            navigation.navigate("Login");
           }}
         >
           <Text style={[styles.buttonText, styles.buttonTransparentText]}>
@@ -57,6 +60,7 @@ export const IntroScreen = () => {
           <Text style={styles.buttonText}>Next</Text>
         </TouchableOpacity>
       </View>
+      <StatusBar style="auto" />
     </ImageBackground>
   );
 };

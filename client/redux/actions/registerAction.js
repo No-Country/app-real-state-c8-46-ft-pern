@@ -12,11 +12,11 @@ import {
 } from "../types/registerTypes";
 
 export const registerUser = (payload) => {
-  console.log("registeruser");
-  return async function (dispatch) {
+  return async (dispatch) => {
     dispatch({ type: REGISTER_USER_PENDING });
     try {
       const json = await axios.post(`${URL_BACK}/auth/register`, payload);
+      console.log("register success");
       return dispatch({ type: REGISTER_USER_SUCCESS, payload: json.data });
     } catch (e) {
       console.log(e);
@@ -37,3 +37,7 @@ export const loginUser = (payload) => {
     }
   };
 };
+
+export const logoutUser = (payload) => {
+  
+}

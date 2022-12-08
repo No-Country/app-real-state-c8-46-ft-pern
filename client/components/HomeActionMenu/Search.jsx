@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 import { Feather, Entypo } from "@expo/vector-icons";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const Search = () => {
   const [clicked, setClicked] = useState(false);
   const [searchPhrase, setSearchPhrase] = useState("");
+  const {userInfo} = useContext(AuthContext)
   const handleSearch = () => {
-    console.log(searchPhrase);
   };
   return (
     <View style={styles.container}>
@@ -22,7 +24,7 @@ const Search = () => {
         />
         <Feather
           name="search"
-          size={20}
+          size={19}
           color="#C6C8CD"
           style={{ marginLeft: 1 }}
           onPress={() => handleSearch()}
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   Search__unclicked: {
-    height: 30,
+    height: 40,
     width: 250,
     padding: 8,
     flexDirection: "row",
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   Search__clicked: {
-    height: 30,
+    height: 40,
     width: 250,
     padding: 10,
     flexDirection: "row",

@@ -9,11 +9,12 @@ require('../middlewares/auth.middleware')(passport)
 //PERF: routes for my reviews
 router.route('/me')
     .get(passport.authenticate('jwt', {session: false}),favoritesServices.getMyFavorites)
-    .post(passport.authenticate('jwt', {session: false}),
-    favoritesServices.createFavorites) 
+     
 
 router.route('/me/:favoriteId')
     .delete(passport.authenticate('jwt', {session: false}),favoritesServices.deleteMyFavorite)
+    .post(passport.authenticate('jwt', {session: false}),
+        favoritesServices.createFavorites)
 
 //routes for admin
 router.route('/:favoriteId')

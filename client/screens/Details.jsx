@@ -7,6 +7,7 @@ import {
   Text,
   View,
   SafeAreaView,
+  Alert,
 } from "react-native";
 import {
   Ionicons,
@@ -16,6 +17,12 @@ import {
   MaterialIcons,
 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { confirmRent } from "../redux/actions/rentActions";
+import { useContext, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
+import { addToFavorites } from "../redux/actions/favoritesActions";
+
 // id: 1,
 //     imgContainer: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
 //     type: "Apartment",
@@ -23,15 +30,57 @@ import { useNavigation } from "@react-navigation/native";
 //     name: "Owent Apartment",
 //     location: "Surabaya, Indonesia",
 
-const Details = () => {
+const Details = (currentProp) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+  const { userToken } = useContext(AuthContext);
+  const [fav, setFav] = useState("hearto");
+
+  let img = currentProp.route.params.img;
+  let location = currentProp.route.params.location;
+  let type = currentProp.route.params.type;
+  let name = currentProp.route.params.name;
+  let price = currentProp.route.params.price;
+  let area = currentProp.route.params.area;
+  let baths = currentProp.route.params.baths;
+  let rooms = currentProp.route.params.rooms;
+  let id = currentProp.route.params.id;
+  let lng = currentProp.route.params.lng;
+  let owner = currentProp.route.params.owner;
+
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Confirm Rent",
+      "Are you sure you want to rent this property?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel",
+        },
+        { text: "Confirm", onPress: () => handleRent() },
+      ]
+    );
+
+  const handleRent = async () => {
+    // console.log(id);
+    // console.log(userToken);
+    dispatch(confirmRent(id, userToken));
+    console.log("confirm rent");
+    Alert.alert("Congratulations!", "Property successfully rented");
+  };
+
+  const handleFavs = () => {
+    dispatch(addToFavorites(id, userToken));
+    setFav("heart");
+  };
   return (
     <SafeAreaView>
       <ScrollView style={styles.container}>
         <ImageBackground
           style={{ height: 400, width: "100%", position: "relative" }}
           source={{
-            uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
+            uri: img,
           }}
         >
           <View style={styles.imgContainer}>
@@ -42,14 +91,16 @@ const Details = () => {
                 <Ionicons name="arrow-back" size={20} color="#2972FE" />
               </View>
             </TouchableOpacity>
-            <View style={styles.iconUp}>
-              <AntDesign name="hearto" size={20} color="#2972FE" />
-            </View>
+            <TouchableOpacity onPress={() => handleFavs()}>
+              <View style={styles.iconUp}>
+                <AntDesign name={fav} size={20} color="#2972FE" />
+              </View>
+            </TouchableOpacity>
           </View>
         </ImageBackground>
         <View style={styles.info}>
           <View style={styles.typereview}>
-            <Text style={styles.type}>Apartment</Text>
+            <Text style={styles.type}>{type}</Text>
             <View style={{ display: "flex", flexDirection: "row" }}>
               <AntDesign name="star" size={18} color="yellow" />
               <Text style={{ fontWeight: "600" }}> 4.5 (1.265 reviews) </Text>
@@ -59,7 +110,7 @@ const Details = () => {
             <Text
               style={{ fontSize: 20, fontWeight: "600", paddingVertical: 10 }}
             >
-              Owent Apartment
+              {name}
             </Text>
             <View
               style={{
@@ -70,9 +121,7 @@ const Details = () => {
               }}
             >
               <Entypo name="location-pin" size={15} color="#2972FE" />
-              <Text style={{ fontWeight: "300" }}>
-                Sudirman St. 169, Surabaya, Indonesia
-              </Text>
+              <Text style={{ fontWeight: "300" }}>{location}</Text>
             </View>
             <View
               style={{
@@ -101,7 +150,7 @@ const Details = () => {
               style={styles.profile}
             />
             <View>
-              <Text style={{ fontWeight: "600" }}>Ramona Flowers</Text>
+              <Text style={{ fontWeight: "600" }}>{owner}</Text>
               <Text>Partner</Text>
             </View>
             <MaterialIcons name="message" size={20} color="#2972FE" />
@@ -127,21 +176,21 @@ const Details = () => {
           <View style={styles.gallery}>
             <Image
               style={styles.imgGallery}
-              source={
-                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796"
-              }
+              source={{
+                uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293139603/4df0391cec704f1ea702e42d21d64796",
+              }}
             />
             <Image
               style={styles.imgGallery}
-              source={
-                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba"
-              }
+              source={{
+                uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/244766781/cd5fae5b8e8e4daf83e80141390ff9ba",
+              }}
             />
             <Image
               style={styles.imgGallery}
-              source={
-                "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5"
-              }
+              source={{
+                uri: "https://bayut-production.s3.eu-central-1.amazonaws.com/image/293016153/3aba26bb07864a5586f5f1c584230ad5",
+              }}
             />
           </View>
           {/* --------------------- LOCATION --------------------------------- */}
@@ -149,9 +198,9 @@ const Details = () => {
           <View style={{ marginTop: 10 }}>
             <Text style={styles.title}>Location</Text>
             <Image
-              source={
-                "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg"
-              }
+              source={{
+                uri: "https://miracomohacerlo.com/wp-content/uploads/2019/01/corregir-ubicacion-google-maps-2.jpg",
+              }}
               style={{ borderRadius: 20, width: 360, height: 200 }}
             />
           </View>
@@ -208,7 +257,7 @@ const Details = () => {
                 <Text
                   style={{ fontSize: 24, fontWeight: "700", color: "#2972FE" }}
                 >
-                  $1,700{" "}
+                  {price}{" "}
                 </Text>
                 <Text style={{ fontSize: 14 }}>/month</Text>
               </View>
@@ -223,9 +272,10 @@ const Details = () => {
                 justifyContent: "center",
                 alignItems: "center",
               }}
+              onPress={() => createTwoButtonAlert()}
             >
               <Text style={{ fontSize: 16, fontWeight: "600", color: "white" }}>
-                Buy
+                Rent
               </Text>
             </TouchableOpacity>
           </View>

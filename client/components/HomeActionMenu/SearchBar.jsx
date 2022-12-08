@@ -1,12 +1,10 @@
-import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
-import Card from "./Card";
+import { useContext, useEffect, useState } from "react";
+import { Text, View, StyleSheet } from "react-native";
 import Search from "./Search";
-import axios from "axios";
-import { Picker } from "@react-native-picker/picker";
 import { Entypo, Octicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { StyleSheet } from "react-native-web";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { AuthContext } from "../../context/AuthContext";
 
 const SearchBar = () => {
   const navigation = useNavigation();
@@ -14,6 +12,8 @@ const SearchBar = () => {
     uri: "https://cdn.icon-icons.com/icons2/2225/PNG/512/home_icon_134474.png",
   };
   const [selectedCity, setSelectedCity] = useState();
+  const [userData, setUserData] = useState({});
+  const {userInfo} = useContext(AuthContext)
 
   return (
     <View style={styles.container}>
@@ -24,7 +24,7 @@ const SearchBar = () => {
             flexDirection: "column",
           }}
         >
-          <Picker
+          {/* <Picker
             style={styles.picker}
             selectedValue={selectedCity}
             onValueChange={(itemValue, itemIndex) => setSelectedCity(itemValue)}
@@ -50,7 +50,7 @@ const SearchBar = () => {
               label="Surabaya"
               value="Surabaya, Indonesia"
             />
-          </Picker>
+          </Picker> */}
 
           <View
             style={{
@@ -69,7 +69,7 @@ const SearchBar = () => {
                 alignItems: "center",
               }}
             >
-              <Entypo
+              {/* <Entypo
                 name="location-pin"
                 size={20}
                 color="#2972FE"
@@ -78,6 +78,9 @@ const SearchBar = () => {
 
               <Text style={{ fontSize: 14, fontWeight: "600", marginLeft: 5 }}>
                 {selectedCity ? selectedCity : "Select a location"}
+              </Text> */}
+              <Text style={{ fontSize: 14, fontWeight: "600", marginLeft: 5 }}>
+                {userInfo.response ? `Hello ${userInfo.response.firstName} ${userInfo.response.lastName}` : `Hello Prueba Prueba`}
               </Text>
             </View>
             <View style={styles.icons}>

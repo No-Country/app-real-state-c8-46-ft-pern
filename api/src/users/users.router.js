@@ -1,4 +1,5 @@
 const router = require('express').Router() ;
+const upload = require('../libs/storage') ;
 
 const userServices = require('./users.services')  ;
 const passport = require('passport')
@@ -11,8 +12,10 @@ require('../middlewares/auth.middleware')(passport)
  *
  */
 
-router.get('/', userServices.getAllUsers)
-router.post('/', userServices.registerUser)
+router.get('/', passport.authenticate('jwt', {session: false}),
+            adminValidate, 
+            userServices.getAllUsers)
+// router.post('/', userServices.registerUser)
 
 //? ruta de informacion propia del usuario logeado
 router.route('/me')
@@ -22,6 +25,9 @@ router.route('/me')
         userServices.updateMyUser)
     .delete( passport.authenticate('jwt', {session: false}),
         userServices.deletMyUser)
+    .post( passport.authenticate('jwt', {session: false}),
+        upload.single('image'),
+        userServices.postProfileImage)
 
 router.route('/:id')
     .get(passport.authenticate('jwt', {session: false}),

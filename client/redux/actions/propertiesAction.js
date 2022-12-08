@@ -1,6 +1,6 @@
 import axios from "axios";
 import { URL_BACK } from "../../config";
-import GET_PROPERTIES_PENDING, {
+import  {GET_PROPERTIES_PENDING,
   GET_PROPERTIES_REJECTED,
   GET_PROPERTIES_SUCCESS,
 } from "../types/propertiesTypes";
